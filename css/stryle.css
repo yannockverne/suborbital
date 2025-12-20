@@ -1,0 +1,62 @@
+:root{
+  --bg:#0b0f14;
+  --text:#e8edf2;
+  --muted:#a7b0bb;
+  --card:#111824;
+  --line:#233042;
+  --accent:#5aa7ff;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+
+.wrap{max-width:980px;margin:0 auto;padding:24px}
+
+.nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  border-bottom:1px solid var(--line);
+  padding-bottom:16px;
+}
+
+.brand{color:var(--text);text-decoration:none;font-weight:700}
+.links a{
+  color:var(--muted);
+  text-decoration:none;
+  margin-left:12px;
+  font-size:14px;
+}
+.links a[aria-current="page"]{color:var(--text)}
+.links a:hover{color:var(--text)}
+
+h1{font-size:44px;line-height:1.1;margin:28px 0 12px}
+h2{margin-top:28px}
+
+.lead{color:var(--muted);font-size:18px;max-width:75ch}
+
+.cta{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
+.button{
+  display:inline-block;
+  padding:10px 14px;
+  border-radius:12px;
+  background:var(--accent);
+  color:#07101a;
+  text-decoration:none;
+  font-weight:700;
+}
+.button.ghost{
+  background:transparent;
+  color:var(--text);
+  border:1px solid var(--line);
+}
+
+.footer{border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+.footer a{color:var(--muted)}

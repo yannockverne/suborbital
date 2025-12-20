@@ -60,3 +60,24 @@ h2{margin-top:28px}
 
 .footer{border-top:1px solid var(--line);color:var(--muted);font-size:14px}
 .footer a{color:var(--muted)}
+.list{
+  list-style:none;
+  padding:0;
+  margin:18px 0 0;
+}
+
+.list li{
+  padding:10px 0;
+  border-bottom:1px solid var(--line);
+}
+
+.list a{
+  color:var(--text);
+  text-decoration:none;
+  font-weight:650;
+}
+
+.list a:hover{
+  color:var(--accent);
+}
+

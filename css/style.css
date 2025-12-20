@@ -80,4 +80,65 @@ h2{margin-top:28px}
 .list a:hover{
   color:var(--accent);
 }
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:18px;
+  margin-top:12px;
+}
 
+.crumb{
+  margin:0 0 10px;
+  color:var(--muted);
+  font-size:14px;
+}
+.crumb a{color:var(--muted)}
+
+.muted{color:var(--muted)}
+
+.tracklist{
+  padding-left:18px;
+  margin:18px 0 0;
+}
+
+.track{
+  margin:0 0 14px;
+  padding:12px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:var(--card);
+}
+
+.track-main{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.track-title{
+  font-weight:750;
+}
+
+.track-meta{
+  color:var(--muted);
+  font-size:14px;
+}
+
+.track-links{
+  margin-top:8px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.track-links a{
+  color:var(--muted);
+  text-decoration:none;
+  font-size:14px;
+}
+
+.track-links a:hover{
+  color:var(--text);
+}

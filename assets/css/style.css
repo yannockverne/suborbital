@@ -280,3 +280,27 @@ a{color:var(--accent)}
 .btn-link:hover{
   background: rgba(255,255,255,0.04);
 }
+/* Project page */
+
+.project-hero{
+  margin: 10px 0 18px;
+}
+
+.project-cover{
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.02);
+}
+
+.project-caption{
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.project-body{
+  margin-top: 14px;
+}

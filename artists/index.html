@@ -9,7 +9,7 @@ permalink: /artists/
 </section>
 
 <div class="grid">
-  {% assign sorted = site.artists | sort: "name" %}
+  {% assign sorted = site.artists | sort: "order" %}
   {% for a in sorted %}
     <a class="card" href="{{ a.url | relative_url }}" style="display:block; text-decoration:none;">
       <h3 style="margin-top:0;">{{ a.name }}</h3>

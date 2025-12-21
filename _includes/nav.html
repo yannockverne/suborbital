@@ -15,7 +15,7 @@
             <a href="{{ '/artists/' | relative_url }}">All artists</a>
             <div class="drop-sep"></div>
 
-            {% assign sorted = site.artists | sort: "name" %}
+            {% assign sorted = site.artists | sort: "order" %}
             {% for a in sorted %}
               <a href="{{ a.url | relative_url }}">{{ a.name }}</a>
             {% endfor %}

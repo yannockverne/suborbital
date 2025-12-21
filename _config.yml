@@ -1,0 +1,27 @@
+title: SubOrbital Records
+description: A fictional music label inspired by Star Citizen.
+url: ""            # laisse vide pour GitHub Pages
+baseurl: ""        # vide si tu publies sur un domaine dédié ; sinon "/suborbital"
+
+markdown: kramdown
+
+collections:
+  artists:
+    output: true
+    permalink: /artists/:name/
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      path: ""
+      type: artists
+    values:
+      layout: artist
+
+exclude:
+  - README.md
+  - node_modules
+  - vendor

@@ -1,0 +1,19 @@
+---
+title: Artists
+permalink: /artists/
+---
+
+<section class="hero">
+  <h1>Artists</h1>
+  <p class="muted">Lore profiles and transmissions captured across the Verse.</p>
+</section>
+
+<div class="grid">
+  {% assign sorted = site.artists | sort: "name" %}
+  {% for a in sorted %}
+    <a class="card" href="{{ a.url | relative_url }}" style="display:block; text-decoration:none;">
+      <h3 style="margin-top:0;">{{ a.name }}</h3>
+      {% if a.tagline %}<p class="muted" style="margin-bottom:0;">{{ a.tagline }}</p>{% endif %}
+    </a>
+  {% endfor %}
+</div>

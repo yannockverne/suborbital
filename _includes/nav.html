@@ -1,0 +1,23 @@
+<nav class="nav">
+  <a class="brand" href="{{ '/' | relative_url }}">SubOrbital</a>
+
+  <div class="links">
+    {% for item in site.data.nav %}
+      {% assign item_url = item.url | relative_url %}
+      {% assign is_active = false %}
+
+      {% if page.url == item.url %}
+        {% assign is_active = true %}
+      {% endif %}
+
+      {%- comment -%}
+      Cas spécial: quand on est sur une fiche artiste /artists/xxx/ -> activer Artists
+      {%- endcomment -%}
+      {% if item.url == '/artists/' and page.url contains '/artists/' %}
+        {% assign is_active = true %}
+      {% endif %}
+
+      <a href="{{ item_url }}" class="{% if is_active %}active{% endif %}">{{ item.title }}</a>
+    {% endfor %}
+  </div>
+</nav>

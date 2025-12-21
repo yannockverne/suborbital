@@ -86,9 +86,13 @@ a{color:var(--accent)}
 /* Logo dans la nav */
 .brand-logo{
   height:40px;
+  max-height:40px;
   width:auto;
+  max-width:140px; /* sécurité horizontale */
+  object-fit:contain;
   display:block;
 }
+
 
 /* Dropdown Artists */
 .drop{

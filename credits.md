@@ -5,4 +5,64 @@ permalink: /credits/
 
 ## Credits
 
-(ton contenu)
+    <h1>Credits</h1>
+
+    <p class="lead">
+      SubOrbital Records is a documentation project.
+      A week of music, a shared space, and a few traces left on purpose.
+    </p>
+
+    <h2>Project</h2>
+    <div class="card">
+      <p><strong>Project name</strong> SubOrbital Records</p>
+      <p><strong>Session</strong> Across the Clouds</p>
+      <p><strong>Location</strong> The People’s Radio, Levski, Delamar</p>
+      <p><strong>Dates</strong> October 13 to 19, 2955</p>
+    </div>
+
+    <h2>Artists</h2>
+    <div class="card">
+      <ul class="list">
+        <li><a href="artists/lyra-nhadra.html">Lyra Nhadra</a></li>
+        <li><a href="artists/scrapliners.html">The Scrapliners</a></li>
+        <li><a href="artists/kovah-redd.html">Kovah Redd</a></li>
+        <li><a href="artists/madi-roa.html">Madi Roa</a></li>
+        <li><a href="artists/darren-anders.html">Darren Anders</a></li>
+        <li><a href="artists/sublight-shift.html">SubLight Shift</a></li>
+        <li><a href="artists/nok-varen.html">Nok Varen</a></li>
+      </ul>
+    </div>
+
+    <h2>The People’s Radio</h2>
+    <div class="card">
+      <p>
+        Recorded at The People’s Radio in Levski.
+        With gratitude to Jade and the TPR crew for the space, the trust, and the signal.
+      </p>
+    </div>
+
+    <h2>Writing and editorial</h2>
+    <div class="card">
+      <p>
+        Narrative texts and editorial direction for SubOrbital Records were written and curated by Yannock Verne.
+      </p>
+    </div>
+
+    <h2>Tools and process</h2>
+    <div class="card">
+      <p>
+        Some compositions were assisted by generative tools. Writing, arrangement choices, track ordering,
+        mixing decisions, and narrative context were handled manually.
+      </p>
+      <p>
+        SubOrbital Records does not hide its tools. It documents its process.
+      </p>
+    </div>
+
+    <h2>Disclaimer</h2>
+    <div class="card">
+      <p>
+        SubOrbital Records is a fictional project inspired by the Star Citizen universe.
+        This work is not affiliated with or endorsed by Cloud Imperium Games.
+        Made by the community, for the community.
+      </p>

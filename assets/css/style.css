@@ -288,12 +288,17 @@ a{color:var(--accent)}
 
 .project-cover{
   width: 100%;
-  max-height: 200px;
-  object-fit: cover;
+  max-height: 460px;
+  padding: 24px;
+  box-sizing: border-box;
+
+  object-fit: contain;
+  background: rgba(255,255,255,0.03);
+
   border-radius: 18px;
   border: 1px solid var(--line);
-  background: rgba(255,255,255,0.02);
 }
+
 
 .project-caption{
   margin-top: 10px;
@@ -303,4 +308,74 @@ a{color:var(--accent)}
 
 .project-body{
   margin-top: 14px;
+}
+/* Session page */
+
+.lead{
+  font-size: 18px;
+  color: var(--text);
+  margin-top: 6px;
+}
+
+.tracklist{
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+}
+
+.track{
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  padding:14px 16px;
+  margin:10px 0;
+  background: var(--card);
+  border:1px solid var(--line);
+  border-radius:16px;
+}
+
+.track-main{ min-width: 0; }
+
+.track-title{
+  display:block;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.track-meta{
+  display:block;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.track-links{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap: wrap;
+  justify-content:flex-end;
+}
+
+.track-links a{
+  text-decoration:none;
+  color: var(--muted);
+  border:1px solid transparent;
+  padding:8px 10px;
+  border-radius:12px;
+}
+
+.track-links a:hover{
+  color: var(--text);
+  border-color: var(--line);
+  background: rgba(255,255,255,0.03);
+}
+
+@media (max-width: 700px){
+  .track{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .track-links{
+    justify-content: flex-start;
+  }
 }

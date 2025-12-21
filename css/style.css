@@ -142,3 +142,73 @@ h2{margin-top:28px}
 .track-links a:hover{
   color:var(--text);
 }
+/* Dropdown in nav (details/summary) */
+.nav-dd{
+  position:relative;
+  display:inline-block;
+}
+
+.nav-dd summary{
+  list-style:none;
+  cursor:pointer;
+  user-select:none;
+  color:var(--muted);
+  font-size:14px;
+  padding:6px 10px;
+  border-radius:10px;
+  border:1px solid transparent;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+}
+
+.nav-dd summary::-webkit-details-marker{display:none;}
+
+.nav-dd summary:hover{
+  color:var(--text);
+  border-color:var(--line);
+  background:var(--card);
+}
+
+.nav-dd[open] summary{
+  color:var(--text);
+  border-color:var(--line);
+  background:var(--card);
+}
+
+.nav-dd summary::after{
+  content:"▾";
+  font-size:12px;
+  opacity:.8;
+}
+
+.nav-dd-menu{
+  position:absolute;
+  top:calc(100% + 8px);
+  right:0;
+  min-width:220px;
+  padding:10px;
+  border:1px solid var(--line);
+  background:var(--card);
+  border-radius:14px;
+  box-shadow:0 12px 30px rgba(0,0,0,.25);
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  z-index:50;
+}
+
+.nav-dd-menu a{
+  padding:8px 10px;
+  border-radius:10px;
+  text-decoration:none;
+  color:var(--muted);
+  font-size:14px;
+  border:1px solid transparent;
+}
+
+.nav-dd-menu a:hover{
+  color:var(--text);
+  border-color:var(--line);
+  background:rgba(255,255,255,.03);
+}

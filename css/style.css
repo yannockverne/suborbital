@@ -59,10 +59,12 @@ body{
 }
 
 /* Hover dropdown (Artists) */
+/* Make hover area forgiving */
 .nav-hover{
   position:relative;
   display:inline-flex;
   align-items:center;
+  padding-bottom:10px; /* increases hover zone under the label */
 }
 
 .nav-hover-label{
@@ -120,6 +122,15 @@ body{
   color:var(--text);
   border-color:var(--line);
   background:rgba(255,255,255,.04);
+}
+/* Invisible bridge to prevent hover gap between label and menu */
+.nav-hover-menu::before{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  top:-10px;     /* bridge height */
+  height:10px;
 }
 
 /* CONTENT */

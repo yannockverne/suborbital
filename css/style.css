@@ -212,3 +212,53 @@ h2{margin-top:28px}
   border-color:var(--line);
   background:rgba(255,255,255,.03);
 }
+.nav-hover{
+  position:relative;
+}
+
+.nav-hover-label{
+  color:var(--muted);
+  font-size:14px;
+  padding:6px 10px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.nav-hover:hover .nav-hover-label{
+  color:var(--text);
+  background:var(--card);
+  border:1px solid var(--line);
+}
+
+.nav-hover-menu{
+  position:absolute;
+  top:100%;
+  right:0;
+  min-width:220px;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:10px;
+  display:none;
+  flex-direction:column;
+  gap:6px;
+  z-index:100;
+  box-shadow:0 12px 30px rgba(0,0,0,.25);
+}
+
+.nav-hover:hover .nav-hover-menu{
+  display:flex;
+}
+
+.nav-hover-menu a{
+  color:var(--muted);
+  text-decoration:none;
+  padding:8px 10px;
+  border-radius:10px;
+  font-size:14px;
+}
+
+.nav-hover-menu a:hover{
+  color:var(--text);
+  background:rgba(255,255,255,.04);
+}

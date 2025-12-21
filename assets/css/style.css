@@ -379,3 +379,12 @@ a{color:var(--accent)}
     justify-content: flex-start;
   }
 }
+/* liste */
+.list{
+  padding-left: 18px;
+  margin: 10px 0;
+}
+
+.list li{
+  margin: 6px 0;
+}

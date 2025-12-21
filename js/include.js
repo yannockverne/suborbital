@@ -1,23 +1,27 @@
-async function loadPartial(id, url, afterLoad) {
+async function loadPartial(id, url) {
   const el = document.getElementById(id);
-  if (!el) return;
+  if (!el) return false;
 
-  try {
-    const res = await fetch(url, { cache: "no-cache" });
-    if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
-    el.innerHTML = await res.text();
-    if (typeof afterLoad === "function") afterLoad();
-  } catch (e) {
-    console.warn("Partial load failed:", url, e);
-  }
+  const res = await fetch(url, { cache: "no-cache" });
+  if (!res.ok) throw new Error(`Failed to fetch ${url}: ${res.status} ${res.statusText}`);
+
+  el.innerHTML = await res.text();
+  return true;
 }
 
 function setupNavDropdown() {
   const dd = document.getElementById("navArtists");
-  if (!dd) return;
+  if (!dd) {
+    console.warn("[nav] #navArtists not found (nav not injected or ID missing)");
+    return;
+  }
 
   const btn = dd.querySelector(".nav-dd-btn");
   const menu = dd.querySelector(".nav-dd-menu");
+  if (!btn || !menu) {
+    console.warn("[nav] dropdown elements missing", { btn: !!btn, menu: !!menu });
+    return;
+  }
 
   const open = () => {
     dd.setAttribute("aria-open", "true");
@@ -31,16 +35,13 @@ function setupNavDropdown() {
 
   const toggle = (e) => {
     e.preventDefault();
+    e.stopPropagation();
     const isOpen = dd.getAttribute("aria-open") === "true";
     isOpen ? close() : open();
   };
 
   // Click toggle (reliable)
   btn.addEventListener("click", toggle);
-
-  // Hover open on desktop (still feels "hover")
-  dd.addEventListener("mouseenter", open);
-  dd.addEventListener("mouseleave", close);
 
   // Close when clicking outside
   document.addEventListener("click", (e) => {
@@ -52,10 +53,18 @@ function setupNavDropdown() {
     if (e.key === "Escape") close();
   });
 
-  // Prevent menu click from closing immediately before navigation
-  menu.addEventListener("click", (e) => {
-    e.stopPropagation();
-  });
+  // Optional: open on hover for mouse users
+  dd.addEventListener("mouseenter", open);
+  dd.addEventListener("mouseleave", close);
+
+  console.log("[nav] dropdown ready");
 }
 
-loadPartial("site-nav", "/partials/nav.html", setupNavDropdown);
+(async function init() {
+  try {
+    const ok = await loadPartial("site-nav", "/partials/nav.html");
+    if (ok) setupNavDropdown();
+  } catch (e) {
+    console.error("[nav] init failed", e);
+  }
+})();

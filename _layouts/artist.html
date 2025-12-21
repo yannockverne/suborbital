@@ -1,35 +1,63 @@
-<section class="hero">
-  <h1>{{ page.name }}</h1>
-  {% if page.tagline %}<p class="muted">{{ page.tagline }}</p>{% endif %}
-</section>
+---
+layout: default
+---
 
-<section class="card">
-  {{ content }}
-</section>
+<article class="artist">
 
-<section class="grid">
-  {% if page.genres %}
-    <div class="card">
-      <h3>Genres</h3>
-      <p>{{ page.genres | join: ", " }}</p>
-    </div>
+  <header class="artist-header">
+    <div class="artist-kicker">Artist dossier</div>
+
+    <h1 class="artist-title">{{ page.name }}</h1>
+
+    {% if page.tagline %}
+      <p class="artist-tagline">{{ page.tagline }}</p>
+    {% endif %}
+
+    {% if page.portrait %}
+      <figure class="artist-figure">
+        <img class="artist-portrait" src="{{ page.portrait | relative_url }}" alt="{{ page.name }}">
+        {% if page.portrait_caption %}
+          <figcaption class="artist-caption">{{ page.portrait_caption }}</figcaption>
+        {% endif %}
+      </figure>
+    {% endif %}
+  </header>
+
+  <section class="artist-body card">
+    {{ content }}
+  </section>
+
+  {% comment %}
+  Bloc optionnel (discret) pour 2-3 métadonnées RP si tu veux.
+  Tu peux aussi le supprimer totalement.
+  {% endcomment %}
+  {% if page.origin or page.role or page.signal %}
+    <section class="artist-meta">
+      {% if page.role %}
+        <div class="meta-item">
+          <div class="meta-label">Role</div>
+          <div class="meta-value">{{ page.role }}</div>
+        </div>
+      {% endif %}
+
+      {% if page.origin %}
+        <div class="meta-item">
+          <div class="meta-label">Origin</div>
+          <div class="meta-value">{{ page.origin }}</div>
+        </div>
+      {% endif %}
+
+      {% if page.signal %}
+        <div class="meta-item">
+          <div class="meta-label">Signal</div>
+          <div class="meta-value">{{ page.signal }}</div>
+        </div>
+      {% endif %}
+    </section>
   {% endif %}
 
-  {% if page.base %}
-    <div class="card">
-      <h3>Base</h3>
-      <p>{{ page.base }}</p>
-    </div>
-  {% endif %}
+  <nav class="artist-nav">
+    <a class="btn-link" href="{{ '/artists/' | relative_url }}">← Back to Artists</a>
+  </nav>
 
-  {% if page.frequency_note %}
-    <div class="card">
-      <h3>Frequency note</h3>
-      <p>{{ page.frequency_note }}</p>
-    </div>
-  {% endif %}
-</section>
-
-<p class="back">
-  <a href="{{ '/artists/' | relative_url }}">← Back to Artists</a>
-</p>
+</article>

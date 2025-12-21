@@ -85,8 +85,8 @@ a{color:var(--accent)}
 
 /* Logo dans la nav */
 .brand-logo{
-  height:40px;
-  max-height:40px;
+  height:75px;
+  max-height:75px;
   width:auto;
   max-width:140px; /* sécurité horizontale */
   object-fit:contain;
@@ -165,4 +165,118 @@ a{color:var(--accent)}
   height:1px;
   background:var(--line);
   margin:6px 6px;
+}
+/* ARTISTS */
+.artist{ margin-top: 10px; }
+
+.artist-header{
+  padding: 18px 0 12px;
+}
+
+.artist-kicker{
+  color: var(--muted);
+  font-size: 13px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.artist-title{
+  margin: 0 0 8px;
+  font-size: 38px;
+  line-height: 1.15;
+}
+
+.artist-tagline{
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.artist-figure{
+  margin: 16px 0 0;
+}
+
+.artist-portrait{
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.02);
+}
+
+.artist-caption{
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.artist-body{
+  margin-top: 14px;
+}
+
+.artist-body p{
+  margin: 0 0 14px;
+}
+
+.artist-body p:last-child{
+  margin-bottom: 0;
+}
+
+.artist-body blockquote{
+  margin: 16px 0;
+  padding: 12px 14px;
+  border-left: 3px solid rgba(90,167,255,0.45);
+  background: rgba(90,167,255,0.08);
+  border-radius: 12px;
+  color: var(--text);
+}
+
+.artist-meta{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+@media (max-width: 840px){
+  .artist-meta{ grid-template-columns: 1fr; }
+}
+
+.meta-item{
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 14px;
+}
+
+.meta-label{
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.meta-value{
+  color: var(--text);
+}
+
+.artist-nav{
+  margin-top: 16px;
+}
+
+.btn-link{
+  display: inline-block;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  text-decoration: none;
+  color: var(--text);
+  background: rgba(255,255,255,0.02);
+}
+
+.btn-link:hover{
+  background: rgba(255,255,255,0.04);
 }

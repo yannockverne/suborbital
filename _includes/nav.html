@@ -1,23 +1,33 @@
 <nav class="nav">
-  <a class="brand" href="{{ '/' | relative_url }}">SubOrbital</a>
+  <!-- BRAND : remplace le texte par un logo si tu veux (voir plus bas) -->
+  <a class="brand" href="{{ '/' | relative_url }}">
+    <!-- Option logo (recommandée). Si tu n'as pas encore le fichier, remets "SubOrbital" en texte -->
+    <img class="brand-logo" src="{{ '/assets/img/suborbital-logo.png' | relative_url }}" alt="SubOrbital Records">
+  </a>
 
   <div class="links">
     {% for item in site.data.nav %}
-      {% assign item_url = item.url | relative_url %}
-      {% assign is_active = false %}
+      {% if item.url == '/artists/' %}
+        <!-- Dropdown Artists -->
+        <details class="drop {% if page.url contains '/artists/' %}active{% endif %}">
+          <summary>Artists</summary>
+          <div class="drop-menu">
+            <a href="{{ '/artists/' | relative_url }}">All artists</a>
+            <div class="drop-sep"></div>
 
-      {% if page.url == item.url %}
-        {% assign is_active = true %}
+            {% assign sorted = site.artists | sort: "name" %}
+            {% for a in sorted %}
+              <a href="{{ a.url | relative_url }}">{{ a.name }}</a>
+            {% endfor %}
+          </div>
+        </details>
+
+      {% else %}
+        {% assign item_url = item.url | relative_url %}
+        <a href="{{ item_url }}" class="{% if page.url == item.url %}active{% endif %}">
+          {{ item.title }}
+        </a>
       {% endif %}
-
-      {%- comment -%}
-      Cas spécial: quand on est sur une fiche artiste /artists/xxx/ -> activer Artists
-      {%- endcomment -%}
-      {% if item.url == '/artists/' and page.url contains '/artists/' %}
-        {% assign is_active = true %}
-      {% endif %}
-
-      <a href="{{ item_url }}" class="{% if is_active %}active{% endif %}">{{ item.title }}</a>
     {% endfor %}
   </div>
 </nav>

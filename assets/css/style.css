@@ -82,3 +82,83 @@ body{
 a{color:var(--accent)}
 .footer{margin-top:28px;border-top:1px solid var(--line);padding-top:16px}
 .back{margin-top:16px}
+
+/* Logo dans la nav */
+.brand-logo{
+  height:40px;
+  width:auto;
+  display:block;
+}
+
+/* Dropdown Artists */
+.drop{
+  position:relative;
+}
+
+.drop summary{
+  list-style:none;
+  cursor:pointer;
+  color:var(--muted);
+  padding:8px 10px;
+  border-radius:10px;
+  border:1px solid transparent;
+  user-select:none;
+}
+
+.drop summary::-webkit-details-marker{display:none}
+
+.drop:hover summary{
+  color:var(--text);
+  border-color:var(--line);
+  background:rgba(255,255,255,0.03);
+}
+
+.drop.active summary{
+  color:var(--text);
+  border-color:rgba(90,167,255,0.35);
+  background:rgba(90,167,255,0.10);
+}
+
+.drop[open] summary{
+  color:var(--text);
+  border-color:var(--line);
+  background:rgba(255,255,255,0.03);
+}
+
+.drop-menu{
+  position:absolute;
+  top:calc(100% + 8px);
+  left:0;
+  min-width:220px;
+  max-height:360px;
+  overflow:auto;
+
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:8px;
+
+  box-shadow:0 12px 30px rgba(0,0,0,0.35);
+  z-index:50;
+}
+
+.drop-menu a{
+  display:block;
+  padding:10px 10px;
+  border-radius:10px;
+  color:var(--muted);
+  text-decoration:none;
+  border:1px solid transparent;
+}
+
+.drop-menu a:hover{
+  color:var(--text);
+  border-color:var(--line);
+  background:rgba(255,255,255,0.03);
+}
+
+.drop-sep{
+  height:1px;
+  background:var(--line);
+  margin:6px 6px;
+}

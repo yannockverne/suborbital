@@ -20,17 +20,17 @@ permalink: /credits/
 </div>
 
 ## Artists
-
-<ul class="list">
-  <li><a href="{{ '/artists/lyra-nhadra/' | relative_url }}">Lyra Nhadra</a></li>
-  <li><a href="{{ '/artists/scrapliners/' | relative_url }}">The Scrapliners</a></li>
-  <li><a href="{{ '/artists/kovah-redd/' | relative_url }}">Kovah Redd</a></li>
-  <li><a href="{{ '/artists/madi-roa/' | relative_url }}">Madi Roa</a></li>
-  <li><a href="{{ '/artists/darren-anders/' | relative_url }}">Darren Anders</a></li>
-  <li><a href="{{ '/artists/sublight-shift/' | relative_url }}">SubLight Shift</a></li>
-  <li><a href="{{ '/artists/nok-varen/' | relative_url }}">Nok Varen</a></li>
-</ul>
-
+<div class="card">
+	<ul class="list">
+	  <li><a href="{{ '/artists/lyra-nhadra/' | relative_url }}">Lyra Nhadra</a></li>
+	  <li><a href="{{ '/artists/scrapliners/' | relative_url }}">The Scrapliners</a></li>
+	  <li><a href="{{ '/artists/kovah-redd/' | relative_url }}">Kovah Redd</a></li>
+	  <li><a href="{{ '/artists/madi-roa/' | relative_url }}">Madi Roa</a></li>
+	  <li><a href="{{ '/artists/darren-anders/' | relative_url }}">Darren Anders</a></li>
+	  <li><a href="{{ '/artists/sublight-shift/' | relative_url }}">SubLight Shift</a></li>
+	  <li><a href="{{ '/artists/nok-varen/' | relative_url }}">Nok Varen</a></li>
+	</ul>
+</div>
 ## The People’s Radio
 
 <div class="card">
@@ -53,11 +53,19 @@ permalink: /credits/
 <div class="card">
   <p>
     Compositions were assisted by generative tools.
-    Writing, arrangement choices, track ordering, mixing decisions, graphic design, photography and narrative context were handled manually.
+    This project is not the result of a single click or an automated release.
   </p>
   <p>
-    SubOrbital Records does not hide its tools. It documents its process.
+    Writing, lyrics, arrangement choices, track ordering, mixing (all stems were extracted and individually worked on with Adobe Audition to achieve the sound I envisioned),
+    graphic design, photography (thanks to my mates) and the full narrative context were handled manually.
   </p>
+  <p class="muted">
+    This project does not claim to replace or diminish the work of musicians.
+    I do not consider myself a traditional musician.
+    I used the tools available to me to express an idea, a mood, and a story
+    I had in mind, with respect for those who have spent years mastering their craft.
+  </p>
+
 </div>
 
 ## Disclaimer

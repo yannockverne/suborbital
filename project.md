@@ -7,7 +7,7 @@ excerpt: Across the Clouds, SOR-001 — twelve tracks recorded around The People
 
 <article class="release" id="top">
   <header class="release-hero">
-    <div class="release-shell release-hero-grid">
+    <div class="release-shell release-hero-grid reveal">
       <div class="release-hero-copy">
         <p class="eyebrow warm">CURRENT RECORD // SOR-001</p>
         <h1>Across the Clouds</h1>
@@ -28,7 +28,7 @@ excerpt: Across the Clouds, SOR-001 — twelve tracks recorded around The People
   </header>
 
   <section class="release-section release-record" aria-labelledby="record-heading">
-    <div class="release-shell release-editorial-grid">
+    <div class="release-shell release-editorial-grid reveal">
       <div><p class="eyebrow warm">THE RECORD // SOR-001</p><h2 id="record-heading">A gathering, not a compilation</h2></div>
       <div class="release-prose">
         <p class="release-lead">It is not an album in the traditional sense. It is a gathering.</p>
@@ -39,30 +39,30 @@ excerpt: Across the Clouds, SOR-001 — twelve tracks recorded around The People
   </section>
 
   <section class="release-section release-tracklist" aria-labelledby="tracklist-heading">
-    <div class="release-shell">
+    <div class="release-shell reveal">
       <div class="release-section-heading">
         <div><p class="eyebrow">ARCHIVE SEQUENCE // 12 ENTRIES</p><h2 id="tracklist-heading">Tracklist</h2></div>
         <p>Filed in the order preserved from the session.</p>
       </div>
+      {% assign tracks = "Leaving Pyro|Lyra Nhadra|https://soundcloud.com/yannock-708281134/leaving-pyro-1~My Ship My Mess|The Scrapliners|https://soundcloud.com/yannock-708281134/my-ship-my-mess-2~Hunter’s Line|Kovah Redd|https://soundcloud.com/yannock-708281134/hunter-s-line-3~Duct Tape Dream|The Scrapliners, featuring Madi Roa|https://soundcloud.com/yannock-708281134/duct-tape-dreams-4~Burning Thrust|SubLight Shift &amp; Kovah Redd|https://soundcloud.com/yannock-708281134/burning-thrust-5~Frontier Blues|Darren Anders|https://soundcloud.com/yannock-708281134/frontier-blues-6~Still My Mess|The Scrapliners|https://soundcloud.com/yannock-708281134/still-my-mess-7~Same Sky|Lyra Nhadra with Jax &amp; Rigg Rourke|https://soundcloud.com/yannock-708281134/same-sky-8~My Mess in Flame|The Scrapliners|https://soundcloud.com/yannock-708281134/my-mess-in-flame-9~The Line Below|SubLight Shift, with vocal textures by Madi Roa · Remix and final structure by Nok Varen|https://soundcloud.com/yannock-708281134/the-line-below-nkvn-remix-10~No Safe Jump|Nok Varen|https://soundcloud.com/yannock-708281134/no-safe-jump-11~Across the Clouds|Session listening day, curated by Nok Varen|https://soundcloud.com/yannock-708281134/across-the-clouds-12" | split: "~" %}
       <ol class="release-tracks">
-        <li><span class="track-number" aria-hidden="true">01</span><span class="track-title">Leaving Pyro</span><span class="track-artist">Lyra Nhadra</span></li>
-        <li><span class="track-number" aria-hidden="true">02</span><span class="track-title">My Ship My Mess</span><span class="track-artist">The Scrapliners</span></li>
-        <li><span class="track-number" aria-hidden="true">03</span><span class="track-title">Hunter’s Line</span><span class="track-artist">Kovah Redd</span></li>
-        <li><span class="track-number" aria-hidden="true">04</span><span class="track-title">Duct Tape Dream</span><span class="track-artist">The Scrapliners, featuring Madi Roa</span></li>
-        <li><span class="track-number" aria-hidden="true">05</span><span class="track-title">Burning Thrust</span><span class="track-artist">SubLight Shift &amp; Kovah Redd</span></li>
-        <li><span class="track-number" aria-hidden="true">06</span><span class="track-title">Frontier Blues</span><span class="track-artist">Darren Anders</span></li>
-        <li><span class="track-number" aria-hidden="true">07</span><span class="track-title">Still My Mess</span><span class="track-artist">The Scrapliners</span></li>
-        <li><span class="track-number" aria-hidden="true">08</span><span class="track-title">Same Sky</span><span class="track-artist">Lyra Nhadra with Jax &amp; Rigg Rourke</span></li>
-        <li><span class="track-number" aria-hidden="true">09</span><span class="track-title">My Mess in Flame</span><span class="track-artist">The Scrapliners</span></li>
-        <li><span class="track-number" aria-hidden="true">10</span><span class="track-title">The Line Below</span><span class="track-artist">SubLight Shift, with vocal textures by Madi Roa · Remix and final structure by Nok Varen</span></li>
-        <li><span class="track-number" aria-hidden="true">11</span><span class="track-title">No Safe Jump</span><span class="track-artist">Nok Varen</span></li>
-        <li class="title-track"><span class="track-number" aria-hidden="true">12</span><span class="track-title">Across the Clouds</span><span class="track-artist">Session listening day, curated by Nok Varen</span></li>
+        {% for track in tracks %}{% assign details = track | split: "|" %}
+        <li class="reveal reveal-stagger{% if forloop.last %} title-track{% endif %}" data-track-row>
+          <span class="track-number" aria-hidden="true">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span><span class="track-title">{{ details[0] }}</span><span class="track-artist">{{ details[1] }}</span>
+          <button class="track-listen" type="button" data-track-url="{{ details[2] }}" data-track-title="{{ details[0] }}" aria-pressed="false"><span>Listen</span><i aria-hidden="true">▶</i></button>
+        </li>
+        {% endfor %}
       </ol>
+      <div class="release-player" data-soundcloud-player hidden>
+        <div class="release-player-heading"><p><span class="eyebrow">NOW LISTENING</span><strong data-player-title></strong></p><a data-player-fallback href="https://soundcloud.com/yannock-708281134" target="_blank" rel="noopener">Open on SoundCloud <span aria-hidden="true">↗</span></a></div>
+        <iframe data-player-frame title="SoundCloud player" width="100%" height="166" allow="autoplay" loading="lazy"></iframe>
+        <p class="player-note">If the player is unavailable, use the SoundCloud link above.</p>
+      </div>
     </div>
   </section>
 
   <section class="release-section release-voices" aria-labelledby="voices-heading">
-    <div class="release-shell">
+    <div class="release-shell reveal">
       <div class="release-section-heading">
         <div><p class="eyebrow">ARTIST FILES // 7 IDENTITIES</p><h2 id="voices-heading">The Voices</h2></div>
         <a class="text-link" href="{{ '/artists/' | relative_url }}">All artist files <span aria-hidden="true">↗</span></a>
@@ -70,7 +70,7 @@ excerpt: Across the Clouds, SOR-001 — twelve tracks recorded around The People
       {% assign voices = "Lyra Nhadra|/artists/lyra-nhadra/|lyra-nhadra.webp~Kovah Redd|/archive/artists/kovah-redd.html|kovah-redd.webp~Madi Roa|/archive/artists/madi-roa.html|madi-roa.webp~Nok Varen|/artists/nok-varen/|nok-varen.webp~SubLight Shift|/archive/artists/sublightshift.html|sublight-shift.webp~Darren Anders|/archive/artists/darren-anders.html|darren-anders.webp~The Scrapliners|/artists/the-scrapliners/|the-scrapliners.webp" | split: "~" %}
       <div class="release-voice-grid">
         {% for voice in voices %}{% assign bits = voice | split: "|" %}
-        <a class="release-voice" href="{{ bits[1] | relative_url }}">
+        <a class="release-voice reveal reveal-stagger" href="{{ bits[1] | relative_url }}">
           <img src="{{ '/assets/img/v2/artists/' | append: bits[2] | relative_url }}" alt="Portrait of {{ bits[0] }}" loading="lazy" width="600" height="600">
           <span><small>FILE // 0{{ forloop.index }}</small>{{ bits[0] }}</span>
         </a>
@@ -80,7 +80,7 @@ excerpt: Across the Clouds, SOR-001 — twelve tracks recorded around The People
   </section>
 
   <section class="release-section release-session" aria-labelledby="session-heading">
-    <div class="release-shell release-session-grid">
+    <div class="release-shell release-session-grid reveal">
       <figure><img src="{{ '/assets/img/v2/session-group.webp' | relative_url }}" alt="The eleven participants gathered during the Across the Clouds session" loading="lazy" width="1536" height="1024"></figure>
       <div class="release-session-copy">
         <p class="eyebrow warm">SESSION FILE // THE PEOPLE’S RADIO</p>
@@ -94,7 +94,7 @@ excerpt: Across the Clouds, SOR-001 — twelve tracks recorded around The People
   </section>
 
   <section class="release-section release-context" aria-labelledby="context-heading">
-    <div class="release-shell release-editorial-grid">
+    <div class="release-shell release-editorial-grid reveal">
       <div><p class="eyebrow">PRODUCTION NOTE // TRANSPARENT RECORD</p><h2 id="context-heading">Behind the fiction</h2></div>
       <div class="release-prose">
         <p>SubOrbital Records, its artists, characters and stories are fictional and inspired by the <em>Star Citizen</em> universe. Music creation uses AI-assisted and generative music tools.</p>
@@ -105,7 +105,7 @@ excerpt: Across the Clouds, SOR-001 — twelve tracks recorded around The People
   </section>
 
   <nav class="release-onward" aria-label="Continue through the archive">
-    <div class="release-shell">
+    <div class="release-shell reveal">
       <p class="eyebrow">CONTINUE // ARCHIVE INDEX</p>
       <div class="release-onward-links">
         <a href="{{ '/artists/' | relative_url }}"><span>01</span>Artists</a>

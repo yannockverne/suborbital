@@ -51,7 +51,7 @@ body_class: home
       {% assign artists = "Lyra Nhadra|/artists/lyra-nhadra/|She turns departures into songs.|lyra-nhadra.webp~Kovah Redd|/archive/artists/kovah-redd.html|She collects echoes from lives left behind.|kovah-redd.webp~Madi Roa|/archive/artists/madi-roa.html|She never meant to sing.|madi-roa.webp~Nok Varen|/artists/nok-varen/|Producer, engineer, keeper of signals.|nok-varen.webp~SubLight Shift|/archive/artists/sublightshift.html|They don't perform. They synchronize.|sublight-shift.webp~Darren Anders|/archive/artists/darren-anders.html|The Verse forgets fast. He sings slow.|darren-anders.webp~The Scrapliners|/artists/the-scrapliners/|If it flies, they'll fix it. If it's fixed, they'll sing about it.|the-scrapliners.webp" | split: "~" %}
       {% for item in artists %}{% assign bits = item | split: "|" %}
       <article class="artist-file">
-        <a class="artist-image" href="{{ bits[1] | relative_url }}" aria-label="Open {{ bits[0] }} artist file"><img src="{{ '/assets/img/v2/artists/' | append: bits[3] | relative_url }}" alt="Portrait of {{ bits[0] }}" loading="lazy"></a>
+        <a class="artist-image artist-image--{{ bits[3] | remove: '.webp' }}" href="{{ bits[1] | relative_url }}" aria-label="Open {{ bits[0] }} artist file"><img src="{{ '/assets/img/v2/artists/' | append: bits[3] | relative_url }}" alt="Portrait of {{ bits[0] }}" loading="lazy"></a>
         <div class="artist-info"><p class="file-number">FILE // 0{{ forloop.index }}</p><h3><a href="{{ bits[1] | relative_url }}">{{ bits[0] }}</a></h3><p>{{ bits[2] }}</p></div>
       </article>{% endfor %}
     </div>

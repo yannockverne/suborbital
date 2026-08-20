@@ -40,10 +40,10 @@ if (document.body.classList.contains('home')) {
   });
 }
 
-if (document.body.classList.contains('release-page')) {
-  document.body.classList.add('reveal-ready');
-  const trackButtons = document.querySelectorAll('[data-track-url]');
-  const player = document.querySelector('[data-soundcloud-player]');
+const trackButtons = document.querySelectorAll('[data-track-url]');
+const player = document.querySelector('[data-soundcloud-player]');
+
+if (trackButtons.length && player) {
   const playerFrame = player?.querySelector('[data-player-frame]');
   const playerTitle = player?.querySelector('[data-player-title]');
   const playerFallback = player?.querySelector('[data-player-fallback]');
@@ -67,6 +67,10 @@ if (document.body.classList.contains('release-page')) {
     });
   });
 
+}
+
+if (document.body.classList.contains('release-page')) {
+  document.body.classList.add('reveal-ready');
   const reveals = document.querySelectorAll('.reveal');
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
     reveals.forEach((item) => item.classList.add('is-visible'));

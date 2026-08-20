@@ -21,20 +21,17 @@ excerpt: The story of seven days at The People's Radio in Levski and the making 
     <div class="session-v2-shell session-v2-hero-copy">
       <p class="eyebrow">THE SESSION</p>
       <h1>Levski, October 2955</h1>
-    </div>
-  </header>
-
-  <section class="session-v2-opening" aria-label="Session introduction">
-    <div class="session-v2-shell session-v2-opening-grid">
-      <p class="session-v2-deck">Seven days. Eleven people. No contracts. No predefined roles.</p>
-      <div class="session-v2-prose">
-        <p><em>Across the Clouds</em> began as a week at The People's Radio in Levski.</p>
-        <p>Some arrived with songs already taking shape. Others brought fragments, unfinished ideas, or almost nothing they would have called music.</p>
-        <p>There was no plan to make everyone sound alike.</p>
-        <p>Only a room, enough time, and the willingness to listen.</p>
+      <div class="session-v2-opening-grid" aria-label="Session introduction">
+        <p class="session-v2-deck">Seven days. Eleven people. No contracts. No predefined roles.</p>
+        <div class="session-v2-prose">
+          <p><em>Across the Clouds</em> began as a week at The People's Radio in Levski.</p>
+          <p>Some arrived with songs already taking shape. Others brought fragments, unfinished ideas, or almost nothing they would have called music.</p>
+          <p>There was no plan to make everyone sound alike.</p>
+          <p>Only a room, enough time, and the willingness to listen.</p>
+        </div>
       </div>
     </div>
-  </section>
+  </header>
 
   <section class="session-v2-chapter session-v2-room" id="session-room" aria-labelledby="session-room-heading">
     <div class="session-v2-shell session-v2-chapter-grid">
@@ -114,12 +111,10 @@ excerpt: The story of seven days at The People's Radio in Levski and the making 
     </div>
   </section>
 
-  <figure class="session-v2-ending">
+  <section class="session-v2-ending session-v2-after" id="session-after" aria-labelledby="session-after-heading">
     <img src="{{ '/assets/img/v2/session-ending.webp' | relative_url }}" alt="The close of the recording week in Levski" loading="lazy" width="2100" height="900">
-  </figure>
-
-  <section class="session-v2-after" id="session-after" aria-labelledby="session-after-heading">
-    <div class="session-v2-shell session-v2-after-grid">
+    <div class="session-v2-ending-shade" aria-hidden="true"></div>
+    <div class="session-v2-shell session-v2-after-grid session-v2-ending-copy">
       <div><p class="eyebrow">EPILOGUE</p><h2 id="session-after-heading">AFTER LEVSKI</h2></div>
       <div class="session-v2-prose session-v2-prose--after">
         <p>Nobody came to Levski to form a band.</p>

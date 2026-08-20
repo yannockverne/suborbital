@@ -92,6 +92,7 @@ layout: default
   <nav class="artist-v2-nav" aria-label="Artist navigation">
     <div class="artist-v2-shell">
       <a href="{{ '/artists/' | relative_url }}"><span aria-hidden="true">←</span> Artists</a>
+      <a class="artist-v2-back-to-top" href="#top">Back to top <span aria-hidden="true">↑</span></a>
       {% if page.next_artist %}<a href="{{ page.next_artist.url | relative_url }}"><small>Next //</small> {{ page.next_artist.name }} <span aria-hidden="true">→</span></a>{% endif %}
     </div>
   </nav>

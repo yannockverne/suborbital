@@ -4,6 +4,8 @@ permalink: /
 body_class: home
 ---
 
+{% assign current_release = site.data.releases | where: "featured", true | first %}
+{% capture current_release_url %}/releases/{{ current_release.slug }}/{% endcapture %}
 <section class="home-hero" id="top" aria-labelledby="hero-title">
   <div class="hero-shade"></div>
   <div class="shell hero-inner">
@@ -11,12 +13,12 @@ body_class: home
     <h1 id="hero-title">An archive of music, people and moments that never existed</h1>
     <p class="hero-aside"><em>except in the ways that matter.</em></p>
     <div class="hero-record">
-      <p class="index-label">CURRENT RECORD // SOR-001</p>
-      <h2>Across the Clouds</h2>
-      <p class="record-subtitle"><em>A SubOrbital Records collective chronicle</em></p>
-      <p class="record-meta">LEVSKI // DELAMAR // THE PEOPLE’S RADIO // OCTOBER 2955</p>
+      <p class="index-label">CURRENT RECORD // {{ current_release.catalogue }}</p>
+      <h2>{{ current_release.title }}</h2>
+      <p class="record-subtitle"><em>A {{ current_release.artist }}</em></p>
+      <p class="record-meta">LEVSKI // DELAMAR // THE PEOPLE’S RADIO // {{ current_release.date | upcase }}</p>
       <div class="actions">
-        <a class="button button-primary" href="{{ '/releases/sor-001/' | relative_url }}">Discover Across the Clouds</a>
+        <a class="button button-primary" href="{{ current_release_url | relative_url }}">Discover {{ current_release.title }}</a>
         <a class="button button-secondary" href="{{ '/artists/' | relative_url }}">Meet the artists</a>
       </div>
     </div>
@@ -30,16 +32,16 @@ body_class: home
 
 <section class="record-section section" id="current-record" aria-labelledby="record-title">
   <div class="shell record-grid">
-    <figure class="record-art"><img src="{{ '/assets/img/v2/across-the-clouds-cover.webp' | relative_url }}" alt="Across the Clouds official cover artwork" loading="lazy"></figure>
+    <figure class="record-art"><img src="{{ current_release.artwork | relative_url }}" alt="{{ current_release.title }} official cover artwork" loading="lazy"></figure>
     <div class="record-copy">
-      <p class="eyebrow warm">CURRENT RECORD // SOR-001</p>
-      <h2 id="record-title">Across the Clouds</h2>
+      <p class="eyebrow warm">CURRENT RECORD // {{ current_release.catalogue }}</p>
+      <h2 id="record-title">{{ current_release.title }}</h2>
       <p class="section-lead">Seven artists. Twelve tracks. One week at The People’s Radio.</p>
       <dl class="release-facts">
         <div><dt>Tracks</dt><dd>12</dd></div><div><dt>Artists</dt><dd>7</dd></div>
-        <div><dt>Location</dt><dd>The People’s Radio</dd></div><div><dt>Filed</dt><dd>October 2955</dd></div>
+        <div><dt>Location</dt><dd>The People’s Radio</dd></div><div><dt>Filed</dt><dd>{{ current_release.date }}</dd></div>
       </dl>
-      <a class="text-link warm-link" href="{{ '/releases/sor-001/' | relative_url }}">Enter the record <span aria-hidden="true">↗</span></a>
+      <a class="text-link warm-link" href="{{ current_release_url | relative_url }}">Enter the record <span aria-hidden="true">↗</span></a>
     </div>
   </div>
 </section>
@@ -49,5 +51,5 @@ body_class: home
 </section>
 
 <section class="truth-section section" id="about" aria-labelledby="truth-title">
-  <div class="shell truth-grid"><div><p class="eyebrow">PROJECT NOTE // TRANSPARENT RECORD</p><h2 id="truth-title">Behind the fiction</h2></div><div class="truth-copy"><p>SubOrbital Records, its characters and its stories are fictional, inspired by the <em>Star Citizen</em> universe. The music was created with AI-assisted and generative music tools.</p><p>Writing, artistic direction, thematic choices, arrangement, editing, mixing and mastering are human-led. The photography and community participation are real.</p><p>This independent project is not affiliated with Cloud Imperium Games.</p><a class="text-link" href="{{ '/releases/sor-001/' | relative_url }}">About the project <span aria-hidden="true">↗</span></a><a class="back-to-top" href="#top">Back to top <span aria-hidden="true">↑</span></a></div></div>
+  <div class="shell truth-grid"><div><p class="eyebrow">PROJECT NOTE // TRANSPARENT RECORD</p><h2 id="truth-title">Behind the fiction</h2></div><div class="truth-copy"><p>SubOrbital Records, its characters and its stories are fictional, inspired by the <em>Star Citizen</em> universe. The music was created with AI-assisted and generative music tools.</p><p>Writing, artistic direction, thematic choices, arrangement, editing, mixing and mastering are human-led. The photography and community participation are real.</p><p>This independent project is not affiliated with Cloud Imperium Games.</p><a class="text-link" href="{{ current_release_url | relative_url }}">About the project <span aria-hidden="true">↗</span></a><a class="back-to-top" href="#top">Back to top <span aria-hidden="true">↑</span></a></div></div>
 </section>

@@ -1,31 +1,9 @@
 ---
-title: Across the Clouds
-permalink: /releases/sor-001/
+layout: release
+release: sor-001
 body_class: release-page
 excerpt: Across the Clouds, SOR-001 — twelve tracks recorded around The People’s Radio in Levski in October 2955.
 ---
-
-<article class="release" id="top">
-  <header class="release-hero">
-    <div class="release-shell release-hero-grid reveal">
-      <div class="release-hero-copy">
-        <p class="eyebrow warm">CURRENT RECORD // SOR-001</p>
-        <h1>Across the Clouds</h1>
-        <p class="release-deck">Eleven lives. One room. Seven days.<br>And a record that was never supposed to exist.</p>
-        <p class="release-intro">A collective chronicle made around The People’s Radio: twelve tracks shaped by seven artist identities, gathered in Levski for one week in October 2955.</p>
-        <dl class="release-facts release-hero-facts">
-          <div><dt>Filed</dt><dd>October 2955</dd></div>
-          <div><dt>Recorded around</dt><dd>The People’s Radio / Levski</dd></div>
-          <div><dt>Tracks</dt><dd>12</dd></div>
-          <div><dt>Artist identities</dt><dd>7</dd></div>
-        </dl>
-      </div>
-      <figure class="release-cover">
-        <img src="{{ '/assets/img/v2/across-the-clouds-cover.webp' | relative_url }}" alt="Official cover artwork for Across the Clouds" width="1024" height="1024">
-        <figcaption>SOR-001 // Official archive cover</figcaption>
-      </figure>
-    </div>
-  </header>
 
   <section class="release-section release-record" aria-labelledby="record-heading">
     <div class="release-shell release-editorial-grid reveal">
@@ -38,28 +16,7 @@ excerpt: Across the Clouds, SOR-001 — twelve tracks recorded around The People
     </div>
   </section>
 
-  <section class="release-section release-tracklist" aria-labelledby="tracklist-heading">
-    <div class="release-shell reveal">
-      <div class="release-section-heading">
-        <div><p class="eyebrow">ARCHIVE SEQUENCE // 12 ENTRIES</p><h2 id="tracklist-heading">Tracklist</h2></div>
-        <p>Filed in the order preserved from the session.</p>
-      </div>
-      {% assign tracks = "Leaving Pyro|Lyra Nhadra|https://soundcloud.com/yannock-708281134/leaving-pyro-1~My Ship My Mess|The Scrapliners|https://soundcloud.com/yannock-708281134/my-ship-my-mess-2~Hunter’s Line|Kovah Redd|https://soundcloud.com/yannock-708281134/hunter-s-line-3~Duct Tape Dream|The Scrapliners, featuring Madi Roa|https://soundcloud.com/yannock-708281134/duct-tape-dreams-4~Burning Thrust|SubLight Shift &amp; Kovah Redd|https://soundcloud.com/yannock-708281134/burning-thrust-5~Frontier Blues|Darren Anders|https://soundcloud.com/yannock-708281134/frontier-blues-6~Still My Mess|The Scrapliners|https://soundcloud.com/yannock-708281134/still-my-mess-7~Same Sky|Lyra Nhadra with Jax &amp; Rigg Rourke|https://soundcloud.com/yannock-708281134/same-sky-8~My Mess in Flame|The Scrapliners|https://soundcloud.com/yannock-708281134/my-mess-in-flame-9~The Line Below|SubLight Shift, with vocal textures by Madi Roa · Remix and final structure by Nok Varen|https://soundcloud.com/yannock-708281134/the-line-below-nkvn-remix-10~No Safe Jump|Nok Varen|https://soundcloud.com/yannock-708281134/no-safe-jump-11~Across the Clouds|Session listening day, curated by Nok Varen|https://soundcloud.com/yannock-708281134/across-the-clouds-12" | split: "~" %}
-      <ol class="release-tracks">
-        {% for track in tracks %}{% assign details = track | split: "|" %}
-        <li class="reveal reveal-stagger{% if forloop.last %} title-track{% endif %}" data-track-row>
-          <span class="track-number" aria-hidden="true">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span><span class="track-title">{{ details[0] }}</span><span class="track-artist">{{ details[1] }}</span>
-          <button class="track-listen" type="button" data-track-url="{{ details[2] }}" data-track-title="{{ details[0] }}" aria-pressed="false"><span>Listen</span><i aria-hidden="true">▶</i></button>
-        </li>
-        {% endfor %}
-      </ol>
-      <div class="release-player" data-soundcloud-player hidden>
-        <div class="release-player-heading"><p><span class="eyebrow">NOW LISTENING</span><strong data-player-title></strong></p><a data-player-fallback href="https://soundcloud.com/yannock-708281134" target="_blank" rel="noopener">Open on SoundCloud <span aria-hidden="true">↗</span></a></div>
-        <iframe data-player-frame title="SoundCloud player" width="100%" height="166" allow="autoplay" loading="lazy"></iframe>
-        <p class="player-note">If the player is unavailable, use the SoundCloud link above.</p>
-      </div>
-    </div>
-  </section>
+  {% include release-tracklist.html %}
 
   <section class="release-section release-voices" aria-labelledby="voices-heading">
     <div class="release-shell reveal">
@@ -114,4 +71,3 @@ excerpt: Across the Clouds, SOR-001 — twelve tracks recorded around The People
       </div>
     </div>
   </nav>
-</article>

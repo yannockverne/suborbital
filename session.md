@@ -122,7 +122,7 @@ excerpt: The story of seven days at The People's Radio in Levski and the making 
         <p>They simply made something together.</p>
         <p>Seven days became twelve tracks.</p>
         <p>And another story worth keeping.</p>
-        <a class="text-link" href="{{ '/project/' | relative_url }}">Explore Across the Clouds <span aria-hidden="true">→</span></a>
+        <a class="text-link" href="{{ '/releases/sor-001/' | relative_url }}">Explore Across the Clouds <span aria-hidden="true">→</span></a>
       </div>
     </div>
   </section>

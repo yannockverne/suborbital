@@ -15,17 +15,18 @@ excerpt: The permanent release catalogue of SubOrbital Records.
   <div class="release-shell releases-catalogue">
     {% assign releases = site.data.releases | sort: "sequence" | reverse %}
     {% for release in releases %}
+    {% capture release_url %}/releases/{{ release.slug }}/{% endcapture %}
     <article class="catalogue-release">
-      <a class="catalogue-artwork" href="{{ release.url | relative_url }}" aria-label="Explore {{ release.title }}">
+      <a class="catalogue-artwork" href="{{ release_url | relative_url }}" aria-label="Explore {{ release.title }}">
         <img src="{{ release.artwork | relative_url }}" alt="{{ release.title }} cover artwork" width="1024" height="1024"{% unless forloop.first %} loading="lazy"{% endunless %}>
       </a>
       <div class="catalogue-copy">
         <div class="catalogue-line"><span>{{ release.catalogue }}</span><span>{{ release.type }}</span><span>{{ release.date }}</span></div>
-        <h2><a href="{{ release.url | relative_url }}">{{ release.title }}</a></h2>
+        <h2><a href="{{ release_url | relative_url }}">{{ release.title }}</a></h2>
         <p class="catalogue-artist">{{ release.artist }}</p>
         <p class="catalogue-context">{{ release.context }}</p>
         <p class="catalogue-teaser">{{ release.teaser }}</p>
-        <a class="text-link warm-link" href="{{ release.url | relative_url }}">Explore release <span aria-hidden="true">→</span></a>
+        <a class="text-link warm-link" href="{{ release_url | relative_url }}">Explore release <span aria-hidden="true">→</span></a>
       </div>
     </article>
     {% endfor %}

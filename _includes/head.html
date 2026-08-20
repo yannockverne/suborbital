@@ -1,8 +1,9 @@
 <head>
+  {% if page.release %}{% assign release_meta = site.data.releases | where: "slug", page.release | first %}{% endif %}
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>
-    {% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}
+    {% if release_meta %}{{ release_meta.title }} · {% elsif page.title %}{{ page.title }} · {% endif %}{{ site.title }}
   </title>
   <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 160 }}" />
 

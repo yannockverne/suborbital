@@ -4,7 +4,16 @@ layout: default
 
 {% if page.artist_v2 %}
 <article class="artist-v2" id="top">
-  <header class="artist-v2-hero">
+  <nav class="artist-v2-section-nav" aria-label="On this artist page">
+    <a href="#artist-hero" aria-label="Hero"><span>Hero</span></a>
+    <a href="#artist-intro" aria-label="Introduction"><span>Intro</span></a>
+    <a href="#artist-portrait" aria-label="Portrait"><span>Portrait</span></a>
+    <a href="#artist-story" aria-label="Story"><span>Story</span></a>
+    {% if page.featured_track %}<a href="#artist-listen" aria-label="Listen"><span>Listen</span></a>{% endif %}
+    {% if page.appearances %}<a href="#artist-record" aria-label="Record appearances"><span>Record</span></a>{% endif %}
+  </nav>
+
+  <header class="artist-v2-hero" id="artist-hero" data-artist-section>
     <img src="{{ page.hero | relative_url }}" alt="{{ page.hero_alt | default: page.name }}" width="1720" height="720">
     <div class="artist-v2-hero-shade" aria-hidden="true"></div>
     <div class="artist-v2-shell artist-v2-hero-copy">
@@ -15,20 +24,20 @@ layout: default
     </div>
   </header>
 
-  <section class="artist-v2-section artist-v2-intro" aria-label="Introduction">
+  <section class="artist-v2-section artist-v2-intro" id="artist-intro" data-artist-section aria-label="Introduction">
     <div class="artist-v2-shell artist-v2-prose artist-v2-prose--lead">
       {% for paragraph in page.intro %}<p>{{ paragraph }}</p>{% endfor %}
     </div>
   </section>
 
-  <section class="artist-v2-portrait-section" aria-label="Artist portrait and quote">
+  <section class="artist-v2-portrait-section" id="artist-portrait" data-artist-section aria-label="Artist portrait and quote">
     <div class="artist-v2-shell artist-v2-portrait-grid">
       <figure><img src="{{ page.portrait | relative_url }}" alt="{{ page.portrait_alt | default: page.name }}" loading="lazy" width="800" height="1000"></figure>
       <blockquote>{{ page.quote }}</blockquote>
     </div>
   </section>
 
-  <section class="artist-v2-section artist-v2-story" aria-labelledby="artist-story-heading">
+  <section class="artist-v2-section artist-v2-story" id="artist-story" data-artist-section aria-labelledby="artist-story-heading">
     <div class="artist-v2-shell artist-v2-editorial-grid">
       <div><p class="eyebrow">ARTIST FILE // {{ page.name }}</p><h2 id="artist-story-heading">THE STORY</h2></div>
       <div class="artist-v2-prose">{{ content }}</div>
@@ -36,7 +45,7 @@ layout: default
   </section>
 
   {% if page.featured_track %}
-  <section class="artist-v2-section artist-v2-feature" aria-labelledby="featured-track-heading">
+  <section class="artist-v2-section artist-v2-feature" id="artist-listen" data-artist-section aria-labelledby="featured-track-heading">
     <div class="artist-v2-shell">
       <p class="eyebrow">FEATURED TRACK</p>
       <div class="artist-v2-feature-grid" data-track-row>
@@ -69,7 +78,7 @@ layout: default
   <figure class="artist-v2-ending"><img src="{{ page.ending | relative_url }}" alt="{{ page.ending_alt | default: page.name }}" loading="lazy" width="1720" height="720"></figure>
 
   {% if page.appearances %}
-  <section class="artist-v2-section artist-v2-appearances" aria-labelledby="appearances-heading">
+  <section class="artist-v2-section artist-v2-appearances" id="artist-record" data-artist-section aria-labelledby="appearances-heading">
     <div class="artist-v2-shell artist-v2-editorial-grid">
       <div><p class="eyebrow">RECORD APPEARANCES</p><h2 id="appearances-heading">{{ page.appearances_heading }}</h2></div>
       <div>

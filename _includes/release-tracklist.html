@@ -1,0 +1,29 @@
+{% assign track_release = include.release %}
+{% unless track_release %}{% assign track_release = site.data.releases | where: "slug", page.release | first %}{% endunless %}
+{% assign tracks = track_release.tracks %}
+{% if tracks and tracks.size > 0 %}
+<section class="release-section release-tracklist" aria-labelledby="tracklist-heading">
+  <div class="release-shell reveal">
+    <div class="release-section-heading">
+      <div><p class="eyebrow">ARCHIVE SEQUENCE // {{ tracks.size }} ENTRIES</p><h2 id="tracklist-heading">Tracklist</h2></div>
+      <p>Filed in the order preserved from the session.</p>
+    </div>
+    <ol class="release-tracks">
+      {% assign has_playable_track = false %}
+      {% for track in tracks %}
+      <li class="reveal reveal-stagger{% if forloop.last %} title-track{% endif %}" data-track-row>
+        <span class="track-number" aria-hidden="true">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span><span class="track-title">{{ track.title }}</span><span class="track-artist">{{ track.artist }}</span>
+        {% if track.url %}{% assign has_playable_track = true %}<button class="track-listen" type="button" data-track-url="{{ track.url }}" data-track-title="{{ track.title }}" aria-pressed="false"><span>Listen</span><i aria-hidden="true">▶</i></button>{% endif %}
+      </li>
+      {% endfor %}
+    </ol>
+    {% if has_playable_track %}
+    <div class="release-player" data-soundcloud-player hidden>
+      <div class="release-player-heading"><p><span class="eyebrow">NOW LISTENING</span><strong data-player-title></strong></p><a data-player-fallback href="https://soundcloud.com/yannock-708281134" target="_blank" rel="noopener">Open on SoundCloud <span aria-hidden="true">↗</span></a></div>
+      <iframe data-player-frame title="SoundCloud player" width="100%" height="166" allow="autoplay" loading="lazy"></iframe>
+      <p class="player-note">If the player is unavailable, use the SoundCloud link above.</p>
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endif %}

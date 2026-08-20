@@ -1,12 +1,10 @@
-- title: Home
-  url: /
-- title: Project
-  url: /project/
-- title: Session
-  url: /session/
+- title: Releases
+  url: /releases/
 - title: Artists
   url: /artists/
+- title: Sessions
+  url: /sessions/
 - title: TPR
   url: /tpr/
-- title: Credits
-  url: /credits/
+- title: About
+  url: /#about

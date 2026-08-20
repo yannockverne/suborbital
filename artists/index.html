@@ -1,19 +1,21 @@
 ---
 title: Artists
 permalink: /artists/
+body_class: artists-index-page
 ---
 
-<section class="hero">
-  <h1>Artists</h1>
-  <p class="muted">Lore profiles and transmissions captured across the Verse.</p>
+<section class="artists-section section" id="artists" aria-labelledby="artists-title">
+  <div class="shell">
+    <div class="section-heading"><div><p class="eyebrow">ARTIST FILES // ACTIVE</p><h1 id="artists-title">The people behind the archive</h1></div></div>
+    <div class="artist-list">
+      {% assign sorted = site.artists | sort: "order" %}
+      {% for a in sorted %}
+      <article class="artist-file">
+        <a class="artist-image artist-image--{{ a.slug }}" href="{{ a.url | relative_url }}" aria-label="Open {{ a.name }} artist file"><img src="{{ '/assets/img/v2/artists/' | append: a.slug | append: '.webp' | relative_url }}" alt="Portrait of {{ a.name }}" loading="lazy"></a>
+        <div class="artist-info"><p class="file-number">FILE // {% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</p><h3><a href="{{ a.url | relative_url }}">{{ a.name }}</a></h3><p>{{ a.microcopy }}</p></div>
+      </article>
+      {% endfor %}
+    </div>
+    <a class="back-to-top" href="#top">Back to top <span aria-hidden="true">↑</span></a>
+  </div>
 </section>
-
-<div class="grid">
-  {% assign sorted = site.artists | sort: "order" %}
-  {% for a in sorted %}
-    <a class="card" href="{{ a.url | relative_url }}" style="display:block; text-decoration:none;">
-      <h3 style="margin-top:0;">{{ a.name }}</h3>
-      {% if a.tagline %}<p class="muted" style="margin-bottom:0;">{{ a.tagline }}</p>{% endif %}
-    </a>
-  {% endfor %}
-</div>

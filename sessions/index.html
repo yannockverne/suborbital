@@ -1,0 +1,24 @@
+---
+title: Sessions
+permalink: /sessions/
+body_class: sessions-index-page
+---
+
+<div id="top">
+  <h1 class="visually-hidden">Sessions</h1>
+  {% assign sessions = site.data.sessions | sort: "date" | reverse %}
+  {% for session in sessions %}
+  <section class="session-section section" aria-labelledby="session-title-{{ forloop.index }}">
+    <div class="session-image" role="img" aria-label="{{ session.image_alt }}" style="background-image:linear-gradient(0deg,#080b0e 0,transparent 40%),url('{{ session.image | relative_url }}')"></div>
+    <div class="shell session-copy">
+      <p class="eyebrow">SESSION FILE // {{ session.metadata }}</p>
+      <p class="session-location">{{ session.title }}</p>
+      <h2 id="session-title-{{ forloop.index }}">{{ session.teaser }}</h2>
+      <p class="section-lead">{{ session.lead }}</p>
+      <p class="session-note">{{ session.note }}</p>
+      <a class="button button-primary" href="{{ session.url | relative_url }}">Open the session archive</a>
+      <a class="back-to-top" href="#top">Back to top <span aria-hidden="true">↑</span></a>
+    </div>
+  </section>
+  {% endfor %}
+</div>

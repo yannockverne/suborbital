@@ -88,7 +88,7 @@ excerpt: Across the Clouds, SOR-001 — twelve tracks recorded around The People
         <p>Eleven people, working through seven artist identities, gathered around The People’s Radio in Levski. During that week, the first eleven tracks emerged—not from a commercial plan, but from the time, trust and proximity the room allowed.</p>
         <p>One week later, everyone returned for a final listening day. A spontaneous collective improvisation began in the room and became the twelfth track, “Across the Clouds.”</p>
         <p>That last performance gave the record its name. It also crystallized what the project had become: not a set of separate contributions, but the sound of people finding a shared identity for a moment.</p>
-        <a class="text-link warm-link" href="{{ '/session/' | relative_url }}">Open the session archive <span aria-hidden="true">↗</span></a>
+        <a class="text-link warm-link" href="{{ '/sessions/' | relative_url }}">Open the session archive <span aria-hidden="true">↗</span></a>
       </div>
     </div>
   </section>
@@ -109,7 +109,7 @@ excerpt: Across the Clouds, SOR-001 — twelve tracks recorded around The People
       <p class="eyebrow">CONTINUE // ARCHIVE INDEX</p>
       <div class="release-onward-links">
         <a href="{{ '/artists/' | relative_url }}"><span>01</span>Artists</a>
-        <a href="{{ '/session/' | relative_url }}"><span>02</span>The Session</a>
+        <a href="{{ '/sessions/' | relative_url }}"><span>02</span>Sessions</a>
         <a href="{{ '/tpr/' | relative_url }}"><span>03</span>The People’s Radio</a>
       </div>
     </div>

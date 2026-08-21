@@ -50,7 +50,7 @@ excerpt: Across the Clouds, SOR-001 — twelve tracks recorded around The People
     </div>
   </section>
 
-  <section id="release-context" class="release-section release-context" data-rail-theme="light" aria-labelledby="context-heading">
+  <section id="release-context" class="release-section release-context" data-rail-theme="dark" aria-labelledby="context-heading">
     <div class="release-shell release-editorial-grid reveal">
       <div><p class="eyebrow">PRODUCTION NOTE // TRANSPARENT RECORD</p><h2 id="context-heading">Behind the fiction</h2></div>
       <div class="release-prose">

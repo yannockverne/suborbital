@@ -78,6 +78,7 @@ sectionRails.forEach((sectionRail) => {
     .filter(Boolean);
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const setActiveSection = (section) => {
+    // The theme describes the background behind the fixed rail, not the section's content panel.
     sectionRail.dataset.theme = section.dataset.railTheme || 'dark';
     sectionLinks.forEach((link) => {
       if (link.hash === `#${section.id}`) link.setAttribute('aria-current', 'location');

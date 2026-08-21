@@ -32,21 +32,6 @@ body_class: tpr-page
     </div>
   </section>
 
-  <section class="tpr-editorial tpr-relationship" aria-labelledby="tpr-relationship-title">
-    <div class="shell tpr-relationship-grid">
-      <div class="tpr-relationship-heading">
-        <p class="eyebrow">TPR × SUBORBITAL RECORDS</p>
-        <h2 id="tpr-relationship-title">The place that made the session possible.</h2>
-      </div>
-      <div class="tpr-prose tpr-relationship-prose">
-        <p class="tpr-statement">SubOrbital Records exists because The People’s Radio exists.</p>
-        <p>The Across the Clouds session was recorded entirely within TPR’s studios in Levski. One week, offered without contracts, without conditions, without expectations. Just time, space, and trust.</p>
-        <p>Nok Varen first came to TPR as a maintenance technician. He stayed because he learned how to listen differently there. With the support of Jade and the TPR crew, the idea of documenting a session rather than producing an album took shape.</p>
-        <p>The People’s Radio did not host SubOrbital Records as a project. It welcomed it as a moment.</p>
-      </div>
-    </div>
-  </section>
-
   <section class="tpr-editorial tpr-broadcast" aria-labelledby="tpr-broadcast-title">
     <div class="shell tpr-broadcast-grid">
       <div>

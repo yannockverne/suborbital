@@ -1,81 +1,64 @@
 ---
 title: TPR
 permalink: /tpr/
+body_class: tpr-page
 ---
 
-# The People’s Radio
+<article class="tpr-v2">
+  <header class="tpr-hero" aria-labelledby="tpr-title">
+    <img src="{{ '/assets/img/v2/tpr-levski.webp' | relative_url }}" alt="The People’s Radio studios in Levski" fetchpriority="high">
+    <div class="tpr-hero-shade"></div>
+    <div class="shell tpr-hero-inner">
+      <p class="eyebrow">INDEPENDENT BROADCAST // LEVSKI, DELAMAR</p>
+      <img class="tpr-hero-logo" src="{{ '/assets/img/v2/logos/tpr-logo-white.png' | relative_url }}" alt="The People’s Radio">
+      <h1 id="tpr-title" class="visually-hidden">The People’s Radio</h1>
+      <p class="tpr-slogan">“The Hottest Mix from a Small Rock in Nyx.”</p>
+    </div>
+  </header>
 
-<p class="lead">
-  Some places amplify sound. Others amplify people.
-  The People’s Radio does both.
-</p>
+  <section class="tpr-editorial tpr-introduction" aria-labelledby="tpr-introduction-title">
+    <div class="shell tpr-introduction-grid">
+      <div>
+        <p class="eyebrow">THE PEOPLE’S RADIO // OPEN SIGNAL</p>
+        <h2 id="tpr-introduction-title">A place for every honest sound.</h2>
+      </div>
+      <div class="tpr-prose">
+        <p class="tpr-opening">Some places amplify sound. Others amplify people.<br>The People’s Radio does both.</p>
+        <p>Founded in 2672 by members of The People’s Alliance, The People’s Radio was created as an independent broadcast station. Not to dominate the airwaves, but to keep them open.</p>
+        <p>From its studios in Levski, Delamar, TPR has always defended the same idea. Voices matter. Not because they are loud, polished, or profitable, but because they exist.</p>
+        <p>The station does not format. It does not correct. It listens. Shows emerge organically, carried by hosts who broadcast what they love, not what is expected. Electronic music, experimental sounds, pirate signals, underground scenes. Everything has its place, as long as it is honest.</p>
+        <p>Over time, The People’s Radio became more than a radio station. It became a refuge. A space where artists, technicians, travelers, and listeners could cross paths without hierarchy or agenda. A place where creation is allowed to be fragile.</p>
+      </div>
+    </div>
+  </section>
 
-<div class="card">
-  <p>
-    Founded in 2672 by members of The People’s Alliance, The People’s Radio was created as an
-    independent broadcast station. Not to dominate the airwaves, but to keep them open.
-  </p>
+  <section class="tpr-editorial tpr-relationship" aria-labelledby="tpr-relationship-title">
+    <div class="shell tpr-relationship-grid">
+      <div class="tpr-relationship-heading">
+        <p class="eyebrow">TPR × SUBORBITAL RECORDS</p>
+        <h2 id="tpr-relationship-title">The place that made the session possible.</h2>
+      </div>
+      <div class="tpr-prose tpr-relationship-prose">
+        <p class="tpr-statement">SubOrbital Records exists because The People’s Radio exists.</p>
+        <p>The Across the Clouds session was recorded entirely within TPR’s studios in Levski. One week, offered without contracts, without conditions, without expectations. Just time, space, and trust.</p>
+        <p>Nok Varen first came to TPR as a maintenance technician. He stayed because he learned how to listen differently there. With the support of Jade and the TPR crew, the idea of documenting a session rather than producing an album took shape.</p>
+        <p>The People’s Radio did not host SubOrbital Records as a project. It welcomed it as a moment.</p>
+      </div>
+    </div>
+  </section>
 
-  <p>
-    From its studios in Levski, Delamar, TPR has always defended the same idea. Voices matter.
-    Not because they are loud, polished, or profitable, but because they exist.
-  </p>
-
-  <p>
-    The station does not format. It does not correct. It listens.
-    Shows emerge organically, carried by hosts who broadcast what they love, not what is expected.
-    Electronic music, experimental sounds, pirate signals, underground scenes.
-    Everything has its place, as long as it is honest.
-  </p>
-
-  <p>
-    Over time, The People’s Radio became more than a radio station. It became a refuge.
-    A space where artists, technicians, travelers, and listeners could cross paths without
-    hierarchy or agenda. A place where creation is allowed to be fragile.
-  </p>
-</div>
-
-## TPR and SubOrbital Records
-
-<div class="card">
-  <p>
-    SubOrbital Records exists because The People’s Radio exists.
-  </p>
-
-  <p>
-    The Across the Clouds session was recorded entirely within TPR’s studios in Levski.
-    One week, offered without contracts, without conditions, without expectations.
-    Just time, space, and trust.
-  </p>
-
-  <p>
-    Nok Varen first came to TPR as a maintenance technician. He stayed because he learned how to
-    listen differently there. With the support of Jade and the TPR crew, the idea of documenting
-    a session rather than producing an album took shape.
-  </p>
-
-  <p>
-    The People’s Radio did not host SubOrbital Records as a project.
-    It welcomed it as a moment.
-  </p>
-</div>
-
-## Broadcast spirit
-
-<div class="card">
-  <p>
-    TPR broadcasts without borders.
-    Signals drift through Stanton, Nyx, and beyond.
-    Some are clear. Others break, distort, or vanish.
-  </p>
-
-  <p>
-    What survives is what matters.
-  </p>
-
-  <p>
-    That philosophy shaped SubOrbital Records at every step.
-    Not everything had to be heard.
-    Only what needed to exist.
-  </p>
-</div>
+  <section class="tpr-editorial tpr-broadcast" aria-labelledby="tpr-broadcast-title">
+    <div class="shell tpr-broadcast-grid">
+      <div>
+        <p class="eyebrow">BROADCAST SPIRIT // STANTON, NYX &amp; BEYOND</p>
+        <h2 id="tpr-broadcast-title">What survives is what matters.</h2>
+      </div>
+      <div class="tpr-prose tpr-broadcast-prose">
+        <p>TPR broadcasts without borders. Signals drift through Stanton, Nyx, and beyond. Some are clear. Others break, distort, or vanish.</p>
+        <p class="tpr-statement">What survives is what matters.</p>
+        <p>That philosophy shaped SubOrbital Records at every step. Not everything had to be heard. Only what needed to exist.</p>
+        <a class="text-link" href="https://thepeoplesradio.space" target="_blank" rel="noopener noreferrer">Visit The People’s Radio <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+</article>

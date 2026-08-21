@@ -5,7 +5,7 @@ body_class: release-page
 excerpt: Across the Clouds, SOR-001 — twelve tracks recorded around The People’s Radio in Levski in October 2955.
 ---
 
-  <section class="release-section release-record" aria-labelledby="record-heading">
+  <section id="release-story" class="release-section release-record" data-rail-theme="dark" aria-labelledby="record-heading">
     <div class="release-shell release-editorial-grid reveal">
       <div><p class="eyebrow warm">THE RECORD // SOR-001</p><h2 id="record-heading">A gathering, not a compilation</h2></div>
       <div class="release-prose">
@@ -18,7 +18,7 @@ excerpt: Across the Clouds, SOR-001 — twelve tracks recorded around The People
 
   {% include release-tracklist.html %}
 
-  <section class="release-section release-voices" aria-labelledby="voices-heading">
+  <section id="release-voices" class="release-section release-voices" data-rail-theme="dark" aria-labelledby="voices-heading">
     <div class="release-shell reveal">
       <div class="release-section-heading">
         <div><p class="eyebrow">ARTIST FILES // 7 IDENTITIES</p><h2 id="voices-heading">The Voices</h2></div>
@@ -36,7 +36,7 @@ excerpt: Across the Clouds, SOR-001 — twelve tracks recorded around The People
     </div>
   </section>
 
-  <section class="release-section release-session" aria-labelledby="session-heading">
+  <section id="release-session" class="release-section release-session" data-rail-theme="dark" aria-labelledby="session-heading">
     <div class="release-shell release-session-grid reveal">
       <figure><img src="{{ '/assets/img/v2/session-group.webp' | relative_url }}" alt="The eleven participants gathered during the Across the Clouds session" loading="lazy" width="1536" height="1024"></figure>
       <div class="release-session-copy">
@@ -50,7 +50,7 @@ excerpt: Across the Clouds, SOR-001 — twelve tracks recorded around The People
     </div>
   </section>
 
-  <section class="release-section release-context" aria-labelledby="context-heading">
+  <section id="release-context" class="release-section release-context" data-rail-theme="light" aria-labelledby="context-heading">
     <div class="release-shell release-editorial-grid reveal">
       <div><p class="eyebrow">PRODUCTION NOTE // TRANSPARENT RECORD</p><h2 id="context-heading">Behind the fiction</h2></div>
       <div class="release-prose">

@@ -6,16 +6,9 @@ excerpt: The story of seven days at The People's Radio in Levski and the making 
 ---
 
 <article class="session-v2" id="top">
-  <nav class="artist-v2-section-nav" aria-label="On this session page">
-    <a href="#session-hero" aria-label="Hero"><span>Hero</span></a>
-    <a href="#session-room" aria-label="The Room"><span>Room</span></a>
-    <a href="#session-week" aria-label="What Changed During the Week"><span>Week</span></a>
-    <a href="#session-takes" aria-label="Between Takes"><span>Takes</span></a>
-    <a href="#session-final" aria-label="The Final Listening Day"><span>Final</span></a>
-    <a href="#session-after" aria-label="After Levski"><span>After</span></a>
-  </nav>
+  {% include section-rail.html label="Session section navigation" items="session-hero:Hero|session-room:Room|session-week:Week|session-takes:Takes|session-final:Final|session-after:After" %}
 
-  <header class="session-v2-hero" id="session-hero">
+  <header class="session-v2-hero" id="session-hero" data-rail-theme="dark">
     <img src="{{ '/assets/img/v2/session-hero.webp' | relative_url }}" alt="The recording week at The People's Radio in Levski" width="2100" height="900">
     <div class="session-v2-hero-shade" aria-hidden="true"></div>
     <div class="session-v2-shell session-v2-hero-copy">
@@ -33,7 +26,7 @@ excerpt: The story of seven days at The People's Radio in Levski and the making 
     </div>
   </header>
 
-  <section class="session-v2-chapter session-v2-room" id="session-room" aria-labelledby="session-room-heading">
+  <section class="session-v2-chapter session-v2-room" id="session-room" aria-labelledby="session-room-heading" data-rail-theme="dark">
     <div class="session-v2-shell session-v2-chapter-grid">
       <figure><img src="{{ '/assets/img/v2/session-1.webp' | relative_url }}" alt="A moment inside The People's Radio during the session" loading="lazy" width="800" height="1000"></figure>
       <div class="session-v2-copy">
@@ -50,7 +43,7 @@ excerpt: The story of seven days at The People's Radio in Levski and the making 
     </div>
   </section>
 
-  <section class="session-v2-chapter session-v2-week" id="session-week" aria-labelledby="session-week-heading">
+  <section class="session-v2-chapter session-v2-week" id="session-week" aria-labelledby="session-week-heading" data-rail-theme="dark">
     <div class="session-v2-shell session-v2-chapter-grid session-v2-chapter-grid--reverse">
       <figure><img src="{{ '/assets/img/v2/session-2.webp' | relative_url }}" alt="The session taking shape during the week" loading="lazy" width="800" height="1000"></figure>
       <div class="session-v2-copy">
@@ -68,7 +61,7 @@ excerpt: The story of seven days at The People's Radio in Levski and the making 
     </div>
   </section>
 
-  <section class="session-v2-chapter session-v2-takes" id="session-takes" aria-labelledby="session-takes-heading">
+  <section class="session-v2-chapter session-v2-takes" id="session-takes" aria-labelledby="session-takes-heading" data-rail-theme="dark">
     <div class="session-v2-shell session-v2-chapter-grid session-v2-chapter-grid--offset">
       <figure><img src="{{ '/assets/img/v2/session-3.webp' | relative_url }}" alt="A candid moment between takes at The People's Radio" loading="lazy" width="800" height="1000"></figure>
       <div class="session-v2-copy">
@@ -86,7 +79,7 @@ excerpt: The story of seven days at The People's Radio in Levski and the making 
     </div>
   </section>
 
-  <section class="session-v2-final" id="session-final" aria-labelledby="session-final-heading">
+  <section class="session-v2-final" id="session-final" aria-labelledby="session-final-heading" data-rail-theme="light">
     <div class="session-v2-shell session-v2-final-grid">
       <div class="session-v2-heading">
         <p class="eyebrow">CHAPTER 04 // LISTENING DAY</p>
@@ -111,7 +104,7 @@ excerpt: The story of seven days at The People's Radio in Levski and the making 
     </div>
   </section>
 
-  <section class="session-v2-ending session-v2-after" id="session-after" aria-labelledby="session-after-heading">
+  <section class="session-v2-ending session-v2-after" id="session-after" aria-labelledby="session-after-heading" data-rail-theme="dark">
     <img src="{{ '/assets/img/v2/session-ending.webp' | relative_url }}" alt="The close of the recording week in Levski" loading="lazy" width="2100" height="900">
     <div class="session-v2-ending-shade" aria-hidden="true"></div>
     <div class="session-v2-shell session-v2-after-grid session-v2-ending-copy">

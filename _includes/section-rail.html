@@ -1,0 +1,7 @@
+{% assign rail_items = include.items | strip | split: "|" %}
+<nav class="section-rail" aria-label="{{ include.label }}" data-section-rail data-theme="dark">
+  {% for rail_item in rail_items %}
+    {% assign rail_parts = rail_item | split: ":" %}
+    <a href="#{{ rail_parts[0] | strip }}"><span>{{ rail_parts[1] | strip }}</span></a>
+  {% endfor %}
+</nav>

@@ -2,7 +2,7 @@
 {% unless track_release %}{% assign track_release = site.data.releases | where: "slug", page.release | first %}{% endunless %}
 {% assign tracks = track_release.tracks %}
 {% if tracks and tracks.size > 0 %}
-<section class="release-section release-tracklist" aria-labelledby="tracklist-heading">
+<section id="release-tracklist" class="release-section release-tracklist" data-rail-theme="light" aria-labelledby="tracklist-heading">
   <div class="release-shell reveal">
     <div class="release-section-heading">
       <div><p class="eyebrow">ARCHIVE SEQUENCE // {{ tracks.size }} ENTRIES</p><h2 id="tracklist-heading">Tracklist</h2></div>

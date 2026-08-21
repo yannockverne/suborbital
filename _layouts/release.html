@@ -3,7 +3,8 @@ layout: default
 ---
 {% assign release = site.data.releases | where: "slug", page.release | first %}
 <article class="release" id="top">
-  <header class="release-hero">
+  {% include section-rail.html label="Release section navigation" items="release-hero:Record|release-story:Story|release-tracklist:Tracklist|release-voices:Voices|release-session:Session|release-context:Project note" %}
+  <header id="release-hero" class="release-hero" data-rail-theme="dark">
     <div class="release-shell release-hero-grid reveal">
       <div class="release-hero-copy">
         <p class="eyebrow warm">{% if release.featured %}CURRENT RECORD{% else %}RELEASE FILE{% endif %} // {{ release.catalogue }}</p>

@@ -5,7 +5,8 @@ body_class: tpr-page
 ---
 
 <article class="tpr-v2">
-  <header class="tpr-hero" aria-labelledby="tpr-title">
+  {% include section-rail.html label="TPR section navigation" items="tpr-hero:Signal|tpr-introduction:Story|tpr-broadcast:Broadcast" %}
+  <header id="tpr-hero" class="tpr-hero" data-rail-theme="dark" aria-labelledby="tpr-title">
     <img src="{{ '/assets/img/v2/tpr-levski.webp' | relative_url }}" alt="The People’s Radio studios in Levski" fetchpriority="high">
     <div class="tpr-hero-shade"></div>
     <div class="shell tpr-hero-inner">
@@ -16,7 +17,7 @@ body_class: tpr-page
     </div>
   </header>
 
-  <section class="tpr-editorial tpr-introduction" aria-labelledby="tpr-introduction-title">
+  <section id="tpr-introduction" class="tpr-editorial tpr-introduction" data-rail-theme="dark" aria-labelledby="tpr-introduction-title">
     <div class="shell tpr-introduction-grid">
       <div>
         <p class="eyebrow">THE PEOPLE’S RADIO // OPEN SIGNAL</p>
@@ -32,7 +33,7 @@ body_class: tpr-page
     </div>
   </section>
 
-  <section class="tpr-editorial tpr-broadcast" aria-labelledby="tpr-broadcast-title">
+  <section id="tpr-broadcast" class="tpr-editorial tpr-broadcast" data-rail-theme="dark" aria-labelledby="tpr-broadcast-title">
     <div class="shell tpr-broadcast-grid">
       <div>
         <p class="eyebrow">BROADCAST SPIRIT // STANTON, NYX &amp; BEYOND</p>

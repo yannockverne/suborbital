@@ -1,0 +1,29 @@
+---
+layout: default
+---
+{% assign release = site.data.releases | where: "slug", page.release | first %}
+<article class="release" id="top">
+  {% include section-rail.html label="Release section navigation" items="release-hero:Record|release-story:Story|release-tracklist:Tracklist|release-voices:Voices|release-session:Session|release-context:Project note" %}
+  <header id="release-hero" class="release-hero" data-rail-theme="dark">
+    <div class="release-shell release-hero-grid reveal">
+      <div class="release-hero-copy">
+        <p class="eyebrow warm">{% if release.featured %}CURRENT RECORD{% else %}RELEASE FILE{% endif %} // {{ release.catalogue }}</p>
+        <h1>{{ release.title }}</h1>
+        {% unless release.show_detail_meta == false %}<p class="release-intro">{{ release.artist }} // {{ release.type }} // {{ release.date }}{% if release.context %}<br>{{ release.context }}{% endif %}</p>{% endunless %}
+        {% if release.deck or release.teaser %}<p class="release-deck">{{ release.deck | default: release.teaser }}</p>{% endif %}
+        {% if release.intro %}<p class="release-intro">{{ release.intro }}</p>{% endif %}
+        {% if release.facts %}
+        <dl class="release-facts release-hero-facts">
+          {% for fact in release.facts %}<div><dt>{{ fact.label }}</dt><dd>{{ fact.value }}</dd></div>{% endfor %}
+        </dl>
+        {% endif %}
+      </div>
+      <figure class="release-cover">
+        <img src="{{ release.artwork | relative_url }}" alt="{{ release.cover_alt | default: release.title }}" width="1024" height="1024">
+        <figcaption>{{ release.cover_caption | default: release.catalogue }}</figcaption>
+      </figure>
+    </div>
+  </header>
+
+  {{ content }}
+</article>

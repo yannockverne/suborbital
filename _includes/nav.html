@@ -1,33 +1,9 @@
-<nav class="nav">
-  <!-- BRAND : remplace le texte par un logo si tu veux (voir plus bas) -->
-  <a class="brand" href="{{ '/' | relative_url }}">
-    <!-- Option logo (recommandée). Si tu n'as pas encore le fichier, remets "SubOrbital" en texte -->
-    <img class="brand-logo" src="{{ '/assets/img/suborbital-logo.png' | relative_url }}" alt="SubOrbital Records">
-  </a>
-
-  <div class="links">
-    {% for item in site.data.nav %}
-      {% if item.url == '/artists/' %}
-        <!-- Dropdown Artists -->
-        <details class="drop {% if page.url contains '/artists/' %}active{% endif %}">
-          <summary>Artists</summary>
-          <div class="drop-menu">
-            <a href="{{ '/artists/' | relative_url }}">All artists</a>
-            <div class="drop-sep"></div>
-
-            {% assign sorted = site.artists | sort: "order" %}
-            {% for a in sorted %}
-              <a href="{{ a.url | relative_url }}">{{ a.name }}</a>
-            {% endfor %}
-          </div>
-        </details>
-
-      {% else %}
-        {% assign item_url = item.url | relative_url %}
-        <a href="{{ item_url }}" class="{% if page.url == item.url %}active{% endif %}">
-          {{ item.title }}
-        </a>
-      {% endif %}
-    {% endfor %}
+<header class="site-header">
+  <div class="shell nav">
+    <a class="brand" href="{{ '/' | relative_url }}"><img class="brand-logo" src="{{ '/assets/img/v2/logos/suborbital-records-white.png' | relative_url }}" alt="SubOrbital Records home"></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"><span>Menu</span><i aria-hidden="true"></i></button>
+    <nav class="nav-links" id="primary-nav" aria-label="Primary navigation">
+      <a href="{{ '/releases/' | relative_url }}">Releases</a><a href="{{ '/artists/' | relative_url }}">Artists</a><a href="{{ '/sessions/' | relative_url }}">Sessions</a><a href="{{ '/tpr/' | relative_url }}">TPR</a><a href="{{ '/credits/' | relative_url }}">About</a>
+    </nav>
   </div>
-</nav>
+</header>

@@ -4,7 +4,11 @@ permalink: /artists/
 body_class: artists-index-page
 ---
 
-{% include section-rail.html label="Artists catalogue section navigation" items="artists-overview:Artists|catalogue-01-03:Files 01–03|catalogue-04-05:Files 04–05|catalogue-06-07:Files 06–07" %}
+{% assign sorted = site.artists | sort: "order" %}
+{% assign catalogue_group_size = 3 %}
+{% capture artist_rail_items %}artists-overview:Artists{% for a in sorted %}{% assign group_offset = forloop.index0 | modulo: catalogue_group_size %}{% if group_offset == 0 %}{% assign group_start = forloop.index %}{% assign group_end = group_start | plus: catalogue_group_size | minus: 1 %}{% if group_end > sorted.size %}{% assign group_end = sorted.size %}{% endif %}|catalogue-{% if group_start < 10 %}0{% endif %}{{ group_start }}-{% if group_end < 10 %}0{% endif %}{{ group_end }}:Files {% if group_start < 10 %}0{% endif %}{{ group_start }}–{% if group_end < 10 %}0{% endif %}{{ group_end }}{% endif %}{% endfor %}{% endcapture %}
+
+{% include section-rail.html label="Artists catalogue section navigation" items=artist_rail_items %}
 
 <div class="artists-section">
   <header class="artists-index-intro section" id="artists-overview" aria-labelledby="artists-title">
@@ -13,15 +17,16 @@ body_class: artists-index-page
     </div>
   </header>
 
-  {% assign sorted = site.artists | sort: "order" %}
   {% for a in sorted %}
-    {% if forloop.index == 1 or forloop.index == 4 or forloop.index == 6 %}
-      {% if forloop.index == 1 %}{% assign range_id = "catalogue-01-03" %}{% assign range_label = "FILES // 01—03" %}{% endif %}
-      {% if forloop.index == 4 %}{% assign range_id = "catalogue-04-05" %}{% assign range_label = "FILES // 04—05" %}{% endif %}
-      {% if forloop.index == 6 %}{% assign range_id = "catalogue-06-07" %}{% assign range_label = "FILES // 06—07" %}{% endif %}
+    {% assign group_offset = forloop.index0 | modulo: catalogue_group_size %}
+    {% if group_offset == 0 %}
+      {% assign group_start = forloop.index %}
+      {% assign group_end = group_start | plus: catalogue_group_size | minus: 1 %}
+      {% if group_end > sorted.size %}{% assign group_end = sorted.size %}{% endif %}
+      {% capture range_id %}catalogue-{% if group_start < 10 %}0{% endif %}{{ group_start }}-{% if group_end < 10 %}0{% endif %}{{ group_end }}{% endcapture %}
       <section class="artist-catalogue-section" id="{{ range_id }}" aria-labelledby="{{ range_id }}-title">
         <div class="shell">
-          <h2 class="artist-range-heading" id="{{ range_id }}-title">{{ range_label }}</h2>
+          <h2 class="artist-range-heading" id="{{ range_id }}-title">FILES // {% if group_start < 10 %}0{% endif %}{{ group_start }}—{% if group_end < 10 %}0{% endif %}{{ group_end }}</h2>
           <div class="artist-list">
     {% endif %}
             <article class="artist-file">
@@ -32,7 +37,8 @@ body_class: artists-index-page
                 <p>{{ a.microcopy }}</p>
               </div>
             </article>
-    {% if forloop.index == 3 or forloop.index == 5 or forloop.last %}
+    {% assign next_group_offset = forloop.index | modulo: catalogue_group_size %}
+    {% if next_group_offset == 0 or forloop.last %}
           </div>
         </div>
       </section>

@@ -79,7 +79,7 @@ excerpt: The story of seven days at The People's Radio in Levski and the making 
     </div>
   </section>
 
-  <section class="session-v2-final" id="session-final" aria-labelledby="session-final-heading" data-rail-theme="dark">
+  <section class="session-v2-final" id="session-final" aria-labelledby="session-final-heading" data-rail-theme="light">
     <div class="session-v2-shell session-v2-final-grid">
       <div class="session-v2-heading">
         <p class="eyebrow">CHAPTER 04 // LISTENING DAY</p>

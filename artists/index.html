@@ -4,18 +4,46 @@ permalink: /artists/
 body_class: artists-index-page
 ---
 
-<section class="artists-section section" id="artists" aria-labelledby="artists-title">
-  <div class="shell">
-    <div class="section-heading"><div><p class="eyebrow">ARTIST FILES // ACTIVE</p><h1 id="artists-title">The people behind the archive</h1></div></div>
-    <div class="artist-list">
-      {% assign sorted = site.artists | sort: "order" %}
-      {% for a in sorted %}
-      <article class="artist-file">
-        <a class="artist-image artist-image--{{ a.slug }}" href="{{ a.url | relative_url }}" aria-label="Open {{ a.name }} artist file"><img src="{{ '/assets/img/v2/artists/' | append: a.slug | append: '.webp' | relative_url }}" alt="Portrait of {{ a.name }}" loading="lazy"></a>
-        <div class="artist-info"><p class="file-number">FILE // {% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</p><h3><a href="{{ a.url | relative_url }}">{{ a.name }}</a></h3><p>{{ a.microcopy }}</p></div>
-      </article>
-      {% endfor %}
+{% assign sorted = site.artists | sort: "order" %}
+{% assign catalogue_group_size = 3 %}
+{% capture artist_rail_items %}artists-overview:Artists{% for a in sorted %}{% assign group_offset = forloop.index0 | modulo: catalogue_group_size %}{% if group_offset == 0 %}{% assign group_start = forloop.index %}{% assign group_end = group_start | plus: catalogue_group_size | minus: 1 %}{% if group_end > sorted.size %}{% assign group_end = sorted.size %}{% endif %}|catalogue-{% if group_start < 10 %}0{% endif %}{{ group_start }}-{% if group_end < 10 %}0{% endif %}{{ group_end }}:Files {% if group_start < 10 %}0{% endif %}{{ group_start }}–{% if group_end < 10 %}0{% endif %}{{ group_end }}{% endif %}{% endfor %}{% endcapture %}
+
+{% include section-rail.html label="Artists catalogue section navigation" items=artist_rail_items %}
+
+<div class="artists-section">
+  <header class="artists-index-intro section" id="artists-overview" aria-labelledby="artists-title">
+    <div class="shell">
+      <div class="section-heading"><div><p class="eyebrow">ARTIST FILES // ACTIVE</p><h1 id="artists-title">The people behind the archive</h1></div></div>
     </div>
-    <a class="back-to-top" href="#top">Back to top <span aria-hidden="true">↑</span></a>
-  </div>
-</section>
+  </header>
+
+  {% for a in sorted %}
+    {% assign group_offset = forloop.index0 | modulo: catalogue_group_size %}
+    {% if group_offset == 0 %}
+      {% assign group_start = forloop.index %}
+      {% assign group_end = group_start | plus: catalogue_group_size | minus: 1 %}
+      {% if group_end > sorted.size %}{% assign group_end = sorted.size %}{% endif %}
+      {% capture range_id %}catalogue-{% if group_start < 10 %}0{% endif %}{{ group_start }}-{% if group_end < 10 %}0{% endif %}{{ group_end }}{% endcapture %}
+      <section class="artist-catalogue-section" id="{{ range_id }}" aria-labelledby="{{ range_id }}-title">
+        <div class="shell">
+          <h2 class="artist-range-heading" id="{{ range_id }}-title">FILES // {% if group_start < 10 %}0{% endif %}{{ group_start }}—{% if group_end < 10 %}0{% endif %}{{ group_end }}</h2>
+          <div class="artist-list">
+    {% endif %}
+            <article class="artist-file">
+              <a class="artist-image artist-image--{{ a.slug }}" href="{{ a.url | relative_url }}" aria-label="Open {{ a.name }} artist file"><img src="{{ '/assets/img/v2/artists/' | append: a.slug | append: '.webp' | relative_url }}" alt="Portrait of {{ a.name }}" loading="lazy"></a>
+              <p class="file-number">FILE // {% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</p>
+              <div class="artist-info">
+                <h3><a href="{{ a.url | relative_url }}">{{ a.name }}</a></h3>
+                <p>{{ a.microcopy }}</p>
+              </div>
+            </article>
+    {% assign next_group_offset = forloop.index | modulo: catalogue_group_size %}
+    {% if next_group_offset == 0 or forloop.last %}
+          </div>
+        </div>
+      </section>
+    {% endif %}
+  {% endfor %}
+
+  <div class="shell"><a class="back-to-top artists-back-to-top" href="#top">Back to top <span aria-hidden="true">↑</span></a></div>
+</div>

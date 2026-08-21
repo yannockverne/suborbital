@@ -40,7 +40,6 @@ body_class: tpr-page
       </div>
       <div class="tpr-prose tpr-broadcast-prose">
         <p>TPR broadcasts without borders. Signals drift through Stanton, Nyx, and beyond. Some are clear. Others break, distort, or vanish.</p>
-        <p class="tpr-statement">What survives is what matters.</p>
         <p>That philosophy shaped SubOrbital Records at every step. Not everything had to be heard. Only what needed to exist.</p>
         <a class="text-link" href="https://thepeoplesradio.space" target="_blank" rel="noopener noreferrer">Visit The People’s Radio <span aria-hidden="true">↗</span></a>
       </div>

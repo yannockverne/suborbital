@@ -2,7 +2,6 @@
 layout: default
 ---
 
-{% if page.artist_v2 %}
 <article class="artist-v2" id="top">
   {% capture artist_rail_items %}artist-hero:Hero|artist-intro:Intro|artist-portrait:Portrait|artist-story:Story{% if page.featured_track %}|artist-listen:Listen{% endif %}{% if page.release_appearances %}|artist-record:Record{% endif %}{% endcapture %}
   {% include section-rail.html label="Artist section navigation" items=artist_rail_items %}
@@ -99,20 +98,3 @@ layout: default
     </div>
   </nav>
 </article>
-{% else %}
-<article class="artist">
-  <header class="artist-header">
-    <div class="artist-kicker">Artist dossier</div>
-    <h1 class="artist-title">{{ page.name }}</h1>
-    {% if page.tagline %}<p class="artist-tagline">{{ page.tagline }}</p>{% endif %}
-    {% if page.portrait %}<figure class="artist-figure"><img class="artist-portrait" src="{{ page.portrait | relative_url }}" alt="{{ page.name }}">{% if page.portrait_caption %}<figcaption class="artist-caption">{{ page.portrait_caption }}</figcaption>{% endif %}</figure>{% endif %}
-  </header>
-  <section class="artist-body card">{{ content }}</section>
-  {% if page.origin or page.role or page.signal %}<section class="artist-meta">
-    {% if page.role %}<div class="meta-item"><div class="meta-label">Role</div><div class="meta-value">{{ page.role }}</div></div>{% endif %}
-    {% if page.origin %}<div class="meta-item"><div class="meta-label">Origin</div><div class="meta-value">{{ page.origin }}</div></div>{% endif %}
-    {% if page.signal %}<div class="meta-item"><div class="meta-label">Signal</div><div class="meta-value">{{ page.signal }}</div></div>{% endif %}
-  </section>{% endif %}
-  <nav class="artist-nav"><a class="btn-link" href="{{ '/artists/' | relative_url }}">← Back to Artists</a></nav>
-</article>
-{% endif %}

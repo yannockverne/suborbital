@@ -4,18 +4,40 @@ permalink: /artists/
 body_class: artists-index-page
 ---
 
-<section class="artists-section section" id="artists" aria-labelledby="artists-title">
-  <div class="shell">
-    <div class="section-heading"><div><p class="eyebrow">ARTIST FILES // ACTIVE</p><h1 id="artists-title">The people behind the archive</h1></div></div>
-    <div class="artist-list">
-      {% assign sorted = site.artists | sort: "order" %}
-      {% for a in sorted %}
-      <article class="artist-file">
-        <a class="artist-image artist-image--{{ a.slug }}" href="{{ a.url | relative_url }}" aria-label="Open {{ a.name }} artist file"><img src="{{ '/assets/img/v2/artists/' | append: a.slug | append: '.webp' | relative_url }}" alt="Portrait of {{ a.name }}" loading="lazy"></a>
-        <div class="artist-info"><p class="file-number">FILE // {% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</p><h3><a href="{{ a.url | relative_url }}">{{ a.name }}</a></h3><p>{{ a.microcopy }}</p></div>
-      </article>
-      {% endfor %}
+{% include section-rail.html label="Artists catalogue section navigation" items="artists-overview:Artists|catalogue-01-03:Files 01–03|catalogue-04-05:Files 04–05|catalogue-06-07:Files 06–07" %}
+
+<div class="artists-section">
+  <header class="artists-index-intro section" id="artists-overview" aria-labelledby="artists-title">
+    <div class="shell">
+      <div class="section-heading"><div><p class="eyebrow">ARTIST FILES // ACTIVE</p><h1 id="artists-title">The people behind the archive</h1></div></div>
     </div>
-    <a class="back-to-top" href="#top">Back to top <span aria-hidden="true">↑</span></a>
-  </div>
-</section>
+  </header>
+
+  {% assign sorted = site.artists | sort: "order" %}
+  {% for a in sorted %}
+    {% if forloop.index == 1 or forloop.index == 4 or forloop.index == 6 %}
+      {% if forloop.index == 1 %}{% assign range_id = "catalogue-01-03" %}{% assign range_label = "FILES // 01—03" %}{% endif %}
+      {% if forloop.index == 4 %}{% assign range_id = "catalogue-04-05" %}{% assign range_label = "FILES // 04—05" %}{% endif %}
+      {% if forloop.index == 6 %}{% assign range_id = "catalogue-06-07" %}{% assign range_label = "FILES // 06—07" %}{% endif %}
+      <section class="artist-catalogue-section" id="{{ range_id }}" aria-labelledby="{{ range_id }}-title">
+        <div class="shell">
+          <h2 class="artist-range-heading" id="{{ range_id }}-title">{{ range_label }}</h2>
+          <div class="artist-list">
+    {% endif %}
+            <article class="artist-file">
+              <a class="artist-image artist-image--{{ a.slug }}" href="{{ a.url | relative_url }}" aria-label="Open {{ a.name }} artist file"><img src="{{ '/assets/img/v2/artists/' | append: a.slug | append: '.webp' | relative_url }}" alt="Portrait of {{ a.name }}" loading="lazy"></a>
+              <p class="file-number">FILE // {% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</p>
+              <div class="artist-info">
+                <h3><a href="{{ a.url | relative_url }}">{{ a.name }}</a></h3>
+                <p>{{ a.microcopy }}</p>
+              </div>
+            </article>
+    {% if forloop.index == 3 or forloop.index == 5 or forloop.last %}
+          </div>
+        </div>
+      </section>
+    {% endif %}
+  {% endfor %}
+
+  <div class="shell"><a class="back-to-top artists-back-to-top" href="#top">Back to top <span aria-hidden="true">↑</span></a></div>
+</div>

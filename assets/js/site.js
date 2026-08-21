@@ -110,6 +110,33 @@ if (artistSectionNav) {
   }
 }
 
+const creditsSectionNav = document.querySelector('.credits-section-nav');
+
+if (creditsSectionNav && 'IntersectionObserver' in window) {
+  const sectionLinks = [...creditsSectionNav.querySelectorAll('a[href^="#"]')];
+  const sections = sectionLinks
+    .map((link) => document.getElementById(link.hash.slice(1)))
+    .filter(Boolean);
+  const setActiveSection = (section) => {
+    sectionLinks.forEach((link) => {
+      if (link.hash === `#${section.id}`) link.setAttribute('aria-current', 'true');
+      else link.removeAttribute('aria-current');
+    });
+  };
+  const visibleSections = new Map();
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) visibleSections.set(entry.target, entry.intersectionRatio);
+      else visibleSections.delete(entry.target);
+    });
+    const active = [...visibleSections].sort((a, b) => b[1] - a[1])[0]?.[0];
+    if (active) setActiveSection(active);
+  }, { threshold: [0.15, 0.35, 0.55], rootMargin: '-15% 0px -25% 0px' });
+
+  if (sections.length) setActiveSection(sections[0]);
+  sections.forEach((section) => sectionObserver.observe(section));
+}
+
 if (document.body.classList.contains('release-page')) {
   document.body.classList.add('reveal-ready');
   const reveals = document.querySelectorAll('.reveal');

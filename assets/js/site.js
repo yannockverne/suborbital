@@ -112,6 +112,44 @@ sectionRails.forEach((sectionRail) => {
   }
 });
 
+const revealTargets = [
+  '.home-hero .hero-inner',
+  '.record-section .record-grid',
+  '.tpr-section .tpr-copy',
+  '.truth-section .truth-grid',
+  '.artists-index-intro .section-heading',
+  '.artist-file',
+  '.releases-archive-header .release-shell',
+  '.catalogue-release',
+  '.session-section .session-copy',
+  '.artist-v2-hero-copy',
+  '.artist-v2-intro .artist-v2-prose',
+  '.artist-v2-portrait-grid',
+  '.artist-v2-story .artist-v2-editorial-grid',
+  '.artist-v2-feature .artist-v2-shell',
+  '.artist-v2-facts dl',
+  '.artist-v2-ending img',
+  '.artist-v2-appearances .artist-v2-editorial-grid',
+  '.session-v2-hero-copy',
+  '.session-v2-chapter-grid',
+  '.session-v2-final-grid',
+  '.session-v2-after-grid',
+  '.tpr-hero-inner',
+  '.tpr-introduction-grid',
+  '.tpr-broadcast-grid',
+  '.credits-hero-inner',
+  '.credits-portrait-grid',
+  '.credits-identity-grid',
+  '.credits-nok-grid',
+  '.credits-process-grid',
+  '.credits-roll .shell',
+  '.credits-note-grid'
+];
+
+revealTargets.forEach((selector) => {
+  document.querySelectorAll(selector).forEach((item) => item.classList.add('reveal'));
+});
+
 const reveals = document.querySelectorAll('.reveal');
 
 if (reveals.length) {

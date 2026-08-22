@@ -24,7 +24,7 @@ excerpt: Across the Clouds, SOR-001 — twelve tracks recorded around The People
         <div><p class="eyebrow">ARTIST FILES // 7 IDENTITIES</p><h2 id="voices-heading">The Voices</h2></div>
         <a class="text-link" href="{{ '/artists/' | relative_url }}">All artist files <span aria-hidden="true">↗</span></a>
       </div>
-      {% assign voices = "Lyra Nhadra|/artists/lyra-nhadra/|lyra-nhadra.webp~Kovah Redd|/archive/artists/kovah-redd.html|kovah-redd.webp~Madi Roa|/archive/artists/madi-roa.html|madi-roa.webp~Nok Varen|/artists/nok-varen/|nok-varen.webp~SubLight Shift|/archive/artists/sublightshift.html|sublight-shift.webp~Darren Anders|/archive/artists/darren-anders.html|darren-anders.webp~The Scrapliners|/artists/the-scrapliners/|the-scrapliners.webp" | split: "~" %}
+      {% assign voices = "Lyra Nhadra|/artists/lyra-nhadra/|lyra-nhadra.webp~Kovah Redd|/artists/kovah-redd/|kovah-redd.webp~Madi Roa|/artists/madi-roa/|madi-roa.webp~Nok Varen|/artists/nok-varen/|nok-varen.webp~SubLight Shift|/artists/sublight-shift/|sublight-shift.webp~Darren Anders|/artists/darren-anders/|darren-anders.webp~The Scrapliners|/artists/the-scrapliners/|the-scrapliners.webp" | split: "~" %}
       <div class="release-voice-grid">
         {% for voice in voices %}{% assign bits = voice | split: "|" %}
         <a class="release-voice reveal reveal-stagger" href="{{ bits[1] | relative_url }}">

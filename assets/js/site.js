@@ -66,7 +66,6 @@ if (trackButtons.length && player) {
       player.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'nearest' });
     });
   });
-
 }
 
 const sectionRails = document.querySelectorAll('[data-section-rail]');
@@ -113,19 +112,23 @@ sectionRails.forEach((sectionRail) => {
   }
 });
 
-if (document.body.classList.contains('release-page')) {
+const reveals = document.querySelectorAll('.reveal');
+
+if (reveals.length) {
   document.body.classList.add('reveal-ready');
-  const reveals = document.querySelectorAll('.reveal');
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  if (reducedMotion.matches || !('IntersectionObserver' in window)) {
     reveals.forEach((item) => item.classList.add('is-visible'));
   } else {
-    const observer = new IntersectionObserver((entries, revealObserver) => {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
         entry.target.classList.add('is-visible');
-        revealObserver.unobserve(entry.target);
+        observer.unobserve(entry.target);
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -5% 0px' });
-    reveals.forEach((item) => observer.observe(item));
+
+    reveals.forEach((item) => revealObserver.observe(item));
   }
 }

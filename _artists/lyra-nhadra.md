@@ -44,12 +44,12 @@ next_artist:
   url: /artists/kovah-redd/
 excerpt: Lyra Nhadra turns departures, distance and memory into cinematic pop and atmospheric electronica.
 ---
-<p>After graduating, Lyra joined Crusader Industries and began moving through Stanton from assignment to assignment. Travel became ordinary: long transits, changing stations, quiet hours spent watching places disappear behind her.</p>
+After graduating, Lyra joined Crusader Industries and began moving through Stanton from assignment to assignment. Travel became ordinary: long transits, changing stations, quiet hours spent watching places disappear behind her.
 
-<p>A journey toward Nyx eventually became a long, unstable detour through Pyro. Waiting, system noise and the strange feeling of belonging nowhere for a while found their way into <em>Leaving Pyro</em>.</p>
+A journey toward Nyx eventually became a long, unstable detour through Pyro. Waiting, system noise and the strange feeling of belonging nowhere for a while found their way into *Leaving Pyro*.
 
-<p>The song was never meant to begin a career. It was simply the moment when something Lyra had carried all her life finally found a form.</p>
+The song was never meant to begin a career. It was simply the moment when something Lyra had carried all her life finally found a form.
 
-<p>During the <em>Across the Clouds</em> sessions at The People's Radio, she found herself surrounded by people whose lives and ways of making music were completely different from her own. For once, movement did not mean isolation.</p>
+During the *Across the Clouds* sessions at The People's Radio, she found herself surrounded by people whose lives and ways of making music were completely different from her own. For once, movement did not mean isolation.
 
-<p>Music had never been her way forward. In the end, it was her voice that remained.</p>
+Music had never been her way forward. In the end, it was her voice that remained.

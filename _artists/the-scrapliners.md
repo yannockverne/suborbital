@@ -54,14 +54,24 @@ next_artist:
   url: /artists/sublight-shift/
 excerpt: The Scrapliners turn salvage, patched ships, and friendship into songs.
 ---
-<p>The four started with what they could afford: two patched-up Vultures and one battered Cutlass Black.</p>
-<p>None of it was elegant. All of it worked.</p>
-<p>Usually.</p>
-<p>Long salvage runs gave them hours of repetitive work, and singing became another way to keep the rhythm. Jokes turned into choruses. Mechanical noise became percussion. Bad repairs became lyrics.</p>
-<p>The <em>My Mess</em> songs grew directly from that life.</p>
-<p>They are not songs about failure. They are songs about fixing what can be fixed, accepting what cannot, and loving imperfect machines anyway.</p>
-<p>Madi Roa became part of the wider crew through logistics, field coordination, and occasional vocals, though she is not one of the four Scrapliners.</p>
-<p>Nok first encountered them unloading their Cutlass on the Lorville cargo docks while singing, arguing, and laughing.</p>
-<p>Nobody was performing.</p>
-<p>They were simply having a good time together.</p>
-<p>That was enough.</p>
+The four started with what they could afford: two patched-up Vultures and one battered Cutlass Black.
+
+None of it was elegant. All of it worked.
+
+Usually.
+
+Long salvage runs gave them hours of repetitive work, and singing became another way to keep the rhythm. Jokes turned into choruses. Mechanical noise became percussion. Bad repairs became lyrics.
+
+The *My Mess* songs grew directly from that life.
+
+They are not songs about failure. They are songs about fixing what can be fixed, accepting what cannot, and loving imperfect machines anyway.
+
+Madi Roa became part of the wider crew through logistics, field coordination, and occasional vocals, though she is not one of the four Scrapliners.
+
+Nok first encountered them unloading their Cutlass on the Lorville cargo docks while singing, arguing, and laughing.
+
+Nobody was performing.
+
+They were simply having a good time together.
+
+That was enough.

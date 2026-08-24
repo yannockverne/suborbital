@@ -47,10 +47,16 @@ next_artist:
   url: /artists/the-scrapliners/
 excerpt: The Verse forgets fast. Darren Anders sings slow.
 ---
-<p>Darren moves through familiar cycles: extraction, refinery, cargo, sale, then back into the dark.</p>
-<p>His guitar, Dustline, came without ambition. He plays while refinery jobs run, after long hauls, or in whatever quiet corner he finds after selling weeks of work.</p>
-<p>Nok Varen first heard him in an Area18 alley after leaving Astro Armada. Darren promised nothing when Nok mentioned a music project.</p>
-<p>Months later, the invitation to The People's Radio returned.</p>
-<p>Part of Darren's decision to go was tied to his daughter, serving in the UEE Navy. They speak rarely. Perhaps a song left somewhere in the 'Verse might reach her one day.</p>
-<p><em>Frontier Blues</em> came from the life Darren already knew: work, fatigue, solitude, and the dignity of continuing when nobody is watching.</p>
-<p>He still mines. Still helps younger crews. Still plays without expecting applause.</p>
+Darren moves through familiar cycles: extraction, refinery, cargo, sale, then back into the dark.
+
+His guitar, Dustline, came without ambition. He plays while refinery jobs run, after long hauls, or in whatever quiet corner he finds after selling weeks of work.
+
+Nok Varen first heard him in an Area18 alley after leaving Astro Armada. Darren promised nothing when Nok mentioned a music project.
+
+Months later, the invitation to The People's Radio returned.
+
+Part of Darren's decision to go was tied to his daughter, serving in the UEE Navy. They speak rarely. Perhaps a song left somewhere in the 'Verse might reach her one day.
+
+*Frontier Blues* came from the life Darren already knew: work, fatigue, solitude, and the dignity of continuing when nobody is watching.
+
+He still mines. Still helps younger crews. Still plays without expecting applause.

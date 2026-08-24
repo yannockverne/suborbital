@@ -47,14 +47,24 @@ next_artist:
   url: /artists/nok-varen/
 excerpt: SubLight Shift turn telemetry into rhythm.
 ---
-<p>SubLight Shift existed privately before it ever had an audience.</p>
-<p>Juno and Vex shared anonymous tracks and telemetry-like files on Spectrum and occasionally played masked sets at Wally's Bar. The masks were never about manufactured mystery. They simply preferred privacy.</p>
-<p>The brothers approach sound differently.</p>
-<p>Juno is structure, precision, and control.</p>
-<p>Vex is rhythm, modulation, and instinct.</p>
-<p>Nok Varen noticed recurring signatures in their anonymous work before he knew who was behind it, eventually finding them during a maintenance job at Omega Pro.</p>
-<p>At Levski, something changed.</p>
-<p><em>Burning Thrust</em> had already taken shape through months of private experimentation. Kovah Redd's voice gave it the final element it had been missing.</p>
-<p>For the first time, Juno and Vex let someone else fully into the creative space they had built together.</p>
-<p>The masks stayed.</p>
-<p>They simply felt a little less necessary.</p>
+SubLight Shift existed privately before it ever had an audience.
+
+Juno and Vex shared anonymous tracks and telemetry-like files on Spectrum and occasionally played masked sets at Wally's Bar. The masks were never about manufactured mystery. They simply preferred privacy.
+
+The brothers approach sound differently.
+
+Juno is structure, precision, and control.
+
+Vex is rhythm, modulation, and instinct.
+
+Nok Varen noticed recurring signatures in their anonymous work before he knew who was behind it, eventually finding them during a maintenance job at Omega Pro.
+
+At Levski, something changed.
+
+*Burning Thrust* had already taken shape through months of private experimentation. Kovah Redd's voice gave it the final element it had been missing.
+
+For the first time, Juno and Vex let someone else fully into the creative space they had built together.
+
+The masks stayed.
+
+They simply felt a little less necessary.

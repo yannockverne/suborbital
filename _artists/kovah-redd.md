@@ -47,9 +47,14 @@ next_artist:
   url: /artists/madi-roa/
 excerpt: Kovah Redd collects echoes from lives left behind.
 ---
-<p>Kovah eventually found an anchor in Lorville, maintaining the city's transit system and moving through underground corridors to the rhythm of trains and machinery.</p>
-<p><em>Hunter's Line</em> began there.</p>
-<p>She kept noticing the same stranger on the same routes: a woman leaving at first light, returning hours or days later more tired, more guarded, and increasingly alone. Kovah watched fatigue become vigilance, then rigidity, then solitude.</p>
-<p>For years, writing had helped Kovah unload her own weight. This time she wrote for someone who did not know how to put hers down.</p>
-<p>Nok Varen later found her near the Lorville spaceport, sitting with a worn notebook and humming without realizing it. That encounter eventually brought her to The People's Radio.</p>
-<p><em>Across the Clouds</em> became the first place where Kovah did not have to carry every echo alone.</p>
+Kovah eventually found an anchor in Lorville, maintaining the city's transit system and moving through underground corridors to the rhythm of trains and machinery.
+
+*Hunter's Line* began there.
+
+She kept noticing the same stranger on the same routes: a woman leaving at first light, returning hours or days later more tired, more guarded, and increasingly alone. Kovah watched fatigue become vigilance, then rigidity, then solitude.
+
+For years, writing had helped Kovah unload her own weight. This time she wrote for someone who did not know how to put hers down.
+
+Nok Varen later found her near the Lorville spaceport, sitting with a worn notebook and humming without realizing it. That encounter eventually brought her to The People's Radio.
+
+*Across the Clouds* became the first place where Kovah did not have to carry every echo alone.

@@ -3,7 +3,7 @@ layout: artist
 body_class: artist-page
 title: Nok Varen
 name: Nok Varen
-order: 7
+sort_name: Nok Varen
 microcopy: Producer, engineer, keeper of signals.
 origin: Levski, Nyx
 genre: Melodic Progressive / Ambient Techno
@@ -41,12 +41,6 @@ release_appearances:
         title: No Safe Jump
       - number: "12"
         title: Across the Clouds
-previous_artist:
-  name: SubLight Shift
-  url: /artists/sublight-shift/
-next_artist:
-  name: Lyra Nhadra
-  url: /artists/lyra-nhadra/
 excerpt: Nok Varen is a producer, engineer, and keeper of signals.
 ---
 Nok learned music by listening.

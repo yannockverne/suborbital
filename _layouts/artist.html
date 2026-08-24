@@ -89,12 +89,25 @@ layout: default
   </section>
   {% endif %}
 
+  {% assign sorted_artists = site.artists | sort: "sort_name" %}
+  {% for artist in sorted_artists %}
+    {% if artist.url == page.url %}{% assign artist_index = forloop.index0 %}{% endif %}
+  {% endfor %}
+  {% if artist_index > 0 %}
+    {% assign previous_artist_index = artist_index | minus: 1 %}
+    {% assign previous_artist = sorted_artists[previous_artist_index] %}
+  {% endif %}
+  {% assign next_artist_index = artist_index | plus: 1 %}
+  {% if next_artist_index < sorted_artists.size %}
+    {% assign next_artist = sorted_artists[next_artist_index] %}
+  {% endif %}
+
   <nav class="artist-v2-nav" aria-label="Artist navigation">
-    <div class="artist-v2-shell{% if page.previous_artist %} artist-v2-nav--adjacent{% endif %}">
+    <div class="artist-v2-shell{% if previous_artist %} artist-v2-nav--adjacent{% endif %}">
       <a href="{{ '/artists/' | relative_url }}"><span aria-hidden="true">←</span> Artists</a>
-      {% if page.previous_artist %}<a class="artist-v2-previous" href="{{ page.previous_artist.url | relative_url }}"><small>Previous //</small> <span aria-hidden="true">←</span> {{ page.previous_artist.name }}</a>{% endif %}
+      {% if previous_artist %}<a class="artist-v2-previous" href="{{ previous_artist.url | relative_url }}"><small>Previous //</small> <span aria-hidden="true">←</span> {{ previous_artist.name }}</a>{% endif %}
       <a class="artist-v2-back-to-top" href="#top">Back to top <span aria-hidden="true">↑</span></a>
-      {% if page.next_artist %}<a class="artist-v2-next" href="{{ page.next_artist.url | relative_url }}"><small>Next //</small> {{ page.next_artist.name }} <span aria-hidden="true">→</span></a>{% endif %}
+      {% if next_artist %}<a class="artist-v2-next" href="{{ next_artist.url | relative_url }}"><small>Next //</small> {{ next_artist.name }} <span aria-hidden="true">→</span></a>{% endif %}
     </div>
   </nav>
 </article>

@@ -3,7 +3,7 @@ layout: artist
 body_class: artist-page
 title: Madi Roa
 name: Madi Roa
-order: 3
+sort_name: Madi Roa
 microcopy: She never meant to sing.
 origin: Lorville, Hurston
 genre: Vocals / Atmospheric Pop
@@ -39,12 +39,6 @@ release_appearances:
         title: Duct Tape Dream
       - number: "10"
         title: The Line Below
-previous_artist:
-  name: Kovah Redd
-  url: /artists/kovah-redd/
-next_artist:
-  name: Darren Anders
-  url: /artists/darren-anders/
 excerpt: Madi Roa never meant to sing.
 ---
 The Scrapliners first heard Madi almost by accident. A melody slipped out during work, another voice joined it, then another, and the whole thing dissolved into laughter.

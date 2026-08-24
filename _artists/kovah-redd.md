@@ -3,7 +3,7 @@ layout: artist
 body_class: artist-page
 title: Kovah Redd
 name: Kovah Redd
-order: 2
+sort_name: Kovah Redd
 microcopy: She collects echoes from lives left behind.
 origin: Bloom, Pyro
 genre: Dark Cinematic Electro-Pop
@@ -39,12 +39,6 @@ release_appearances:
         title: Hunter's Line
       - number: "05"
         title: Burning Thrust
-previous_artist:
-  name: Lyra Nhadra
-  url: /artists/lyra-nhadra/
-next_artist:
-  name: Madi Roa
-  url: /artists/madi-roa/
 excerpt: Kovah Redd collects echoes from lives left behind.
 ---
 Kovah eventually found an anchor in Lorville, maintaining the city's transit system and moving through underground corridors to the rhythm of trains and machinery.

@@ -47,10 +47,16 @@ next_artist:
   url: /artists/darren-anders/
 excerpt: Madi Roa never meant to sing.
 ---
-<p>The Scrapliners first heard Madi almost by accident. A melody slipped out during work, another voice joined it, then another, and the whole thing dissolved into laughter.</p>
-<p>Madi thought that would be the end of it.</p>
-<p>Instead, she gradually became part of the wider crew life around them, handling logistics and field coordination without ever becoming one of the four official Scrapliners.</p>
-<p>Then came <em>Duct Tape Dream</em>.</p>
-<p>Jax asked her to sing. She agreed. What came through was clear, natural, and unforced: a voice that never needed to become larger than the moment.</p>
-<p>At The People's Radio, Madi slowly began allowing that voice to occupy more space. Nobody asked her to become louder. Nobody tried to turn her into someone else.</p>
-<p>Her story is not about stepping into the spotlight. It is about learning that being quiet and having a voice are not opposites.</p>
+The Scrapliners first heard Madi almost by accident. A melody slipped out during work, another voice joined it, then another, and the whole thing dissolved into laughter.
+
+Madi thought that would be the end of it.
+
+Instead, she gradually became part of the wider crew life around them, handling logistics and field coordination without ever becoming one of the four official Scrapliners.
+
+Then came *Duct Tape Dream*.
+
+Jax asked her to sing. She agreed. What came through was clear, natural, and unforced: a voice that never needed to become larger than the moment.
+
+At The People's Radio, Madi slowly began allowing that voice to occupy more space. Nobody asked her to become louder. Nobody tried to turn her into someone else.
+
+Her story is not about stepping into the spotlight. It is about learning that being quiet and having a voice are not opposites.

@@ -49,14 +49,24 @@ next_artist:
   url: /artists/lyra-nhadra/
 excerpt: Nok Varen is a producer, engineer, and keeper of signals.
 ---
-<p>Nok learned music by listening.</p>
-<p>At The People's Radio, he watched tracks being assembled, heard imperfect sounds left in place, and discovered that silence could matter as much as anything added to it.</p>
-<p>Eventually he left Nyx for Stanton, partly to see more of the 'Verse and partly because he dreamed of finding a ship large enough to become a small mobile studio.</p>
-<p>What changed him there was not technology.</p>
-<p>It was people.</p>
-<p>Workers, travelers, miners, salvagers, singers, and writers who had no plan to become artists kept carrying things worth hearing.</p>
-<p>The idea that became SubOrbital Records began there.</p>
-<p>Leaving Orison, Nok spent several hours drifting in suborbital space and wrote fragments of the idea down: a collection of songs made by unknown voices of the 'Verse.</p>
-<p>He never wanted to become the center of it.</p>
-<p>His role was to listen, bring people into the same room, adjust when necessary, and leave things alone when they already sounded true.</p>
-<p>The final listening day at The People's Radio became <em>Across the Clouds</em> because Nok simply kept the recording running.</p>
+Nok learned music by listening.
+
+At The People's Radio, he watched tracks being assembled, heard imperfect sounds left in place, and discovered that silence could matter as much as anything added to it.
+
+Eventually he left Nyx for Stanton, partly to see more of the 'Verse and partly because he dreamed of finding a ship large enough to become a small mobile studio.
+
+What changed him there was not technology.
+
+It was people.
+
+Workers, travelers, miners, salvagers, singers, and writers who had no plan to become artists kept carrying things worth hearing.
+
+The idea that became SubOrbital Records began there.
+
+Leaving Orison, Nok spent several hours drifting in suborbital space and wrote fragments of the idea down: a collection of songs made by unknown voices of the 'Verse.
+
+He never wanted to become the center of it.
+
+His role was to listen, bring people into the same room, adjust when necessary, and leave things alone when they already sounded true.
+
+The final listening day at The People's Radio became *Across the Clouds* because Nok simply kept the recording running.

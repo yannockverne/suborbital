@@ -3,7 +3,7 @@ layout: artist
 body_class: artist-page
 title: The Scrapliners
 name: The Scrapliners
-order: 5
+sort_name: Scrapliners, The
 microcopy: "If it flies, they'll fix it. If it's fixed, they'll sing about it."
 origin: Lorville, Hurston
 genre: Indie Rock / Space Folk / Salvage Blues
@@ -46,12 +46,6 @@ release_appearances:
         title: Same Sky
       - number: "09"
         title: My Mess in Flame
-previous_artist:
-  name: Darren Anders
-  url: /artists/darren-anders/
-next_artist:
-  name: SubLight Shift
-  url: /artists/sublight-shift/
 excerpt: The Scrapliners turn salvage, patched ships, and friendship into songs.
 ---
 The four started with what they could afford: two patched-up Vultures and one battered Cutlass Black.

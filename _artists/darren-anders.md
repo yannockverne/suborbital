@@ -3,7 +3,7 @@ layout: artist
 body_class: artist-page
 title: Darren Anders
 name: Darren Anders
-order: 4
+sort_name: Darren Anders
 microcopy: The Verse forgets fast. He sings slow.
 origin: microTech
 genre: Space Folk / Blues
@@ -39,12 +39,6 @@ release_appearances:
         title: Frontier Blues
       - number: "12"
         title: Across the Clouds
-previous_artist:
-  name: Madi Roa
-  url: /artists/madi-roa/
-next_artist:
-  name: The Scrapliners
-  url: /artists/the-scrapliners/
 excerpt: The Verse forgets fast. Darren Anders sings slow.
 ---
 Darren moves through familiar cycles: extraction, refinery, cargo, sale, then back into the dark.

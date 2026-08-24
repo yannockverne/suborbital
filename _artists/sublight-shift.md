@@ -3,7 +3,7 @@ layout: artist
 body_class: artist-page
 title: SubLight Shift
 name: SubLight Shift
-order: 6
+sort_name: SubLight Shift
 microcopy: They don't perform. They synchronize.
 origin: New Babbage, microTech
 genre: DnB / Neurofunk / Techno
@@ -39,12 +39,6 @@ release_appearances:
         title: Burning Thrust
       - number: "10"
         title: The Line Below
-previous_artist:
-  name: The Scrapliners
-  url: /artists/the-scrapliners/
-next_artist:
-  name: Nok Varen
-  url: /artists/nok-varen/
 excerpt: SubLight Shift turn telemetry into rhythm.
 ---
 SubLight Shift existed privately before it ever had an audience.

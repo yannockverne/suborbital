@@ -3,7 +3,7 @@ layout: artist
 body_class: artist-page
 title: Lyra Nhadra
 name: Lyra Nhadra
-order: 1
+sort_name: Lyra Nhadra
 microcopy: She turns departures into songs.
 origin: Orison, Crusader
 genre: Cinematic Pop / Atmospheric Electronica
@@ -39,9 +39,6 @@ release_appearances:
         title: Leaving Pyro
       - number: "08"
         title: Same Sky
-next_artist:
-  name: Kovah Redd
-  url: /artists/kovah-redd/
 excerpt: Lyra Nhadra turns departures, distance and memory into cinematic pop and atmospheric electronica.
 ---
 After graduating, Lyra joined Crusader Industries and began moving through Stanton from assignment to assignment. Travel became ordinary: long transits, changing stations, quiet hours spent watching places disappear behind her.

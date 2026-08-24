@@ -9,6 +9,8 @@ collections:
   artists:
     output: true
     permalink: /artists/:name/
+  tracks:
+    output: false
 
 defaults:
   - scope:

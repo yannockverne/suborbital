@@ -19,10 +19,8 @@ intro:
   - Music became one of the few stable things in his life long before he thought about making any himself. Later, work as an electronic maintenance technician brought him into The People's Radio, first to repair equipment, then simply to stay a little longer.
 featured_track:
   track: no-safe-jump
-  title: No Safe Jump
   meta: Across the Clouds // Track 11
   note: The first clear SubOrbital signal carrying Nok's own name.
-  url: https://soundcloud.com/yannock-708281134/no-safe-jump-11
 public_facts:
   - label: Origin
     value: Levski, Nyx

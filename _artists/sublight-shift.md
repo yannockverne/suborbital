@@ -19,10 +19,8 @@ intro:
   - Both work in IT maintenance among server racks, cooling systems, terminals, and technical corridors. Music began as another system to explore in their spare time, not as a profession or public ambition.
 featured_track:
   track: burning-thrust
-  title: Burning Thrust
   meta: Across the Clouds // Track 05
   note: Private experimentation meeting Kovah Redd's voice at The People's Radio.
-  url: https://soundcloud.com/yannock-708281134/burning-thrust-5
 public_facts:
   - label: Base
     value: New Babbage, microTech

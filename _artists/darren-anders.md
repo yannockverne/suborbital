@@ -19,10 +19,8 @@ intro:
   - At fifty-six, he still captains his Argo MOLE, The Iron Gospel, working the asteroid fields of Stanton and the outer reaches of Pyro. Mining is not the life he left behind before music. It is still his life.
 featured_track:
   track: frontier-blues
-  title: Frontier Blues
   meta: Across the Clouds // Track 06
   note: A working miner's record of fatigue, solitude, dignity, and time passing.
-  url: https://soundcloud.com/yannock-708281134/frontier-blues-6
 public_facts:
   - label: Origin
     value: microTech, Stanton

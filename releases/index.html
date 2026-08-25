@@ -13,7 +13,11 @@ excerpt: The permanent release catalogue of SubOrbital Records.
     </div>
   </header>
   <div class="release-shell releases-catalogue">
-    {% assign releases = site.data.releases | sort: "sequence" | reverse %}
+    {% assign releases = site.releases | where: "status", "published" %}
+    {% if releases == empty %}
+      {% assign releases = site.data.releases %}
+    {% endif %}
+    {% assign releases = releases | sort: "sequence" | reverse %}
     {% for release in releases %}
     {% capture release_url %}/releases/{{ release.slug }}/{% endcapture %}
     <article class="catalogue-release">

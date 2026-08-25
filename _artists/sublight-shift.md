@@ -30,14 +30,6 @@ public_facts:
     value: IT maintenance
   - label: Signature Track
     value: Burning Thrust
-release_appearances:
-  - release: sor-001
-    artist_label: SUBLIGHT SHIFT
-    tracks:
-      - number: "05"
-        title: Burning Thrust
-      - number: "10"
-        title: The Line Below
 excerpt: SubLight Shift turn telemetry into rhythm.
 ---
 SubLight Shift existed privately before it ever had an audience.

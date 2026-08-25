@@ -31,20 +31,6 @@ public_facts:
     value: Independent salvage
   - label: Fleet
     value: Two Vultures + Cutlass Black
-release_appearances:
-  - release: sor-001
-    artist_label: THE SCRAPLINERS
-    tracks:
-      - number: "02"
-        title: My Ship, My Mess
-      - number: "04"
-        title: Duct Tape Dream
-      - number: "07"
-        title: Still My Mess
-      - number: "08"
-        title: Same Sky
-      - number: "09"
-        title: My Mess in Flame
 excerpt: The Scrapliners turn salvage, patched ships, and friendship into songs.
 ---
 The four started with what they could afford: two patched-up Vultures and one battered Cutlass Black.

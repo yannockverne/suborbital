@@ -30,14 +30,6 @@ public_facts:
     value: The Iron Gospel
   - label: Signature Track
     value: Frontier Blues
-release_appearances:
-  - release: sor-001
-    artist_label: DARREN
-    tracks:
-      - number: "06"
-        title: Frontier Blues
-      - number: "12"
-        title: Across the Clouds
 excerpt: The Verse forgets fast. Darren Anders sings slow.
 ---
 Darren moves through familiar cycles: extraction, refinery, cargo, sale, then back into the dark.

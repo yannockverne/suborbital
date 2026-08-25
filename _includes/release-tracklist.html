@@ -11,9 +11,13 @@
     <ol class="release-tracks">
       {% assign has_playable_track = false %}
       {% for track in tracks %}
+      {% assign canonical_track = site.tracks | where: "track_id", track.track | first %}
+      {% assign track_title = canonical_track.title | default: track.title %}
+      {% assign track_artist = canonical_track.display_credit | default: track.artist %}
+      {% assign track_url = canonical_track.audio_url | default: track.url %}
       <li class="reveal reveal-stagger{% if forloop.last %} title-track{% endif %}" data-track-row>
-        <span class="track-number" aria-hidden="true">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span><span class="track-title">{{ track.title }}</span><span class="track-artist">{{ track.artist }}</span>
-        {% if track.url %}{% assign has_playable_track = true %}<button class="track-listen" type="button" data-track-url="{{ track.url }}" data-track-title="{{ track.title }}" aria-pressed="false"><span>Listen</span><i aria-hidden="true">▶</i></button>{% endif %}
+        <span class="track-number" aria-hidden="true">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span><span class="track-title">{{ track_title }}</span><span class="track-artist">{{ track_artist }}</span>
+        {% if track_url %}{% assign has_playable_track = true %}<button class="track-listen" type="button" data-track-url="{{ track_url }}" data-track-title="{{ track_title }}" aria-pressed="false"><span>Listen</span><i aria-hidden="true">▶</i></button>{% endif %}
       </li>
       {% endfor %}
     </ol>

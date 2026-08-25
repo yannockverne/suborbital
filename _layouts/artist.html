@@ -90,7 +90,7 @@ layout: default
   {% if has_canonical_appearances %}
   <section class="artist-v2-section artist-v2-appearances" id="artist-record" data-artist-section aria-labelledby="appearances-heading" data-rail-theme="dark">
     <div class="artist-v2-shell artist-v2-editorial-grid">
-      <div><p class="eyebrow">RECORD APPEARANCES</p><h2 id="appearances-heading">{{ page.name | upcase }} ON {{ first_appearance_release_title | upcase }}</h2></div>
+      <div><p class="eyebrow">RECORD APPEARANCES</p><p class="artist-v2-appearances-artist">{{ page.name }}</p><h2 id="appearances-heading">{{ first_appearance_release_title }}</h2></div>
       <div>
         {% assign rendered_release_count = 0 %}
         {% for appearance_release in published_releases %}
@@ -118,7 +118,7 @@ layout: default
       {% assign first_appearance = page.release_appearances | first %}
       {% assign first_release = published_releases | where: "slug", first_appearance.release | first %}
       {% unless first_release %}{% assign first_release = site.data.releases | where: "slug", first_appearance.release | first %}{% endunless %}
-      <div><p class="eyebrow">RECORD APPEARANCES</p><h2 id="appearances-heading">{{ first_appearance.artist_label | default: page.name | upcase }} ON {{ first_release.title | upcase }}</h2></div>
+      <div><p class="eyebrow">RECORD APPEARANCES</p><p class="artist-v2-appearances-artist">{{ first_appearance.artist_label | default: page.name }}</p><h2 id="appearances-heading">{{ first_release.title }}</h2></div>
       <div>
         {% for release_appearance in page.release_appearances %}
         {% assign appearance_release = published_releases | where: "slug", release_appearance.release | first %}

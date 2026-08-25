@@ -13,7 +13,8 @@ excerpt: The permanent release catalogue of SubOrbital Records.
     </div>
   </header>
   <div class="release-shell releases-catalogue">
-    {% assign releases = site.data.releases | sort: "sequence" | reverse %}
+    {% assign releases = site.releases | where: "status", "published" %}
+    {% assign releases = releases | sort: "sequence" | reverse %}
     {% for release in releases %}
     {% capture release_url %}/releases/{{ release.slug }}/{% endcapture %}
     <article class="catalogue-release">
@@ -21,7 +22,7 @@ excerpt: The permanent release catalogue of SubOrbital Records.
         <img src="{{ release.artwork | relative_url }}" alt="{{ release.title }} cover artwork" width="1024" height="1024"{% unless forloop.first %} loading="lazy"{% endunless %}>
       </a>
       <div class="catalogue-copy">
-        <div class="catalogue-line"><span>{{ release.catalogue }}</span><span>{{ release.type }}</span><span>{{ release.date }}</span></div>
+        <div class="catalogue-line"><span>{{ release.catalogue }}</span><span>{{ release.type }}</span><span>{% include release-display-date.html release=release %}</span></div>
         <h2><a href="{{ release_url | relative_url }}">{{ release.title }}</a></h2>
         <p class="catalogue-artist">{{ release.artist }}</p>
         <p class="catalogue-context">{{ release.context }}</p>

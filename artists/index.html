@@ -4,7 +4,7 @@ permalink: /artists/
 body_class: artists-index-page
 ---
 
-{% assign sorted = site.artists | sort: "order" %}
+{% assign sorted = site.artists | sort: "sort_name" %}
 {% assign catalogue_group_size = 3 %}
 {% capture artist_rail_items %}artists-overview:Artists{% for a in sorted %}{% assign group_offset = forloop.index0 | modulo: catalogue_group_size %}{% if group_offset == 0 %}{% assign group_start = forloop.index %}{% assign group_end = group_start | plus: catalogue_group_size | minus: 1 %}{% if group_end > sorted.size %}{% assign group_end = sorted.size %}{% endif %}|catalogue-{% if group_start < 10 %}0{% endif %}{{ group_start }}-{% if group_end < 10 %}0{% endif %}{{ group_end }}:Files {% if group_start < 10 %}0{% endif %}{{ group_start }}–{% if group_end < 10 %}0{% endif %}{{ group_end }}{% endif %}{% endfor %}{% endcapture %}
 

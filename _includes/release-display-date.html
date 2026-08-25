@@ -1,0 +1,5 @@
+{%- assign release_date_parts = include.release.release_date | split: "-" -%}
+{%- assign real_year = release_date_parts[0] | plus: 0 -%}
+{%- assign lore_year = real_year | plus: site.lore_year_offset -%}
+{%- assign month_date = release_date_parts[0] | append: "-" | append: release_date_parts[1] | append: "-01" -%}
+{{- month_date | date: "%B" }} {{ lore_year -}}

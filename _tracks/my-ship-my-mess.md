@@ -1,6 +1,6 @@
 ---
 track_id: my-ship-my-mess
-title: My Ship My Mess
+title: My Ship, My Mess
 status: published
 display_credit: The Scrapliners
 contributors:

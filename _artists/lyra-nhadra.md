@@ -18,6 +18,7 @@ intro:
   - Lyra Nhadra grew up on the platforms of Orison, in a home where music often filled the space left by absence. Her mother was a pianist. Her father served with Crusader Security and was frequently away.
   - Music was always there. She simply never thought it would become her way forward.
 featured_track:
+  track: leaving-pyro
   title: Leaving Pyro
   meta: Across the Clouds // Track 01
   note: Written from the uncertainty of a journey through Pyro toward Nyx.

@@ -18,6 +18,7 @@ intro:
   - Madi Roa never planned to sing.
   - She worked the cargo decks of Lorville, handling schedules, clearances, manifests, and the quiet weight of things moving in and out. Music lived around the edges of her days, usually as melodies hummed under her breath while she worked.
 featured_track:
+  track: duct-tape-dream
   title: Duct Tape Dream
   meta: Across the Clouds // Track 04
   note: The first time Madi deliberately agreed to sing.

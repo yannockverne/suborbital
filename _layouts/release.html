@@ -1,11 +1,15 @@
 ---
 layout: default
 ---
-{% assign published_releases = site.releases | where: "status", "published" %}
-{% assign release = published_releases | where: "slug", page.release | first %}
-{% unless release %}
-  {% assign release = site.data.releases | where: "slug", page.release | first %}
-{% endunless %}
+{% if page.collection == "releases" %}
+  {% assign release = page %}
+{% else %}
+  {% assign published_releases = site.releases | where: "status", "published" %}
+  {% assign release = published_releases | where: "slug", page.release | first %}
+  {% unless release %}
+    {% assign release = site.data.releases | where: "slug", page.release | first %}
+  {% endunless %}
+{% endif %}
 <article class="release" id="top">
   {% include section-rail.html label="Release section navigation" items="release-hero:Record|release-story:Story|release-tracklist:Tracklist|release-voices:Voices|release-session:Session|release-context:Project note" %}
   <header id="release-hero" class="release-hero" data-rail-theme="dark">

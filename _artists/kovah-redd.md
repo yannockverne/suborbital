@@ -30,14 +30,6 @@ public_facts:
     value: Hunter's Line
   - label: Themes
     value: Witness, empathy, memory, survival
-release_appearances:
-  - release: sor-001
-    artist_label: KOVAH
-    tracks:
-      - number: "03"
-        title: Hunter's Line
-      - number: "05"
-        title: Burning Thrust
 excerpt: Kovah Redd collects echoes from lives left behind.
 ---
 Kovah eventually found an anchor in Lorville, maintaining the city's transit system and moving through underground corridors to the rhythm of trains and machinery.

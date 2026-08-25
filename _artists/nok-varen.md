@@ -30,16 +30,6 @@ public_facts:
     value: Producer, engineer, founder
   - label: Signature Track
     value: No Safe Jump
-release_appearances:
-  - release: sor-001
-    artist_label: NOK
-    tracks:
-      - number: "10"
-        title: The Line Below
-      - number: "11"
-        title: No Safe Jump
-      - number: "12"
-        title: Across the Clouds
 excerpt: Nok Varen is a producer, engineer, and keeper of signals.
 ---
 Nok learned music by listening.

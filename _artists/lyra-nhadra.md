@@ -30,14 +30,6 @@ public_facts:
     value: Leaving Pyro
   - label: Themes
     value: Departure, distance, memory, hope
-release_appearances:
-  - release: sor-001
-    artist_label: LYRA
-    tracks:
-      - number: "01"
-        title: Leaving Pyro
-      - number: "08"
-        title: Same Sky
 excerpt: Lyra Nhadra turns departures, distance and memory into cinematic pop and atmospheric electronica.
 ---
 After graduating, Lyra joined Crusader Industries and began moving through Stanton from assignment to assignment. Travel became ordinary: long transits, changing stations, quiet hours spent watching places disappear behind her.

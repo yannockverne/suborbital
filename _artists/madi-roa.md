@@ -30,14 +30,6 @@ public_facts:
     value: Duct Tape Dream
   - label: Role
     value: Logistics, field coordination, vocals
-release_appearances:
-  - release: sor-001
-    artist_label: MADI
-    tracks:
-      - number: "04"
-        title: Duct Tape Dream
-      - number: "10"
-        title: The Line Below
 excerpt: Madi Roa never meant to sing.
 ---
 The Scrapliners first heard Madi almost by accident. A melody slipped out during work, another voice joined it, then another, and the whole thing dissolved into laughter.

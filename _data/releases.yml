@@ -25,39 +25,51 @@
     - label: Artist identities
       value: "7"
   tracks:
-    - title: Leaving Pyro
+    - track: leaving-pyro
+      title: Leaving Pyro
       artist: Lyra Nhadra
       url: https://soundcloud.com/yannock-708281134/leaving-pyro-1
-    - title: My Ship My Mess
+    - track: my-ship-my-mess
+      title: My Ship My Mess
       artist: The Scrapliners
       url: https://soundcloud.com/yannock-708281134/my-ship-my-mess-2
-    - title: Hunter’s Line
+    - track: hunters-line
+      title: Hunter’s Line
       artist: Kovah Redd
       url: https://soundcloud.com/yannock-708281134/hunter-s-line-3
-    - title: Duct Tape Dream
+    - track: duct-tape-dream
+      title: Duct Tape Dream
       artist: The Scrapliners, featuring Madi Roa
       url: https://soundcloud.com/yannock-708281134/duct-tape-dreams-4
-    - title: Burning Thrust
+    - track: burning-thrust
+      title: Burning Thrust
       artist: SubLight Shift &amp; Kovah Redd
       url: https://soundcloud.com/yannock-708281134/burning-thrust-5
-    - title: Frontier Blues
+    - track: frontier-blues
+      title: Frontier Blues
       artist: Darren Anders
       url: https://soundcloud.com/yannock-708281134/frontier-blues-6
-    - title: Still My Mess
+    - track: still-my-mess
+      title: Still My Mess
       artist: The Scrapliners
       url: https://soundcloud.com/yannock-708281134/still-my-mess-7
-    - title: Same Sky
+    - track: same-sky
+      title: Same Sky
       artist: Lyra Nhadra with Jax &amp; Rigg Rourke
       url: https://soundcloud.com/yannock-708281134/same-sky-8
-    - title: My Mess in Flame
+    - track: my-mess-in-flame
+      title: My Mess in Flame
       artist: The Scrapliners
       url: https://soundcloud.com/yannock-708281134/my-mess-in-flame-9
-    - title: The Line Below
+    - track: the-line-below-nok-varen-remix
+      title: The Line Below
       artist: SubLight Shift, with vocal textures by Madi Roa · Remix and final structure by Nok Varen
       url: https://soundcloud.com/yannock-708281134/the-line-below-nkvn-remix-10
-    - title: No Safe Jump
+    - track: no-safe-jump
+      title: No Safe Jump
       artist: Nok Varen
       url: https://soundcloud.com/yannock-708281134/no-safe-jump-11
-    - title: Across the Clouds
+    - track: across-the-clouds-live-session
+      title: Across the Clouds
       artist: Session listening day, curated by Nok Varen
       url: https://soundcloud.com/yannock-708281134/across-the-clouds-12

@@ -4,7 +4,9 @@ permalink: /
 body_class: home
 ---
 
-{% assign current_release = site.data.releases | where: "featured", true | first %}
+{% assign published_releases = site.releases | where: "status", "published" %}
+{% assign featured_releases = published_releases | where: "featured", true | sort: "sequence" | reverse %}
+{% assign current_release = featured_releases | first %}
 {% capture current_release_url %}/releases/{{ current_release.slug }}/{% endcapture %}
 {% include section-rail.html label="Homepage section navigation" items="top:Introduction|current-record:Current record|tpr:TPR|about:Project note" %}
 <section class="home-hero" id="top" aria-labelledby="hero-title" data-rail-theme="dark">
@@ -17,7 +19,7 @@ body_class: home
       <p class="index-label">CURRENT RECORD // {{ current_release.catalogue }}</p>
       <h2>{{ current_release.title }}</h2>
       <p class="record-subtitle"><em>A {{ current_release.artist }}</em></p>
-      <p class="record-meta">LEVSKI // DELAMAR // THE PEOPLE’S RADIO // {{ current_release.date | upcase }}</p>
+      <p class="record-meta">LEVSKI // DELAMAR // THE PEOPLE’S RADIO // {% include release-display-date.html release=current_release %}</p>
       <div class="actions">
         <a class="button button-primary" href="{{ current_release_url | relative_url }}">Discover {{ current_release.title }}</a>
         <a class="button button-secondary" href="{{ '/artists/' | relative_url }}">Meet the artists</a>
@@ -40,7 +42,7 @@ body_class: home
       <p class="section-lead">Seven artists. Twelve tracks. One week at The People’s Radio.</p>
       <dl class="release-facts">
         <div><dt>Tracks</dt><dd>12</dd></div><div><dt>Artists</dt><dd>7</dd></div>
-        <div><dt>Location</dt><dd>The People’s Radio</dd></div><div><dt>Filed</dt><dd>{{ current_release.date }}</dd></div>
+        <div><dt>Location</dt><dd>The People’s Radio</dd></div><div><dt>Filed</dt><dd>{% include release-display-date.html release=current_release %}</dd></div>
       </dl>
       <a class="text-link warm-link" href="{{ current_release_url | relative_url }}">Enter the record <span aria-hidden="true">↗</span></a>
     </div>

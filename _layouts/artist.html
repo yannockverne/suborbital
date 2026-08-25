@@ -38,21 +38,24 @@ layout: default
   </section>
 
   {% if page.featured_track %}
+  {% assign featured_track = site.tracks | where: "track_id", page.featured_track.track | first %}
+  {% assign featured_track_title = featured_track.title | default: page.featured_track.title %}
+  {% assign featured_track_url = featured_track.audio_url | default: page.featured_track.url %}
   <section class="artist-v2-section artist-v2-feature" id="artist-listen" data-artist-section aria-labelledby="featured-track-heading" data-rail-theme="dark">
     <div class="artist-v2-shell">
       <p class="eyebrow">FEATURED TRACK</p>
       <div class="artist-v2-feature-grid" data-track-row>
         <div>
-          <h2 id="featured-track-heading">{{ page.featured_track.title }}</h2>
+          <h2 id="featured-track-heading">{{ featured_track_title }}</h2>
           <p class="artist-v2-track-meta">{{ page.featured_track.meta }}</p>
         </div>
         <div>
           <p class="artist-v2-track-note">{{ page.featured_track.note }}</p>
-          <button class="track-listen artist-v2-listen" type="button" data-track-url="{{ page.featured_track.url }}" data-track-title="{{ page.featured_track.title }}" aria-pressed="false"><span>Listen</span><i aria-hidden="true">▶</i></button>
+          <button class="track-listen artist-v2-listen" type="button" data-track-url="{{ featured_track_url }}" data-track-title="{{ featured_track_title }}" aria-pressed="false"><span>Listen</span><i aria-hidden="true">▶</i></button>
         </div>
       </div>
       <div class="release-player" data-soundcloud-player hidden>
-        <div class="release-player-heading"><p><span class="eyebrow">NOW LISTENING</span><strong data-player-title></strong></p><a data-player-fallback href="{{ page.featured_track.url }}" target="_blank" rel="noopener">Open on SoundCloud <span aria-hidden="true">↗</span></a></div>
+        <div class="release-player-heading"><p><span class="eyebrow">NOW LISTENING</span><strong data-player-title></strong></p><a data-player-fallback href="{{ featured_track_url }}" target="_blank" rel="noopener">Open on SoundCloud <span aria-hidden="true">↗</span></a></div>
         <iframe data-player-frame title="SoundCloud player" width="100%" height="166" allow="autoplay" loading="lazy"></iframe>
         <p class="player-note">If the player is unavailable, use the SoundCloud link above.</p>
       </div>

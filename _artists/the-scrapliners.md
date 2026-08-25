@@ -20,10 +20,8 @@ intro:
   - They traded procedures for salvage, patched ships, questionable decisions, and considerably more laughter.
 featured_track:
   track: my-ship-my-mess
-  title: My Ship, My Mess
   meta: Across the Clouds // Track 02
   note: A salvage song about patched machines, questionable decisions, and affection without perfection.
-  url: https://soundcloud.com/yannock-708281134/my-ship-my-mess-2
 public_facts:
   - label: Origin
     value: Lorville, Hurston

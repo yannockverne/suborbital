@@ -19,10 +19,8 @@ intro:
   - "Writing began at GrimHEX as a private way to put down some of what she was carrying. Over time, it became something else: a way of noticing what other people carried too."
 featured_track:
   track: hunters-line
-  title: Hunter's Line
   meta: Across the Clouds // Track 03
   note: Written from watching another life slowly disappear behind vigilance, fatigue, and isolation.
-  url: https://soundcloud.com/yannock-708281134/hunter-s-line-3
 public_facts:
   - label: Origin
     value: Bloom, Pyro

@@ -2,6 +2,7 @@ title: SubOrbital Records
 description: A fictional music label inspired by Star Citizen.
 url: ""            # laisse vide pour GitHub Pages
 baseurl: ""        # vide si tu publies sur un domaine dédié ; sinon "/suborbital"
+lore_year_offset: 930
 
 markdown: kramdown
 

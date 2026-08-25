@@ -17,7 +17,7 @@ layout: default
       <div class="release-hero-copy">
         <p class="eyebrow warm">{% if release.featured %}CURRENT RECORD{% else %}RELEASE FILE{% endif %} // {{ release.catalogue }}</p>
         <h1>{{ release.title }}</h1>
-        {% unless release.show_detail_meta == false %}<p class="release-intro">{{ release.artist }} // {{ release.type }} // {{ release.date }}{% if release.context %}<br>{{ release.context }}{% endif %}</p>{% endunless %}
+        {% unless release.show_detail_meta == false %}<p class="release-intro">{{ release.artist }} // {{ release.type }} // {% include release-display-date.html release=release %}{% if release.context %}<br>{{ release.context }}{% endif %}</p>{% endunless %}
         {% if release.deck or release.teaser %}<p class="release-deck">{{ release.deck | default: release.teaser }}</p>{% endif %}
         {% if release.intro %}<p class="release-intro">{{ release.intro }}</p>{% endif %}
         {% if release.facts %}

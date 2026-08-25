@@ -1,7 +1,5 @@
-{% assign track_release = include.release %}
-{% unless track_release %}{% assign published_releases = site.releases | where: "status", "published" %}{% assign track_release = published_releases | where: "slug", page.release | first %}{% endunless %}
-{% unless track_release %}{% assign track_release = site.data.releases | where: "slug", page.release | first %}{% endunless %}
-{% assign tracks = track_release.tracks %}
+{% assign release = include.release %}
+{% assign tracks = release.tracks %}
 {% if tracks and tracks.size > 0 %}
 <section id="release-tracklist" class="release-section release-tracklist" data-rail-theme="dark" aria-labelledby="tracklist-heading">
   <div class="release-shell reveal">
@@ -13,9 +11,9 @@
       {% assign has_playable_track = false %}
       {% for track in tracks %}
       {% assign canonical_track = site.tracks | where: "track_id", track.track | first %}
-      {% assign track_title = canonical_track.title | default: track.title %}
-      {% assign track_artist = canonical_track.display_credit | default: track.artist %}
-      {% assign track_url = canonical_track.audio_url | default: track.url %}
+      {% assign track_title = canonical_track.title %}
+      {% assign track_artist = canonical_track.display_credit %}
+      {% assign track_url = canonical_track.audio_url %}
       <li class="reveal reveal-stagger{% if forloop.last %} title-track{% endif %}" data-track-row>
         <span class="track-number" aria-hidden="true">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span><span class="track-title">{{ track_title }}</span><span class="track-artist">{{ track_artist }}</span>
         {% if track_url %}{% assign has_playable_track = true %}<button class="track-listen" type="button" data-track-url="{{ track_url }}" data-track-title="{{ track_title }}" aria-pressed="false"><span>Listen</span><i aria-hidden="true">▶</i></button>{% endif %}

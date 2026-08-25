@@ -1,4 +1,5 @@
 {% assign track_release = include.release %}
+{% unless track_release %}{% assign published_releases = site.releases | where: "status", "published" %}{% assign track_release = published_releases | where: "slug", page.release | first %}{% endunless %}
 {% unless track_release %}{% assign track_release = site.data.releases | where: "slug", page.release | first %}{% endunless %}
 {% assign tracks = track_release.tracks %}
 {% if tracks and tracks.size > 0 %}

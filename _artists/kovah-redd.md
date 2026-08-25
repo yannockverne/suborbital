@@ -18,6 +18,7 @@ intro:
   - Kovah Redd grew up on Bloom, where survival came before certainty. After her brother was killed in gang violence, she left Pyro for Stanton with no real plan beyond leaving.
   - "Writing began at GrimHEX as a private way to put down some of what she was carrying. Over time, it became something else: a way of noticing what other people carried too."
 featured_track:
+  track: hunters-line
   title: Hunter's Line
   meta: Across the Clouds // Track 03
   note: Written from watching another life slowly disappear behind vigilance, fatigue, and isolation.

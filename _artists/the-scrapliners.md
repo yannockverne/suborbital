@@ -19,6 +19,7 @@ intro:
   - Jax and Rigg Rourke, Mek Lanner, and Jan Aroden spent years maintaining industrial equipment for Hurston Dynamics before taking what they knew and going independent.
   - They traded procedures for salvage, patched ships, questionable decisions, and considerably more laughter.
 featured_track:
+  track: my-ship-my-mess
   title: My Ship, My Mess
   meta: Across the Clouds // Track 02
   note: A salvage song about patched machines, questionable decisions, and affection without perfection.

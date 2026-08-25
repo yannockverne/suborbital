@@ -18,6 +18,7 @@ intro:
   - Darren Anders has spent more than half his life surrounded by noise.
   - At fifty-six, he still captains his Argo MOLE, The Iron Gospel, working the asteroid fields of Stanton and the outer reaches of Pyro. Mining is not the life he left behind before music. It is still his life.
 featured_track:
+  track: frontier-blues
   title: Frontier Blues
   meta: Across the Clouds // Track 06
   note: A working miner's record of fatigue, solitude, dignity, and time passing.

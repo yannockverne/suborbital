@@ -11,6 +11,8 @@ collections:
     permalink: /artists/:name/
   tracks:
     output: false
+  releases:
+    output: false
 
 defaults:
   - scope:

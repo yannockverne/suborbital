@@ -12,7 +12,8 @@ collections:
   tracks:
     output: false
   releases:
-    output: false
+    output: true
+    permalink: /releases/:name/
 
 defaults:
   - scope:
@@ -24,6 +25,11 @@ defaults:
       type: artists
     values:
       layout: artist
+  - scope:
+      path: ""
+      type: releases
+    values:
+      layout: release
 
 exclude:
   - README.md

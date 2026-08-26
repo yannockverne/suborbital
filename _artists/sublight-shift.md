@@ -11,7 +11,7 @@ hero: /assets/img/v2/artists/sublight-shift-hero.webp
 hero_alt: SubLight Shift
 portrait: /assets/img/v2/artists/sublight-shift-portrait.webp
 portrait_alt: Portrait of Juno and Vex Ardin of SubLight Shift
-contributor_card: /assets/img/v2/artists/sublight-shift-portrait.webp
+contributor_card: /assets/img/v2/artists/sublight-shift.webp
 contributor_card_alt: Portrait of Juno and Vex Ardin of SubLight Shift
 ending: /assets/img/v2/artists/sublight-shift-ending.webp
 ending_alt: SubLight Shift

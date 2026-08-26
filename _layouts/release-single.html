@@ -19,7 +19,7 @@ layout: release
 {% endif %}
 
 {% if single_track and single_track.title and single_track.title != empty %}
-<section id="single-listen" class="release-section single-listen" data-rail-theme="light" aria-labelledby="single-listen-heading">
+<section id="single-listen" class="release-section single-listen" data-rail-theme="dark" aria-labelledby="single-listen-heading">
   <div class="release-shell reveal">
     <div class="release-section-heading">
       <div><p class="eyebrow">CANONICAL TRACK // SINGLE</p><h2 id="single-listen-heading">Listen</h2></div>
@@ -58,7 +58,7 @@ layout: release
 {% endif %}
 
 {% assign valid_credits = "" %}{% for credit in page.credits %}{% if credit.label and credit.label != empty and credit.value and credit.value != empty %}{% capture credit_row %}<div><dt>{{ credit.label }}</dt><dd>{{ credit.value | markdownify | remove: '<p>' | remove: '</p>' }}</dd></div>{% endcapture %}{% assign valid_credits = valid_credits | append: credit_row %}{% endif %}{% endfor %}
-{% if valid_credits != "" %}<section id="single-credits" class="release-section single-credits" data-rail-theme="light" aria-labelledby="single-credits-heading"><div class="release-shell release-editorial-grid reveal"><div><p class="eyebrow">RELEASE FILE</p><h2 id="single-credits-heading">Credits</h2></div><dl class="single-credit-list">{{ valid_credits }}</dl></div></section>{% endif %}
+{% if valid_credits != "" %}<section id="single-credits" class="release-section single-credits" data-rail-theme="dark" aria-labelledby="single-credits-heading"><div class="release-shell release-editorial-grid reveal"><div><p class="eyebrow">RELEASE FILE</p><h2 id="single-credits-heading">Credits</h2></div><dl class="single-credit-list">{{ valid_credits }}</dl></div></section>{% endif %}
 
 {% if page.ending.image and page.ending.alt %}<figure class="single-ending reveal"><img src="{{ page.ending.image | relative_url }}" alt="{{ page.ending.alt | escape }}" loading="lazy">{% if page.ending.caption %}<figcaption class="release-shell">{{ page.ending.caption }}</figcaption>{% endif %}</figure>{% endif %}
 

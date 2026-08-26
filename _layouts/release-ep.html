@@ -19,7 +19,7 @@ layout: release
 {% assign valid_track_count = 0 %}{% assign has_playable_track = false %}{% assign first_audio_url = nil %}
 {% for track_reference in page.tracks %}{% assign ep_track = site.tracks | where: "track_id", track_reference.track | first %}{% if ep_track and ep_track.title and ep_track.title != empty %}{% assign valid_track_count = valid_track_count | plus: 1 %}{% if ep_track.audio_url %}{% assign has_playable_track = true %}{% unless first_audio_url %}{% assign first_audio_url = ep_track.audio_url %}{% endunless %}{% endif %}{% endif %}{% endfor %}
 {% if valid_track_count > 0 %}
-<section id="release-tracklist" class="release-section release-tracklist ep-tracklist" data-rail-theme="light" aria-labelledby="tracklist-heading">
+<section id="release-tracklist" class="release-section release-tracklist ep-tracklist" data-rail-theme="dark" aria-labelledby="tracklist-heading">
   <div class="release-shell reveal">
     <div class="release-section-heading">
       <div><p class="eyebrow">EP SEQUENCE // {{ valid_track_count }} TRACKS</p><h2 id="tracklist-heading">Track Sequence</h2></div>
@@ -72,17 +72,14 @@ layout: release
 {% endif %}
 
 {% assign valid_credits = "" %}{% for credit in page.credits %}{% if credit.label and credit.label != empty and credit.value and credit.value != empty %}{% capture credit_row %}<div><dt>{{ credit.label }}</dt><dd>{{ credit.value | markdownify | remove: '<p>' | remove: '</p>' }}</dd></div>{% endcapture %}{% assign valid_credits = valid_credits | append: credit_row %}{% endif %}{% endfor %}
-{% if valid_credits != "" %}<section id="ep-credits" class="release-section single-credits ep-credits" data-rail-theme="light" aria-labelledby="ep-credits-heading"><div class="release-shell release-editorial-grid reveal"><div><p class="eyebrow">RELEASE FILE</p><h2 id="ep-credits-heading">Credits</h2></div><dl class="single-credit-list ep-credit-list">{{ valid_credits }}</dl></div></section>{% endif %}
+{% if valid_credits != "" %}<section id="ep-credits" class="release-section single-credits ep-credits" data-rail-theme="dark" aria-labelledby="ep-credits-heading"><div class="release-shell release-editorial-grid reveal"><div><p class="eyebrow">RELEASE FILE</p><h2 id="ep-credits-heading">Credits</h2></div><dl class="single-credit-list ep-credit-list">{{ valid_credits }}</dl></div></section>{% endif %}
 
 {% if page.ending.image and page.ending.alt %}<figure class="single-ending ep-ending reveal"><img src="{{ page.ending.image | relative_url }}" alt="{{ page.ending.alt | escape }}" loading="lazy">{% if page.ending.caption %}<figcaption class="release-shell">{{ page.ending.caption }}</figcaption>{% endif %}</figure>{% endif %}
 
 {% assign published_releases = site.releases | where: "status", "published" | where: "published", true | sort: "sequence" %}
 {% assign previous_release = nil %}{% assign next_release = nil %}{% for candidate in published_releases %}{% if candidate.sequence < page.sequence %}{% assign previous_release = candidate %}{% elsif candidate.sequence > page.sequence and next_release == nil %}{% assign next_release = candidate %}{% endif %}{% endfor %}
-{% assign seen_primary_artists = "|" %}{% assign primary_artist_links = "" %}
-{% for track_reference in page.tracks %}{% assign ep_track = site.tracks | where: "track_id", track_reference.track | first %}{% for contributor in ep_track.contributors %}{% if contributor.role == "primary" %}{% assign primary_key = "|" | append: contributor.artist | append: "|" %}{% unless seen_primary_artists contains primary_key %}{% assign primary_artist = site.artists | where: "slug", contributor.artist | first %}{% if primary_artist %}{% capture primary_link %}<a href="{{ primary_artist.url | relative_url }}"><span>ARTIST</span>{{ primary_artist.name | default: primary_artist.title }}</a>{% endcapture %}{% assign primary_artist_links = primary_artist_links | append: primary_link %}{% endif %}{% assign seen_primary_artists = seen_primary_artists | append: contributor.artist | append: "|" %}{% endunless %}{% endif %}{% endfor %}{% endfor %}
 <nav class="release-onward single-onward ep-onward" aria-label="Continue through the release archive"><div class="release-shell reveal"><p class="eyebrow">CONTINUE // RELEASE ARCHIVE</p><div class="release-onward-links">
   <a href="{{ '/releases/' | relative_url }}"><span>INDEX</span>Releases</a>
-  {{ primary_artist_links }}
   {% if previous_release %}<a href="{{ previous_release.url | relative_url }}"><span>PREVIOUS</span>{{ previous_release.title }}</a>{% endif %}
   {% if next_release %}<a href="{{ next_release.url | relative_url }}"><span>NEXT</span>{{ next_release.title }}</a>{% endif %}
   <a href="#top"><span>RETURN</span>Back to top</a>

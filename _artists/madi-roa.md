@@ -11,7 +11,7 @@ hero: /assets/img/v2/artists/madi-hero.webp
 hero_alt: Madi Roa
 portrait: /assets/img/v2/artists/madi-portrait.webp
 portrait_alt: Portrait of Madi Roa
-contributor_card: /assets/img/v2/artists/madi-portrait.webp
+contributor_card: /assets/img/v2/artists/madi-roa.webp
 contributor_card_alt: Portrait of Madi Roa
 ending: /assets/img/v2/artists/madi-ending.webp
 ending_alt: Madi Roa

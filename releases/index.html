@@ -4,6 +4,10 @@ permalink: /releases/
 body_class: releases-index-page
 excerpt: The permanent release catalogue of SubOrbital Records.
 ---
+{% assign published_releases = site.releases | where: "status", "published" | where: "published", true %}
+{% assign release_types = "Single|EP|Album" | split: "|" %}
+{% assign release_tab_ids = "singles|eps|albums" | split: "|" %}
+{% assign release_tab_labels = "Singles|EPs|Albums" | split: "|" %}
 <section class="releases-archive" aria-labelledby="releases-title">
   <header class="releases-archive-header">
     <div class="release-shell">
@@ -12,24 +16,47 @@ excerpt: The permanent release catalogue of SubOrbital Records.
       <p class="releases-archive-deck">Records, transmissions and collaborations preserved in catalogue order.</p>
     </div>
   </header>
-  <div class="release-shell releases-catalogue">
-    {% assign releases = site.releases | where: "status", "published" %}
-    {% assign releases = releases | sort: "sequence" | reverse %}
-    {% for release in releases %}
-    {% capture release_url %}/releases/{{ release.slug }}/{% endcapture %}
-    <article class="catalogue-release">
-      <a class="catalogue-artwork" href="{{ release_url | relative_url }}" aria-label="Explore {{ release.title }}">
-        <img src="{{ release.artwork | relative_url }}" alt="{{ release.title }} cover artwork" width="1024" height="1024"{% unless forloop.first %} loading="lazy"{% endunless %}>
-      </a>
-      <div class="catalogue-copy">
-        <div class="catalogue-line"><span>{{ release.catalogue }}</span><span>{{ release.type }}</span><span>{% include release-display-date.html release=release %}</span></div>
-        <h2><a href="{{ release_url | relative_url }}">{{ release.title }}</a></h2>
-        <p class="catalogue-artist">{{ release.artist }}</p>
-        <p class="catalogue-context">{{ release.context }}</p>
-        <p class="catalogue-teaser">{{ release.teaser }}</p>
-        <a class="text-link warm-link" href="{{ release_url | relative_url }}">Explore release <span aria-hidden="true">→</span></a>
-      </div>
-    </article>
-    {% endfor %}
+
+  <div class="release-shell releases-catalogue" data-release-tabs>
+    <nav class="release-format-tabs" aria-label="Release formats" data-release-tab-list>
+      {% for release_type in release_types %}
+        {% assign format_releases = published_releases | where: "type", release_type %}
+        {% assign tab_id = release_tab_ids[forloop.index0] %}
+        {% assign tab_label = release_tab_labels[forloop.index0] %}
+        <a class="release-format-tab{% if forloop.first %} is-active{% endif %}" href="#{{ tab_id }}" data-release-tab="{{ tab_id }}">
+          <span>{{ tab_label }}</span>
+          <small>{{ format_releases.size | prepend: "0" | slice: -2, 2 }}</small>
+        </a>
+      {% endfor %}
+    </nav>
+
+    <div class="release-format-panels">
+      {% for release_type in release_types %}
+        {% assign format_releases = published_releases | where: "type", release_type %}
+        {% assign date_groups = format_releases | group_by: "release_date" | sort: "name" | reverse %}
+        {% assign tab_id = release_tab_ids[forloop.index0] %}
+        {% assign tab_label = release_tab_labels[forloop.index0] %}
+        <section class="release-format-panel" id="{{ tab_id }}" data-release-panel="{{ tab_id }}" aria-labelledby="{{ tab_id }}-heading">
+          <div class="release-format-heading">
+            <p class="eyebrow warm">CATALOGUE FORMAT // {{ release_type | upcase }}</p>
+            <h2 id="{{ tab_id }}-heading">{{ tab_label }}</h2>
+          </div>
+
+          {% if format_releases.size > 0 %}
+            {% for date_group in date_groups %}
+              {% assign dated_releases = date_group.items | sort: "sequence" | reverse %}
+              {% for release in dated_releases %}
+                {% include catalogue-release.html release=release %}
+              {% endfor %}
+            {% endfor %}
+          {% else %}
+            <div class="release-format-empty">
+              <p class="eyebrow">ARCHIVE STATUS // NO FILES</p>
+              <p>No {{ tab_label }} have been filed in the SubOrbital archive yet.</p>
+            </div>
+          {% endif %}
+        </section>
+      {% endfor %}
+    </div>
   </div>
 </section>

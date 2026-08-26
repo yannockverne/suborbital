@@ -40,6 +40,100 @@ if (document.body.classList.contains('home')) {
   });
 }
 
+const releaseTabs = document.querySelector('[data-release-tabs]');
+
+if (releaseTabs) {
+  const tabList = releaseTabs.querySelector('[data-release-tab-list]');
+  const tabs = [...releaseTabs.querySelectorAll('[data-release-tab]')];
+  const panels = [...releaseTabs.querySelectorAll('[data-release-panel]')];
+  const validHashes = new Set(tabs.map((tab) => tab.dataset.releaseTab));
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let activeId;
+  let transitionTimer;
+
+  tabList.setAttribute('role', 'tablist');
+  releaseTabs.classList.add('catalogue-tabs-ready');
+
+  tabs.forEach((tab) => {
+    const panelId = tab.dataset.releaseTab;
+    tab.setAttribute('role', 'tab');
+    tab.setAttribute('id', `${panelId}-tab`);
+    tab.setAttribute('aria-controls', panelId);
+  });
+
+  panels.forEach((panel) => {
+    panel.setAttribute('role', 'tabpanel');
+    panel.setAttribute('aria-labelledby', `${panel.dataset.releasePanel}-tab`);
+    panel.setAttribute('tabindex', '-1');
+  });
+
+  const finishTransition = (nextId, updateHistory, focusPanel) => {
+    tabs.forEach((tab) => {
+      const active = tab.dataset.releaseTab === nextId;
+      tab.classList.toggle('is-active', active);
+      tab.setAttribute('aria-selected', String(active));
+      tab.setAttribute('tabindex', active ? '0' : '-1');
+    });
+
+    panels.forEach((panel) => {
+      const active = panel.dataset.releasePanel === nextId;
+      panel.hidden = !active;
+      panel.classList.remove('is-active', 'is-leaving');
+      if (active) requestAnimationFrame(() => panel.classList.add('is-active'));
+    });
+
+    activeId = nextId;
+    if (updateHistory && window.location.hash !== `#${nextId}`) history.pushState(null, '', `#${nextId}`);
+    if (focusPanel) document.getElementById(nextId)?.focus({ preventScroll: true });
+  };
+
+  const activateTab = (nextId, { updateHistory = false, focusPanel = false } = {}) => {
+    if (!validHashes.has(nextId)) return;
+    if (nextId === activeId) {
+      if (updateHistory && window.location.hash !== `#${nextId}`) history.pushState(null, '', `#${nextId}`);
+      return;
+    }
+    window.clearTimeout(transitionTimer);
+    const currentPanel = panels.find((panel) => panel.dataset.releasePanel === activeId);
+
+    if (currentPanel && !reducedMotion.matches) {
+      currentPanel.classList.remove('is-active');
+      currentPanel.classList.add('is-leaving');
+      transitionTimer = window.setTimeout(() => finishTransition(nextId, updateHistory, focusPanel), 180);
+    } else {
+      finishTransition(nextId, updateHistory, focusPanel);
+    }
+  };
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', (event) => {
+      event.preventDefault();
+      activateTab(tab.dataset.releaseTab, { updateHistory: true });
+    });
+
+    tab.addEventListener('keydown', (event) => {
+      let nextIndex;
+      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') nextIndex = (index + 1) % tabs.length;
+      else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') nextIndex = (index - 1 + tabs.length) % tabs.length;
+      else if (event.key === 'Home') nextIndex = 0;
+      else if (event.key === 'End') nextIndex = tabs.length - 1;
+      else return;
+
+      event.preventDefault();
+      tabs[nextIndex].focus();
+      activateTab(tabs[nextIndex].dataset.releaseTab, { updateHistory: true });
+    });
+  });
+
+  window.addEventListener('hashchange', () => {
+    const hashId = decodeURIComponent(window.location.hash.slice(1));
+    activateTab(validHashes.has(hashId) ? hashId : 'singles');
+  });
+
+  const initialHash = decodeURIComponent(window.location.hash.slice(1));
+  finishTransition(validHashes.has(initialHash) ? initialHash : 'singles', false, false);
+}
+
 const trackButtons = document.querySelectorAll('[data-track-url]');
 const player = document.querySelector('[data-soundcloud-player]');
 

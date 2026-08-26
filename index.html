@@ -16,8 +16,10 @@ body_class: home
 {% assign published_singles = published_releases | where: "type", "Single" %}
 {% assign single_date_groups = published_singles | group_by: "release_date" | sort: "name" | reverse %}
 {% assign latest_single_group = single_date_groups | first %}
-{% assign latest_single_group_items = latest_single_group.items | sort: "sequence" | reverse %}
-{% assign latest_single = latest_single_group_items | first %}
+{% if latest_single_group %}
+  {% assign latest_single_group_items = latest_single_group.items | sort: "sequence" | reverse %}
+  {% assign latest_single = latest_single_group_items | first %}
+{% endif %}
 {% capture homepage_rail_items %}top:Introduction{% if home_feature_releases.size > 1 %}|previous-records:Previous records{% endif %}{% if latest_single %}|latest-single:Latest singles{% endif %}|tpr:TPR|about:Project note{% endcapture %}
 {% include section-rail.html label="Homepage section navigation" items=homepage_rail_items %}
 <section class="home-hero" id="top" aria-labelledby="hero-title" data-rail-theme="dark">

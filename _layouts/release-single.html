@@ -1,0 +1,57 @@
+---
+layout: release
+---
+{% assign track_reference = page.tracks | first %}
+{% assign single_track = site.tracks | where: "track_id", track_reference.track | first %}
+{% assign has_story = false %}
+{% if page.story.heading and page.story.heading != empty %}{% if page.story.lead and page.story.lead != empty %}{% assign has_story = true %}{% elsif page.story.paragraphs.size > 0 %}{% assign has_story = true %}{% endif %}{% endif %}
+
+{% if has_story %}
+<section id="single-story" class="release-section release-record single-story" data-rail-theme="dark" aria-labelledby="single-story-heading">
+  <div class="release-shell release-editorial-grid reveal">
+    <div><p class="eyebrow warm">RELEASE NOTES // {{ page.catalogue }}</p><h2 id="single-story-heading">{{ page.story.heading }}</h2></div>
+    <div class="release-prose">
+      {% if page.story.lead %}<div class="release-lead">{{ page.story.lead | markdownify }}</div>{% endif %}
+      {% for paragraph in page.story.paragraphs %}{% if paragraph %}{{ paragraph | markdownify }}{% endif %}{% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if single_track and single_track.title and single_track.title != empty %}
+<section id="single-listen" class="release-section single-listen" data-rail-theme="dark" aria-labelledby="single-listen-heading">
+  <div class="release-shell reveal">
+    <div class="release-section-heading">
+      <div><p class="eyebrow">CANONICAL TRACK // SINGLE</p><h2 id="single-listen-heading">Listen</h2></div>
+    </div>
+    <div class="single-track" data-track-row>
+      <div><h3>{{ single_track.title }}</h3>{% if single_track.display_credit %}<p>{{ single_track.display_credit }}</p>{% endif %}</div>
+      {% if single_track.audio_url %}<button class="track-listen" type="button" data-track-url="{{ single_track.audio_url | escape }}" data-track-title="{{ single_track.title | escape }}" aria-pressed="false"><span>Listen</span><i aria-hidden="true">▶</i></button>{% endif %}
+    </div>
+    {% if single_track.audio_url %}
+    <div class="release-player" data-soundcloud-player hidden>
+      <div class="release-player-heading"><p><span class="eyebrow">NOW LISTENING</span><strong data-player-title></strong></p><a data-player-fallback href="{{ single_track.audio_url | escape }}" target="_blank" rel="noopener">Open on SoundCloud <span aria-hidden="true">↗</span></a></div>
+      <iframe data-player-frame title="SoundCloud player: {{ single_track.title | escape }}" width="100%" height="166" allow="autoplay" loading="lazy"></iframe>
+      <p class="player-note">If the player is unavailable, use the SoundCloud link above.</p>
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endif %}
+
+{% include release-contributors.html release=page section_id="single-contributors" heading_id="single-contributors-heading" %}
+
+{% assign valid_credits = "" %}{% for credit in page.credits %}{% if credit.label and credit.label != empty and credit.value and credit.value != empty %}{% capture credit_row %}<div><dt>{{ credit.label }}</dt><dd>{{ credit.value | markdownify | remove: '<p>' | remove: '</p>' }}</dd></div>{% endcapture %}{% assign valid_credits = valid_credits | append: credit_row %}{% endif %}{% endfor %}
+{% if valid_credits != "" %}<section id="single-credits" class="release-section single-credits" data-rail-theme="dark" aria-labelledby="single-credits-heading"><div class="release-shell release-editorial-grid reveal"><div><p class="eyebrow">RELEASE FILE</p><h2 id="single-credits-heading">Credits</h2></div><dl class="single-credit-list">{{ valid_credits }}</dl></div></section>{% endif %}
+
+{% if page.ending.image and page.ending.alt %}<figure class="single-ending reveal"><img src="{{ page.ending.image | relative_url }}" alt="{{ page.ending.alt | escape }}" loading="lazy">{% if page.ending.caption %}<figcaption class="release-shell">{{ page.ending.caption }}</figcaption>{% endif %}</figure>{% endif %}
+
+{% assign published_singles = site.releases | where: "status", "published" | where: "published", true | where: "type", "Single" | sort: "sequence" %}
+{% assign previous_release = nil %}{% assign next_release = nil %}{% for candidate in published_singles %}{% if candidate.sequence < page.sequence %}{% assign previous_release = candidate %}{% elsif candidate.sequence > page.sequence and next_release == nil %}{% assign next_release = candidate %}{% endif %}{% endfor %}
+{% assign primary_contributor = single_track.contributors | where: "role", "primary" | first | default: single_track.contributors.first %}{% assign primary_artist = site.artists | where: "slug", primary_contributor.artist | first %}
+<nav class="release-onward single-onward" aria-label="Continue through the single archive"><div class="release-shell reveal"><div class="release-onward-heading"><p class="eyebrow">CONTINUE // SINGLE ARCHIVE</p><a class="release-onward-top" href="#top">Back to top <span aria-hidden="true">↑</span></a></div><div class="release-onward-links">
+  <a href="{{ '/releases/' | relative_url }}"><span>INDEX</span>Releases</a>
+  {% if primary_artist %}<a href="{{ primary_artist.url | relative_url }}"><span>ARTIST</span>{{ primary_artist.name | default: primary_artist.title }}</a>{% endif %}
+  {% if previous_release %}<a href="{{ previous_release.url | relative_url }}"><span>PREVIOUS SINGLE</span>{{ previous_release.title }}</a>{% endif %}
+  {% if next_release %}<a href="{{ next_release.url | relative_url }}"><span>NEXT SINGLE</span>{{ next_release.title }}</a>{% endif %}
+</div></div></nav>

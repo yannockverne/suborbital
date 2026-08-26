@@ -1,0 +1,14 @@
+{% assign release = include.release %}
+<article class="catalogue-release">
+  <a class="catalogue-artwork" href="{{ release.url | relative_url }}" aria-label="Explore {{ release.title }}">
+    <img src="{{ release.artwork | relative_url }}" alt="{{ release.cover_alt | default: release.title }}" width="1024" height="1024" loading="lazy">
+  </a>
+  <div class="catalogue-copy">
+    <div class="catalogue-line"><span>{{ release.catalogue }}</span><span>{{ release.type }}</span><span>{% include release-display-date.html release=release %}</span></div>
+    <h3><a href="{{ release.url | relative_url }}">{{ release.title }}</a></h3>
+    {% if release.artist %}<p class="catalogue-artist">{{ release.artist }}</p>{% endif %}
+    {% if release.context %}<p class="catalogue-context">{{ release.context }}</p>{% endif %}
+    {% if release.deck or release.teaser %}<p class="catalogue-teaser">{{ release.deck | default: release.teaser }}</p>{% endif %}
+    <a class="text-link warm-link" href="{{ release.url | relative_url }}">Explore release <span aria-hidden="true">→</span></a>
+  </div>
+</article>

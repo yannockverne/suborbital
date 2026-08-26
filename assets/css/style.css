@@ -84,3 +84,5 @@ body.tpr-page .main{width:100%;max-width:none;margin:0;padding:0}.tpr-v2 h2{font
 @media(prefers-reduced-motion:reduce){.section-rail,.section-rail a,.section-rail a::before{transition:none}}
 
 .artist-v2-appearance+.artist-v2-appearance{margin-top:clamp(70px,9vw,120px);padding-top:clamp(70px,9vw,120px);border-top:1px solid var(--line)}
+
+.ep-track-note{grid-column:2/-1;max-width:660px;margin:-8px 0 4px;color:#6f625b;font-size:.9rem;line-height:1.55}.ep-track-note a{color:inherit}.ep-track-note a:hover,.ep-track-note a:focus-visible{color:#9b4020}

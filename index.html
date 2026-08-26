@@ -20,6 +20,7 @@ body_class: home
   {% assign latest_single_group_items = latest_single_group.items | sort: "sequence" | reverse %}
   {% assign latest_single = latest_single_group_items | first %}
 {% endif %}
+{% assign upcoming_release = site.upcoming | where: "active", true | sort: "sequence" | first %}
 {% capture homepage_rail_items %}top:Introduction{% if home_feature_releases.size > 1 %}|previous-records:Previous records{% endif %}{% if latest_single %}|latest-single:Latest singles{% endif %}|tpr:TPR|about:Project note{% endcapture %}
 {% include section-rail.html label="Homepage section navigation" items=homepage_rail_items %}
 <section class="home-hero" id="top" aria-labelledby="hero-title" data-rail-theme="dark">
@@ -38,11 +39,11 @@ body_class: home
         <a class="button button-secondary" href="{{ '/artists/' | relative_url }}">Meet the artists</a>
       </div>
     </div>{% endif %}
-    <aside class="next-record" aria-label="Upcoming release">
-      <p class="index-label">SOON // SOR-002</p>
-      <p class="next-title">Voyager</p>
-      <p><em>Nok Varen &amp; Madi Roa</em></p>
-    </aside>
+    {% if upcoming_release %}<aside class="next-record" aria-label="Upcoming release">
+      <p class="index-label">{{ upcoming_release.label | default: "SOON" }}{% if upcoming_release.catalogue %} // {{ upcoming_release.catalogue }}{% elsif upcoming_release.format %} // {{ upcoming_release.format }}{% endif %}</p>
+      <p class="next-title">{{ upcoming_release.title }}</p>
+      {% if upcoming_release.artist %}<p><em>{{ upcoming_release.artist }}</em></p>{% endif %}
+    </aside>{% endif %}
   </div>
 </section>
 

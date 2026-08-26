@@ -82,3 +82,5 @@ body.tpr-page .main{width:100%;max-width:none;margin:0;padding:0}.tpr-v2 h2{font
 .section-rail a:focus-visible{outline:1px solid rgb(var(--rail-color));outline-offset:3px}
 @media(max-width:1100px){.section-rail{display:none}}
 @media(prefers-reduced-motion:reduce){.section-rail,.section-rail a,.section-rail a::before{transition:none}}
+
+.artist-v2-appearance+.artist-v2-appearance{margin-top:clamp(70px,9vw,120px);padding-top:clamp(70px,9vw,120px);border-top:1px solid var(--line)}

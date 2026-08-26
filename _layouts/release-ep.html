@@ -57,11 +57,10 @@ layout: release
 
 {% if page.ending.image and page.ending.alt %}<figure class="single-ending ep-ending reveal"><img src="{{ page.ending.image | relative_url }}" alt="{{ page.ending.alt | escape }}" loading="lazy">{% if page.ending.caption %}<figcaption class="release-shell">{{ page.ending.caption }}</figcaption>{% endif %}</figure>{% endif %}
 
-{% assign published_releases = site.releases | where: "status", "published" | where: "published", true | sort: "sequence" %}
-{% assign previous_release = nil %}{% assign next_release = nil %}{% for candidate in published_releases %}{% if candidate.sequence < page.sequence %}{% assign previous_release = candidate %}{% elsif candidate.sequence > page.sequence and next_release == nil %}{% assign next_release = candidate %}{% endif %}{% endfor %}
-<nav class="release-onward single-onward ep-onward" aria-label="Continue through the release archive"><div class="release-shell reveal"><p class="eyebrow">CONTINUE // RELEASE ARCHIVE</p><div class="release-onward-links">
+{% assign published_eps = site.releases | where: "status", "published" | where: "published", true | where: "type", "EP" | sort: "sequence" %}
+{% assign previous_release = nil %}{% assign next_release = nil %}{% for candidate in published_eps %}{% if candidate.sequence < page.sequence %}{% assign previous_release = candidate %}{% elsif candidate.sequence > page.sequence and next_release == nil %}{% assign next_release = candidate %}{% endif %}{% endfor %}
+<nav class="release-onward single-onward ep-onward" aria-label="Continue through the EP archive"><div class="release-shell reveal"><div class="release-onward-heading"><p class="eyebrow">CONTINUE // EP ARCHIVE</p><a class="release-onward-top" href="#top">Back to top <span aria-hidden="true">↑</span></a></div><div class="release-onward-links">
   <a href="{{ '/releases/' | relative_url }}"><span>INDEX</span>Releases</a>
-  {% if previous_release %}<a href="{{ previous_release.url | relative_url }}"><span>PREVIOUS</span>{{ previous_release.title }}</a>{% endif %}
-  {% if next_release %}<a href="{{ next_release.url | relative_url }}"><span>NEXT</span>{{ next_release.title }}</a>{% endif %}
-  <a href="#top"><span>RETURN</span>Back to top</a>
+  {% if previous_release %}<a href="{{ previous_release.url | relative_url }}"><span>PREVIOUS EP</span>{{ previous_release.title }}</a>{% endif %}
+  {% if next_release %}<a href="{{ next_release.url | relative_url }}"><span>NEXT EP</span>{{ next_release.title }}</a>{% endif %}
 </div></div></nav>

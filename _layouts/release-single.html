@@ -46,13 +46,12 @@ layout: release
 
 {% if page.ending.image and page.ending.alt %}<figure class="single-ending reveal"><img src="{{ page.ending.image | relative_url }}" alt="{{ page.ending.alt | escape }}" loading="lazy">{% if page.ending.caption %}<figcaption class="release-shell">{{ page.ending.caption }}</figcaption>{% endif %}</figure>{% endif %}
 
-{% assign published_releases = site.releases | where: "status", "published" | where: "published", true | sort: "sequence" %}
-{% assign previous_release = nil %}{% assign next_release = nil %}{% for candidate in published_releases %}{% if candidate.sequence < page.sequence %}{% assign previous_release = candidate %}{% elsif candidate.sequence > page.sequence and next_release == nil %}{% assign next_release = candidate %}{% endif %}{% endfor %}
+{% assign published_singles = site.releases | where: "status", "published" | where: "published", true | where: "type", "Single" | sort: "sequence" %}
+{% assign previous_release = nil %}{% assign next_release = nil %}{% for candidate in published_singles %}{% if candidate.sequence < page.sequence %}{% assign previous_release = candidate %}{% elsif candidate.sequence > page.sequence and next_release == nil %}{% assign next_release = candidate %}{% endif %}{% endfor %}
 {% assign primary_contributor = single_track.contributors | where: "role", "primary" | first | default: single_track.contributors.first %}{% assign primary_artist = site.artists | where: "slug", primary_contributor.artist | first %}
-<nav class="release-onward single-onward" aria-label="Continue through the release archive"><div class="release-shell reveal"><p class="eyebrow">CONTINUE // RELEASE ARCHIVE</p><div class="release-onward-links">
+<nav class="release-onward single-onward" aria-label="Continue through the single archive"><div class="release-shell reveal"><div class="release-onward-heading"><p class="eyebrow">CONTINUE // SINGLE ARCHIVE</p><a class="release-onward-top" href="#top">Back to top <span aria-hidden="true">↑</span></a></div><div class="release-onward-links">
   <a href="{{ '/releases/' | relative_url }}"><span>INDEX</span>Releases</a>
   {% if primary_artist %}<a href="{{ primary_artist.url | relative_url }}"><span>ARTIST</span>{{ primary_artist.name | default: primary_artist.title }}</a>{% endif %}
-  {% if previous_release %}<a href="{{ previous_release.url | relative_url }}"><span>PREVIOUS</span>{{ previous_release.title }}</a>{% endif %}
-  {% if next_release %}<a href="{{ next_release.url | relative_url }}"><span>NEXT</span>{{ next_release.title }}</a>{% endif %}
-  <a href="#top"><span>RETURN</span>Back to top</a>
+  {% if previous_release %}<a href="{{ previous_release.url | relative_url }}"><span>PREVIOUS SINGLE</span>{{ previous_release.title }}</a>{% endif %}
+  {% if next_release %}<a href="{{ next_release.url | relative_url }}"><span>NEXT SINGLE</span>{{ next_release.title }}</a>{% endif %}
 </div></div></nav>

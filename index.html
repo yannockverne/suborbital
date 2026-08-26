@@ -4,15 +4,17 @@ permalink: /
 body_class: home
 ---
 
-{% assign published_releases = site.releases | where: "status", "published" | where: "published", true | sort: "release_date" | reverse %}
-{% assign latest_release = published_releases | first %}
-{% assign latest_releases = published_releases | where: "release_date", latest_release.release_date | sort: "sequence" | reverse %}
-{% assign current_release = latest_releases | first %}
+{% assign published_releases = site.releases | where: "status", "published" | where: "published", true %}
+{% assign published_eps = published_releases | where: "type", "EP" %}
+{% assign published_albums = published_releases | where: "type", "Album" %}
+{% assign home_feature_releases = published_eps | concat: published_albums | sort: "release_date" | reverse %}
+{% assign current_release = home_feature_releases | first %}
 {% if current_release %}
-  {% assign homepage_rail_items = "top:Introduction|current-record:Current record|tpr:TPR|about:Project note" %}
-{% else %}
-  {% assign homepage_rail_items = "top:Introduction|tpr:TPR|about:Project note" %}
+  {% assign latest_home_features = home_feature_releases | where: "release_date", current_release.release_date | sort: "sequence" | reverse %}
+  {% assign current_release = latest_home_features | first %}
 {% endif %}
+{% assign latest_singles = published_releases | where: "type", "Single" | sort: "sequence" | sort: "release_date" | reverse %}
+{% capture homepage_rail_items %}top:Introduction{% if latest_singles.size > 0 %}|latest-singles:Singles{% endif %}{% if current_release %}|current-record:Current record{% endif %}|tpr:TPR|about:Project note{% endcapture %}
 {% include section-rail.html label="Homepage section navigation" items=homepage_rail_items %}
 <section class="home-hero" id="top" aria-labelledby="hero-title" data-rail-theme="dark">
   <div class="hero-shade"></div>
@@ -37,6 +39,27 @@ body_class: home
     </aside>
   </div>
 </section>
+
+{% if latest_singles.size > 0 %}<section class="home-singles section" id="latest-singles" aria-labelledby="latest-singles-title" data-rail-theme="dark">
+  <div class="shell">
+    <div class="section-heading home-singles-heading">
+      <div>
+        <p class="eyebrow">RECENT TRANSMISSIONS // SINGLES</p>
+        <h2 id="latest-singles-title">Latest Singles</h2>
+      </div>
+      <a class="text-link" href="{{ '/releases/' | relative_url }}">All releases <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="home-single-grid">
+      {% for single in latest_singles limit: 3 %}<article class="home-single-card">
+        {% if single.artwork and single.cover_alt %}<a class="home-single-art" href="{{ single.url | relative_url }}"><img src="{{ single.artwork | relative_url }}" alt="{{ single.cover_alt }}" loading="lazy"></a>{% endif %}
+        <p class="home-single-meta">{{ single.catalogue }} // {% include release-display-date.html release=single %}</p>
+        <h3><a href="{{ single.url | relative_url }}">{{ single.title }}</a></h3>
+        {% if single.artist %}<p class="home-single-artist">{{ single.artist }}</p>{% endif %}
+        <a class="text-link home-single-link" href="{{ single.url | relative_url }}">Open the single <span aria-hidden="true">↗</span></a>
+      </article>{% endfor %}
+    </div>
+  </div>
+</section>{% endif %}
 
 {% if current_release %}<section class="record-section section" id="current-record" aria-labelledby="record-title" data-rail-theme="dark">
   <div class="shell record-grid">

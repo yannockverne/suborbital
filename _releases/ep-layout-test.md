@@ -6,8 +6,8 @@ slug: ep-layout-test
 title: Signal Test
 type: EP
 presentation: standard
-status: draft
-published: false
+status: published
+published: true
 artist: SubOrbital Records test archive
 release_date: "2026-08-26"
 artwork: /assets/img/v2/across-the-clouds-cover.webp

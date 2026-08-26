@@ -1,8 +1,8 @@
 ---
 track_id: not-losing-control
 title: Not Losing Control
-status: draft
-published: false
+status: published
+published: true
 display_credit: Madi Roa
 contributors:
   - artist: madi-roa

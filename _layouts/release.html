@@ -7,7 +7,7 @@ layout: default
 {% assign latest_releases = published_releases | where: "release_date", latest_release.release_date | sort: "sequence" | reverse %}
 {% assign current_release = latest_releases | first %}
 <article class="release" id="top">
-  {% include section-rail.html label="Release section navigation" items="release-hero:Record|release-story:Story|release-tracklist:Tracklist|release-voices:Voices|release-session:Session|release-context:Project note" %}
+  {% include release-section-rail.html release=release %}
   <header id="release-hero" class="release-hero" data-rail-theme="dark">
     <div class="release-shell release-hero-grid reveal">
       <div class="release-hero-copy">
@@ -25,7 +25,7 @@ layout: default
       </div>
       <figure class="release-cover">
         <img src="{{ release.artwork | relative_url }}" alt="{{ release.cover_alt | default: release.title }}" width="1024" height="1024">
-        <figcaption>{{ release.cover_caption | default: release.catalogue }}</figcaption>
+        {% if release.layout == "release-single" %}{% if release.cover_caption %}<figcaption>{{ release.cover_caption }}</figcaption>{% endif %}{% else %}<figcaption>{{ release.cover_caption | default: release.catalogue }}</figcaption>{% endif %}
       </figure>
     </div>
   </header>

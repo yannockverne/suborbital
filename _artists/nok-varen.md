@@ -11,6 +11,8 @@ hero: /assets/img/v2/artists/nok-hero.webp
 hero_alt: Nok Varen
 portrait: /assets/img/v2/artists/nok-portrait.webp
 portrait_alt: Portrait of Nok Varen
+contributor_card: /assets/img/v2/artists/nok-portrait.webp
+contributor_card_alt: Portrait of Nok Varen
 ending: /assets/img/v2/artists/nok-ending.webp
 ending_alt: Nok Varen
 quote: “I don’t produce tracks. I archive moments.”

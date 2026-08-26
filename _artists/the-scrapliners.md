@@ -11,6 +11,8 @@ hero: /assets/img/v2/artists/scrapliners-hero.webp
 hero_alt: The Scrapliners
 portrait: /assets/img/v2/artists/scrapliners-portrait.webp
 portrait_alt: Portrait of The Scrapliners
+contributor_card: /assets/img/v2/artists/scrapliners-portrait.webp
+contributor_card_alt: Portrait of The Scrapliners
 ending: /assets/img/v2/artists/scrapliners-ending.webp
 ending_alt: The Scrapliners
 quote: “If it doesn’t fly, we’ll fix it. If it’s fixed, we’ll sing about it.”

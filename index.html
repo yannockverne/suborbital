@@ -13,9 +13,12 @@ body_class: home
   {% assign latest_home_features = home_feature_releases | where: "release_date", current_release.release_date | sort: "sequence" | reverse %}
   {% assign current_release = latest_home_features | first %}
 {% endif %}
-{% assign latest_singles = published_releases | where: "type", "Single" | sort: "sequence" | sort: "release_date" | reverse %}
-{% assign latest_single = latest_singles | first %}
-{% capture homepage_rail_items %}top:Introduction{% if home_feature_releases.size > 1 %}|previous-records:Previous records{% endif %}{% if latest_single %}|latest-single:Latest single{% endif %}|tpr:TPR|about:Project note{% endcapture %}
+{% assign published_singles = published_releases | where: "type", "Single" %}
+{% assign single_date_groups = published_singles | group_by: "release_date" | sort: "name" | reverse %}
+{% assign latest_single_group = single_date_groups | first %}
+{% assign latest_single_group_items = latest_single_group.items | sort: "sequence" | reverse %}
+{% assign latest_single = latest_single_group_items | first %}
+{% capture homepage_rail_items %}top:Introduction{% if home_feature_releases.size > 1 %}|previous-records:Previous records{% endif %}{% if latest_single %}|latest-single:Latest singles{% endif %}|tpr:TPR|about:Project note{% endcapture %}
 {% include section-rail.html label="Homepage section navigation" items=homepage_rail_items %}
 <section class="home-hero" id="top" aria-labelledby="hero-title" data-rail-theme="dark">
   <div class="hero-shade"></div>
@@ -64,16 +67,33 @@ body_class: home
 </section>{% endif %}
 
 {% if latest_single %}<section class="home-latest-single section" id="latest-single" aria-labelledby="latest-single-title" data-rail-theme="dark">
-  <div class="shell home-latest-single-grid">
-    {% if latest_single.artwork and latest_single.cover_alt %}<figure class="home-latest-single-art"><img src="{{ latest_single.artwork | relative_url }}" alt="{{ latest_single.cover_alt }}" loading="lazy"></figure>{% endif %}
-    <div class="home-latest-single-copy">
-      <p class="eyebrow warm">LATEST SINGLE // {{ latest_single.catalogue }}</p>
-      <h2 id="latest-single-title">{{ latest_single.title }}</h2>
-      {% if latest_single.artist %}<p class="home-latest-single-artist"><em>{{ latest_single.artist }}</em></p>{% endif %}
-      {% if latest_single.deck %}<p class="section-lead">{{ latest_single.deck }}</p>{% endif %}
-      <p class="home-latest-single-date">FILED // {% include release-display-date.html release=latest_single %}</p>
-      <a class="text-link warm-link" href="{{ latest_single.url | relative_url }}">Open the single <span aria-hidden="true">↗</span></a>
+  <div class="shell">
+    <div class="home-latest-single-grid">
+      {% if latest_single.artwork and latest_single.cover_alt %}<figure class="home-latest-single-art"><img src="{{ latest_single.artwork | relative_url }}" alt="{{ latest_single.cover_alt }}" loading="lazy"></figure>{% endif %}
+      <div class="home-latest-single-copy">
+        <p class="eyebrow warm">LATEST SINGLE // {{ latest_single.catalogue }}</p>
+        <h2 id="latest-single-title">{{ latest_single.title }}</h2>
+        {% if latest_single.artist %}<p class="home-latest-single-artist"><em>{{ latest_single.artist }}</em></p>{% endif %}
+        {% if latest_single.deck %}<p class="section-lead">{{ latest_single.deck }}</p>{% endif %}
+        <p class="home-latest-single-date">FILED // {% include release-display-date.html release=latest_single %}</p>
+        <a class="text-link warm-link" href="{{ latest_single.url | relative_url }}">Open the single <span aria-hidden="true">↗</span></a>
+      </div>
     </div>
+    {% if published_singles.size > 1 %}<div class="home-earlier-singles">
+      <p class="eyebrow">PREVIOUS SIGNALS // SINGLES</p>
+      <div class="home-earlier-single-grid">
+        {% assign earlier_single_count = 0 %}
+        {% for date_group in single_date_groups %}{% assign dated_singles = date_group.items | sort: "sequence" | reverse %}{% for single in dated_singles %}{% unless single.url == latest_single.url %}{% if earlier_single_count < 2 %}<article class="home-earlier-single">
+          {% if single.artwork and single.cover_alt %}<a class="home-earlier-single-art" href="{{ single.url | relative_url }}"><img src="{{ single.artwork | relative_url }}" alt="{{ single.cover_alt }}" loading="lazy"></a>{% endif %}
+          <div>
+            <p class="home-record-meta">{{ single.catalogue }} // {% include release-display-date.html release=single %}</p>
+            <h3><a href="{{ single.url | relative_url }}">{{ single.title }}</a></h3>
+            {% if single.artist %}<p>{{ single.artist }}</p>{% endif %}
+            <a class="text-link" href="{{ single.url | relative_url }}">Open <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>{% assign earlier_single_count = earlier_single_count | plus: 1 %}{% endif %}{% endunless %}{% endfor %}{% endfor %}
+      </div>
+    </div>{% endif %}
   </div>
 </section>{% endif %}
 

@@ -34,6 +34,10 @@ tracks:
     note: A grounded memory follows, carrying voices already preserved elsewhere in the archive.
   - track: the-line-below-nok-varen-remix
     note: The closing signal fractures the sequence and brings its contributors back together one last time.
+contributor_visuals:
+  - artist: madi-roa
+    image: /assets/img/v2/artists/madi-roa.webp
+    alt: Madi Roa in an existing artist image reused for the EP layout test
 credits:
   - label: Recording
     value: New Babbage

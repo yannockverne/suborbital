@@ -50,26 +50,7 @@ layout: release
 </section>
 {% endif %}
 
-{% assign seen_artists = "|" %}{% assign contributor_cards = "" %}
-{% for track_reference in page.tracks %}
-  {% assign ep_track = site.tracks | where: "track_id", track_reference.track | first %}
-  {% for contributor in ep_track.contributors %}
-    {% assign contributor_key = "|" | append: contributor.artist | append: "|" %}
-    {% assign contributor_artist = site.artists | where: "slug", contributor.artist | first %}
-    {% unless seen_artists contains contributor_key %}
-      {% if contributor_artist and contributor_artist.contributor_card and contributor_artist.contributor_card_alt %}
-        {% capture contributor_card %}<a class="single-contributor ep-contributor reveal reveal-stagger" href="{{ contributor_artist.url | relative_url }}"><img src="{{ contributor_artist.contributor_card | relative_url }}" alt="{{ contributor_artist.contributor_card_alt | escape }}" loading="lazy"><span><small>CONTRIBUTOR</small>{{ contributor_artist.name | default: contributor_artist.title }}</span></a>{% endcapture %}
-        {% assign contributor_cards = contributor_cards | append: contributor_card %}
-      {% endif %}
-      {% assign seen_artists = seen_artists | append: contributor.artist | append: "|" %}
-    {% endunless %}
-  {% endfor %}
-{% endfor %}
-{% if contributor_cards != "" %}
-<section id="ep-contributors" class="release-section single-contributors ep-contributors" data-rail-theme="dark" aria-labelledby="ep-contributors-heading">
-  <div class="release-shell reveal"><div class="release-section-heading"><div><p class="eyebrow warm">PRODUCTION DOSSIER</p><h2 id="ep-contributors-heading">Contributors</h2></div></div><div class="single-contributor-grid ep-contributor-grid">{{ contributor_cards }}</div></div>
-</section>
-{% endif %}
+{% include release-contributors.html release=page section_id="ep-contributors" heading_id="ep-contributors-heading" %}
 
 {% assign valid_credits = "" %}{% for credit in page.credits %}{% if credit.label and credit.label != empty and credit.value and credit.value != empty %}{% capture credit_row %}<div><dt>{{ credit.label }}</dt><dd>{{ credit.value | markdownify | remove: '<p>' | remove: '</p>' }}</dd></div>{% endcapture %}{% assign valid_credits = valid_credits | append: credit_row %}{% endif %}{% endfor %}
 {% if valid_credits != "" %}<section id="ep-credits" class="release-section single-credits ep-credits" data-rail-theme="dark" aria-labelledby="ep-credits-heading"><div class="release-shell release-editorial-grid reveal"><div><p class="eyebrow">RELEASE FILE</p><h2 id="ep-credits-heading">Credits</h2></div><dl class="single-credit-list ep-credit-list">{{ valid_credits }}</dl></div></section>{% endif %}

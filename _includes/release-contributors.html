@@ -1,0 +1,34 @@
+{% assign release = include.release %}
+{% assign seen_artists = "|" %}
+{% assign contributor_cards = "" %}
+{% assign contributor_count = 0 %}
+{% for track_reference in release.tracks %}
+  {% assign contributor_track = site.tracks | where: "track_id", track_reference.track | first %}
+  {% for contributor in contributor_track.contributors %}
+    {% assign contributor_key = "|" | append: contributor.artist | append: "|" %}
+    {% unless seen_artists contains contributor_key %}
+      {% assign contributor_artist = site.artists | where: "slug", contributor.artist | first %}
+      {% assign contributor_image = contributor_artist.contributor_card %}
+      {% assign contributor_alt = contributor_artist.contributor_card_alt %}
+      {% assign contributor_visual = release.contributor_visuals | where: "artist", contributor.artist | first %}
+      {% if contributor_visual and contributor_visual.image and contributor_visual.alt %}
+        {% assign contributor_image = contributor_visual.image %}
+        {% assign contributor_alt = contributor_visual.alt %}
+      {% endif %}
+      {% if contributor_artist and contributor_image and contributor_alt %}
+        {% assign contributor_count = contributor_count | plus: 1 %}
+        {% capture contributor_card %}<a class="release-voice reveal reveal-stagger" href="{{ contributor_artist.url | relative_url }}"><img src="{{ contributor_image | relative_url }}" alt="{{ contributor_alt | escape }}" loading="lazy" width="600" height="450"><span><small>FILE // {% if contributor_count < 10 %}0{% endif %}{{ contributor_count }}</small>{{ contributor.credited_as | default: contributor_artist.name | default: contributor_artist.title }}</span></a>{% endcapture %}
+        {% assign contributor_cards = contributor_cards | append: contributor_card %}
+      {% endif %}
+      {% assign seen_artists = seen_artists | append: contributor.artist | append: "|" %}
+    {% endunless %}
+  {% endfor %}
+{% endfor %}
+{% if contributor_cards != "" %}
+<section id="{{ include.section_id }}" class="release-section release-voices standard-contributors" data-rail-theme="dark" aria-labelledby="{{ include.heading_id }}">
+  <div class="release-shell reveal">
+    <div class="release-section-heading"><div><p class="eyebrow">ARTIST FILES // {{ contributor_count }} IDENTITIES</p><h2 id="{{ include.heading_id }}">Contributors</h2></div></div>
+    <div class="release-voice-grid">{{ contributor_cards }}</div>
+  </div>
+</section>
+{% endif %}

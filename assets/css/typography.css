@@ -166,7 +166,7 @@ body:not(.home) .main h1 {
 }
 
 /* The tracklist is the deliberate exception: every title stays in Quicksand. */
-.release-tracklist h2,
+.release-page .release-tracklist h2,
 .release-tracks .track-title,
 .single-listen .single-track h3 {
   font-family:var(--body);
@@ -220,6 +220,14 @@ body:not(.home) .main h1 {
   letter-spacing:0;
 }
 
+/* The story heading is the one editorial section title in an artist file. */
+.artist-page .artist-v2-story h2 {
+  font-family:var(--display);
+  font-weight:400;
+  line-height:1;
+  letter-spacing:0;
+}
+
 /* --------------------------------------------------------------------------
    Sessions — catalogue and future session pages
    -------------------------------------------------------------------------- */
@@ -258,6 +266,14 @@ body:not(.home) .main h1 {
 .tpr-slogan {
   font-size:clamp(2.2rem,4.2vw,4.25rem);
   line-height:1.05;
+}
+
+.tpr-slogan span {
+  display:block;
+}
+
+.tpr-slogan span:last-child {
+  text-align:right;
 }
 
 .tpr-opening,

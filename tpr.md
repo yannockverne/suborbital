@@ -13,7 +13,7 @@ body_class: tpr-page
       <p class="eyebrow">INDEPENDENT BROADCAST // LEVSKI, DELAMAR</p>
       <img class="tpr-hero-logo" src="{{ '/assets/img/v2/logos/tpr-logo-white.png' | relative_url }}" alt="The People’s Radio">
       <h1 id="tpr-title" class="visually-hidden">The People’s Radio</h1>
-      <p class="tpr-slogan">“The Hottest Mix from a Small Rock in Nyx.”</p>
+      <p class="tpr-slogan"><span>“The Hottest Mix</span> <span>from a Small Rock in Nyx.”</span></p>
     </div>
   </header>
 

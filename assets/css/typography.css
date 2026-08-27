@@ -1,0 +1,306 @@
+/*
+ * SUBORBITAL TYPOGRAPHY
+ * --------------------
+ * Bonheur Royale : editorial statements and major headings.
+ * Quicksand       : reading, supporting copy and content titles.
+ * IBM Plex Sans   : archive interface, navigation and metadata.
+ *
+ * This file is intentionally loaded after style.css. It only assigns
+ * typographic roles; layout, colour and spacing remain in style.css.
+ */
+
+/* --------------------------------------------------------------------------
+   Archive interface — IBM Plex Sans
+   -------------------------------------------------------------------------- */
+
+.site-header,
+.nav-links,
+.footer-nav,
+.nav-toggle,
+.section-rail,
+.eyebrow,
+.index-label,
+.file-number,
+.archive-status,
+.button,
+.text-link,
+.back-to-top,
+.release-onward,
+.release-onward-top,
+.release-onward-links a,
+.artist-v2-nav,
+.artist-v2-nav a,
+.release-format-tabs,
+.record-meta,
+.home-record-meta,
+.home-latest-single-date,
+.catalogue-line,
+.catalogue-context,
+.release-cover figcaption,
+.single-ending figcaption,
+.release-facts dt,
+.track-number,
+.track-listen,
+.artist-v2-meta,
+.artist-v2-track-meta,
+.single-credit-list dt,
+.credits-socials,
+.credits-roll dt {
+  font-family:var(--sans);
+}
+
+/* --------------------------------------------------------------------------
+   Shared editorial headings — Bonheur Royale
+   -------------------------------------------------------------------------- */
+
+h2,
+body:not(.home) .main h1 {
+  font-family:var(--display);
+  font-weight:400;
+  letter-spacing:0;
+}
+
+/* Bonheur needs a little more air than the former display face. */
+.home h1,
+.home h2,
+.release-page .release-hero h1,
+.release-page .release-section h2,
+.releases-index-page .releases-archive-header h1,
+.releases-index-page .release-format-heading h2,
+.artists-index-page .artists-section h1,
+.sessions-index-page .session-copy h2,
+.session-v2 h1,
+.session-v2 h2,
+.credits-v2 h1,
+.credits-v2 h2,
+.tpr-v2 h2 {
+  font-family:var(--display);
+  font-weight:400;
+  line-height:1;
+  letter-spacing:0;
+}
+
+/* --------------------------------------------------------------------------
+   Reading voice — Quicksand
+   -------------------------------------------------------------------------- */
+
+.hero-aside,
+.record-subtitle,
+.section-lead,
+.releases-archive-deck,
+.catalogue-copy h3,
+.catalogue-artist,
+.catalogue-teaser,
+.release-format-empty p:last-child,
+.release-deck,
+.release-intro,
+.release-lead,
+.release-prose,
+.release-tracks .track-title,
+.release-tracks .track-artist,
+.ep-track-note,
+.single-track h3,
+.single-track p,
+.single-credit-list dd,
+.release-voice span,
+.home-record-card h3,
+.home-record-artist,
+.home-latest-single-artist,
+.home-earlier-single h3,
+.home-earlier-single p:not(.home-record-meta),
+.artist-info h3,
+.artist-info p,
+.session-copy .section-lead,
+.session-note,
+.session-v2-deck,
+.session-v2-prose,
+.session-v2-lead,
+.session-v2-title-line,
+.session-v2-prose--after,
+.tpr-prose,
+.tpr-opening,
+.tpr-statement,
+.credits-hero-intro,
+.credits-opening,
+.credits-statement,
+.credits-roll dd,
+.credits-note-grid {
+  font-family:var(--body);
+}
+
+/* --------------------------------------------------------------------------
+   Home
+   -------------------------------------------------------------------------- */
+
+/* Main manifesto and the major record title are editorial statements. */
+.home-hero h1,
+.hero-record h2,
+.record-section h2,
+.tpr-section h2,
+.truth-section h2 {
+  font-family:var(--display);
+  font-weight:400;
+  line-height:1;
+  letter-spacing:0;
+}
+
+/* The aside and upcoming record are supporting information, not calligraphy. */
+.hero-aside,
+.record-subtitle,
+.next-record .next-title,
+.next-record p:not(.index-label) {
+  font-family:var(--body);
+  letter-spacing:0;
+}
+
+/* --------------------------------------------------------------------------
+   Releases catalogue and release pages
+   -------------------------------------------------------------------------- */
+
+/* Card names remain readable; section headings keep the editorial voice. */
+.catalogue-copy h3,
+.catalogue-artist,
+.release-voice span,
+.standard-contributors .release-voice span {
+  font-family:var(--body);
+}
+
+/* The tracklist is the deliberate exception: every title stays in Quicksand. */
+.release-tracklist h2,
+.release-tracks .track-title,
+.single-listen .single-track h3 {
+  font-family:var(--body);
+  letter-spacing:0;
+}
+
+/* The album deck and editorial opening sentences are supporting narration. */
+.release-page .release-deck,
+.release-page .release-lead {
+  font-family:var(--body);
+  line-height:1.35;
+  letter-spacing:0;
+}
+
+/* --------------------------------------------------------------------------
+   Artists catalogue
+   -------------------------------------------------------------------------- */
+
+.artists-index-page .artists-section h1 {
+  font-family:var(--display);
+}
+
+.artists-index-page .artist-info h3,
+.artists-index-page .artist-info p {
+  font-family:var(--body);
+}
+
+/* --------------------------------------------------------------------------
+   Individual artist files
+   -------------------------------------------------------------------------- */
+
+/* Only the artist name and quote use the handwritten editorial voice. */
+.artist-page .artist-v2 h1,
+.artist-v2-portrait-grid blockquote {
+  font-family:var(--display);
+  font-weight:400;
+  line-height:1;
+  letter-spacing:0;
+  text-transform:none;
+}
+
+/* Everything else in an artist file is reading copy. */
+.artist-page .artist-v2 h2,
+.artist-v2-microcopy,
+.artist-v2-prose,
+.artist-v2-prose--lead,
+.artist-v2-track-note,
+.artist-v2-facts dd,
+.artist-v2-appearances li em {
+  font-family:var(--body);
+  letter-spacing:0;
+}
+
+/* --------------------------------------------------------------------------
+   Sessions — catalogue and future session pages
+   -------------------------------------------------------------------------- */
+
+.sessions-index-page .session-copy h2,
+.session-v2 h1,
+.session-v2 h2 {
+  font-family:var(--display);
+  font-weight:400;
+  line-height:1;
+  letter-spacing:0;
+}
+
+.sessions-index-page .section-lead,
+.sessions-index-page .session-note,
+.session-v2-deck,
+.session-v2-lead,
+.session-v2-title-line,
+.session-v2-prose--after {
+  font-family:var(--body);
+  letter-spacing:0;
+}
+
+/* --------------------------------------------------------------------------
+   The People's Radio
+   -------------------------------------------------------------------------- */
+
+.tpr-slogan,
+.tpr-v2 h2 {
+  font-family:var(--display);
+  font-weight:400;
+  letter-spacing:0;
+}
+
+/* The hero slogan is intentionally larger than its original setting. */
+.tpr-slogan {
+  font-size:clamp(2.2rem,4.2vw,4.25rem);
+  line-height:1.05;
+}
+
+.tpr-opening,
+.tpr-prose {
+  font-family:var(--body);
+  letter-spacing:0;
+}
+
+/* --------------------------------------------------------------------------
+   About / Credits
+   -------------------------------------------------------------------------- */
+
+.credits-v2 h1,
+.credits-v2 h2 {
+  font-family:var(--display);
+  font-weight:400;
+  line-height:1;
+  letter-spacing:0;
+}
+
+/* Opening and statement paragraphs remain comfortable reading text. */
+.credits-hero-intro p:first-child,
+.credits-opening,
+.credits-statement {
+  font-family:var(--body);
+  line-height:1.3;
+  letter-spacing:0;
+}
+
+/* The closing sentence behaves like a handwritten signature. */
+.credits-note-final {
+  font-family:var(--display);
+  font-style:normal;
+  line-height:1.15;
+  letter-spacing:0;
+}
+
+/* --------------------------------------------------------------------------
+   Small screens
+   -------------------------------------------------------------------------- */
+
+@media(max-width:540px) {
+  .tpr-slogan {
+    font-size:clamp(2rem,11vw,3.15rem);
+  }
+}

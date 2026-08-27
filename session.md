@@ -87,19 +87,11 @@ excerpt: The story of seven days at The People's Radio in Levski and the making 
       </div>
       <div class="session-v2-prose session-v2-prose--final">
         <p class="session-v2-lead">The final day began with eleven tracks.</p>
-        <p>The plan was simply to listen to them together.</p>
-        <p>At some point, Darren started playing a warm guitar line.</p>
-        <p>Someone joined him.</p>
-        <p>Then someone else.</p>
-        <p>Nobody announced another song. Nobody decided the album needed an ending.</p>
-        <p>Nok simply kept the recording running.</p>
-        <p>When it stopped, they had a twelfth track.</p>
+        <p>The plan was simply to listen to them together. At some point, Darren started playing a warm guitar line. Someone joined him. Then someone else.</p>
+        <p>Nobody announced another song. Nobody decided the album needed an ending. Nok simply kept the recording running. When it stopped, they had a twelfth track.</p>
         <p class="session-v2-title-line"><em>Across the Clouds.</em></p>
-        <p>And suddenly the title seemed to describe the whole week.</p>
-        <p>Different people, different lives, briefly crossing the same space before moving on again.</p>
-        <p>The twelfth track did not explain the other eleven.</p>
-        <p>It gave them a way to belong together.</p>
-        <p>And the album had its name.</p>
+        <p>And suddenly the title seemed to describe the whole week. Different people, different lives, briefly crossing the same space before moving on again.</p>
+        <p>The twelfth track did not explain the other eleven. It gave them a way to belong together. And the album had its name.</p>
       </div>
     </div>
   </section>

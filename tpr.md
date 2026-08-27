@@ -24,7 +24,7 @@ body_class: tpr-page
         <h2 id="tpr-introduction-title">A place for every honest sound.</h2>
       </div>
       <div class="tpr-prose">
-        <p class="tpr-opening">Some places amplify sound. Others amplify people.<br>The People’s Radio does both.</p>
+        <p class="tpr-opening">Some places amplify sound.<br>Others amplify people.<br>The People’s Radio does both.</p>
         <p>Founded in 2672 by members of The People’s Alliance, The People’s Radio was created as an independent broadcast station. Not to dominate the airwaves, but to keep them open.</p>
         <p>From its studios in Levski, Delamar, TPR has always defended the same idea. Voices matter. Not because they are loud, polished, or profitable, but because they exist.</p>
         <p>The station does not format. It does not correct. It listens. Shows emerge organically, carried by hosts who broadcast what they love, not what is expected. Electronic music, experimental sounds, pirate signals, underground scenes. Everything has its place, as long as it is honest.</p>

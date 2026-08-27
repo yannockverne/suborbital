@@ -8,8 +8,8 @@
     {% assign contributor_key = "|" | append: contributor.artist | append: "|" %}
     {% unless seen_artists contains contributor_key %}
       {% assign contributor_artist = site.artists | where: "slug", contributor.artist | first %}
-      {% assign contributor_image = contributor_artist.contributor_card %}
-      {% assign contributor_alt = contributor_artist.contributor_card_alt %}
+      {% assign contributor_image = contributor_artist.portrait %}
+      {% assign contributor_alt = contributor_artist.portrait_alt %}
       {% assign contributor_visual = release.contributor_visuals | where: "artist", contributor.artist | first %}
       {% if contributor_visual and contributor_visual.image and contributor_visual.alt %}
         {% assign contributor_image = contributor_visual.image %}

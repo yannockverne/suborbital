@@ -30,7 +30,7 @@ body_class: artists-index-page
           <div class="artist-list">
     {% endif %}
             <article class="artist-file">
-              <a class="artist-image artist-image--{{ a.slug }}" href="{{ a.url | relative_url }}" aria-label="Open {{ a.name }} artist file"><img src="{{ '/assets/img/v2/artists/' | append: a.slug | append: '.webp' | relative_url }}" alt="Portrait of {{ a.name }}" loading="lazy"></a>
+              <a class="artist-image artist-image--{{ a.slug }}" href="{{ a.url | relative_url }}" aria-label="Open {{ a.name }} artist file"><img src="{{ a.portrait | relative_url }}" alt="{{ a.portrait_alt | default: a.name | escape }}" loading="lazy"></a>
               <p class="file-number">FILE // {% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</p>
               <div class="artist-info">
                 <h3><a href="{{ a.url | relative_url }}">{{ a.name }}</a></h3>

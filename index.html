@@ -21,7 +21,7 @@ body_class: home
   {% assign latest_single = latest_single_group_items | first %}
 {% endif %}
 {% assign upcoming_release = site.upcoming | where: "active", true | sort: "sequence" | first %}
-{% capture homepage_rail_items %}top:Introduction{% if home_feature_releases.size > 1 %}|previous-records:Previous records{% endif %}{% if latest_single %}|latest-single:Latest singles{% endif %}|tpr:TPR|about:Project note{% endcapture %}
+{% capture homepage_rail_items %}top:Introduction{% if home_feature_releases.size == 1 %}|current-record:Current record{% elsif home_feature_releases.size > 1 %}|previous-records:Previous records{% endif %}{% if latest_single %}|latest-single:Latest singles{% endif %}|tpr:TPR|about:Project note{% endcapture %}
 {% include section-rail.html label="Homepage section navigation" items=homepage_rail_items %}
 <section class="home-hero" id="top" aria-labelledby="hero-title" data-rail-theme="dark">
   <div class="hero-shade"></div>
@@ -46,6 +46,22 @@ body_class: home
     </aside>{% endif %}
   </div>
 </section>
+
+{% if home_feature_releases.size == 1 and current_release %}<section class="record-section section" id="current-record" aria-labelledby="record-title" data-rail-theme="dark">
+  <div class="shell record-grid">
+    {% if current_release.artwork and current_release.cover_alt %}<figure class="record-art"><img src="{{ current_release.artwork | relative_url }}" alt="{{ current_release.cover_alt }}" loading="lazy"></figure>{% endif %}
+    <div class="record-copy">
+      <p class="eyebrow warm">CURRENT RECORD // {{ current_release.catalogue }}</p>
+      <h2 id="record-title">{{ current_release.title }}</h2>
+      {% if current_release.home_feature.lead %}<p class="section-lead">{{ current_release.home_feature.lead }}</p>{% elsif current_release.deck or current_release.teaser %}<p class="section-lead">{{ current_release.deck | default: current_release.teaser }}</p>{% endif %}
+      <dl class="release-facts">
+        {% for fact in current_release.home_feature.facts %}{% if fact.label and fact.value %}<div><dt>{{ fact.label }}</dt><dd>{{ fact.value }}</dd></div>{% endif %}{% endfor %}
+        <div><dt>Filed</dt><dd>{% include release-display-date.html release=current_release %}</dd></div>
+      </dl>
+      <a class="text-link warm-link" href="{{ current_release.url | relative_url }}">Enter the record <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</section>{% endif %}
 
 {% if home_feature_releases.size > 1 %}<section class="home-previous-records section" id="previous-records" aria-labelledby="previous-records-title" data-rail-theme="dark">
   <div class="shell">

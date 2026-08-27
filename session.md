@@ -31,7 +31,7 @@ excerpt: The story of seven days at The People's Radio in Levski and the making 
       <figure><img src="{{ '/assets/img/v2/session-1.webp' | relative_url }}" alt="A moment inside The People's Radio during the session" loading="lazy" width="800" height="1000"></figure>
       <div class="session-v2-copy">
         <p class="eyebrow">CHAPTER 01</p>
-        <h2 id="session-room-heading">THE ROOM</h2>
+        <h2 id="session-room-heading">The Room</h2>
         <div class="session-v2-prose">
           <p>The People's Radio was never a polished commercial studio.</p>
           <p>Old machines, cables, glowing screens, patched equipment, cups, notes and food slowly took over the room as the days stretched later.</p>
@@ -48,7 +48,7 @@ excerpt: The story of seven days at The People's Radio in Levski and the making 
       <figure><img src="{{ '/assets/img/v2/session-2.webp' | relative_url }}" alt="The session taking shape during the week" loading="lazy" width="800" height="1000"></figure>
       <div class="session-v2-copy">
         <p class="eyebrow">CHAPTER 02</p>
-        <h2 id="session-week-heading">WHAT CHANGED DURING THE WEEK</h2>
+        <h2 id="session-week-heading">What Changed During the Week</h2>
         <div class="session-v2-prose">
           <p>The songs began crossing into one another naturally.</p>
           <p>Madi agreed to sing deliberately on <em>Duct Tape Dream</em>.<br>Kovah's voice helped <em>Burning Thrust</em> find its final form.<br>Nok reshaped <em>The Line Below</em> around SubLight Shift and Madi's vocal textures.</p>
@@ -66,7 +66,7 @@ excerpt: The story of seven days at The People's Radio in Levski and the making 
       <figure><img src="{{ '/assets/img/v2/session-3.webp' | relative_url }}" alt="A candid moment between takes at The People's Radio" loading="lazy" width="800" height="1000"></figure>
       <div class="session-v2-copy">
         <p class="eyebrow">CHAPTER 03</p>
-        <h2 id="session-takes-heading">BETWEEN TAKES</h2>
+        <h2 id="session-takes-heading">Between Takes</h2>
         <div class="session-v2-prose">
           <p>Not everything worth remembering happened while recording.</p>
           <p>The Scrapliners kept everyone fed with instant noodles, protein bars and at least one stew nobody could properly identify.</p>
@@ -83,7 +83,7 @@ excerpt: The story of seven days at The People's Radio in Levski and the making 
     <div class="session-v2-shell session-v2-final-grid">
       <div class="session-v2-heading">
         <p class="eyebrow">CHAPTER 04 // LISTENING DAY</p>
-        <h2 id="session-final-heading">THE FINAL LISTENING DAY</h2>
+        <h2 id="session-final-heading">The Final Listening Day</h2>
       </div>
       <div class="session-v2-prose session-v2-prose--final">
         <p class="session-v2-lead">The final day began with eleven tracks.</p>
@@ -108,7 +108,7 @@ excerpt: The story of seven days at The People's Radio in Levski and the making 
     <img src="{{ '/assets/img/v2/session-ending.webp' | relative_url }}" alt="The close of the recording week in Levski" loading="lazy" width="2100" height="900">
     <div class="session-v2-ending-shade" aria-hidden="true"></div>
     <div class="session-v2-shell session-v2-after-grid session-v2-ending-copy">
-      <div><p class="eyebrow">EPILOGUE</p><h2 id="session-after-heading">AFTER LEVSKI</h2></div>
+      <div><p class="eyebrow">EPILOGUE</p><h2 id="session-after-heading">After Levski</h2></div>
       <div class="session-v2-prose session-v2-prose--after">
         <p>Nobody came to Levski to form a band.</p>
         <p>Nobody left with a new identity they had been asked to accept.</p>

@@ -18,5 +18,9 @@
   {% capture ep_rail_items %}release-hero:Record{% if has_story %}|ep-story:The EP{% endif %}{% if has_tracks %}|release-tracklist:Sequence{% endif %}{% if has_contributors %}|ep-contributors:Contributors{% endif %}{% if has_credits %}|ep-credits:Credits{% endif %}{% endcapture %}
   {% include section-rail.html label="Release section navigation" items=ep_rail_items %}
 {% else %}
-  {% include section-rail.html label="Release section navigation" items="release-hero:Record|release-story:Story|release-tracklist:Tracklist|release-voices:Voices|release-session:Session|release-context:Project note" %}
+  {% if release.slug == "sor-001" %}
+    {% include section-rail.html label="Release section navigation" items="release-hero:Record|release-story:Story|release-tracklist:Tracklist|release-booklet:Booklet|release-voices:Voices|release-session:Session|release-press:Press|release-context:Project note" %}
+  {% else %}
+    {% include section-rail.html label="Release section navigation" items="release-hero:Record|release-story:Story|release-tracklist:Tracklist|release-voices:Voices|release-session:Session|release-context:Project note" %}
+  {% endif %}
 {% endif %}

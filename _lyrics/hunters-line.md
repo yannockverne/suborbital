@@ -1,6 +1,9 @@
 ---
 track_id: hunters-line
 status: published
+writers:
+  - name: Yannick
+    url: /about/#yannick
 ---
 
 ### Verse I

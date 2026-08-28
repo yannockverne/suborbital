@@ -10,7 +10,8 @@
    Editorial markers
    -------------------------------------------------------------------------- */
 .eyebrow,
-.artists-index-page .artist-range-heading {
+.artists-index-page .artist-range-heading,
+.credits-page .credits-process .eyebrow {
   color: var(--orange);
 }
 

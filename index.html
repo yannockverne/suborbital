@@ -55,7 +55,7 @@ body_class: home
   <div class="shell record-grid">
     {% if only_release.artwork and only_release.cover_alt %}<figure class="record-art"><img src="{{ only_release.artwork | relative_url }}" alt="{{ only_release.cover_alt }}" loading="lazy"></figure>{% endif %}
     <div class="record-copy">
-      <p class="eyebrow warm">LATEST {{ only_release.type | upcase }} // {{ only_release.catalogue }}</p>
+      <p class="eyebrow warm">Latest {{ only_release.type }} // {{ only_release.catalogue }}</p>
       <h2 id="record-title">{{ only_release.title }}</h2>
       {% if only_release.artist %}<p class="home-latest-release-artist"><em>{{ only_release.artist }}</em></p>{% endif %}
       {% if only_release.home_feature.lead %}<p class="section-lead">{{ only_release.home_feature.lead }}</p>{% elsif only_release.deck or only_release.teaser %}<p class="section-lead">{{ only_release.deck | default: only_release.teaser }}</p>{% endif %}

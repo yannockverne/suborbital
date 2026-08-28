@@ -1,6 +1,9 @@
 ---
 track_id: my-ship-my-mess
 status: published
+writers:
+  - name: Yannick
+    url: /about/#yannick
 ---
 
 ### Verse I

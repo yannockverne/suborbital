@@ -110,6 +110,13 @@
   background-position: center;
 }
 
+/* --------------------------------------------------------------------------
+   Credits: keep opening copy clear of the floating navigation
+   -------------------------------------------------------------------------- */
+.credits-page .credits-hero-inner {
+  transform: translateY(clamp(36px, 4vw, 58px));
+}
+
 @media (max-width: 850px) {
   .site-header {
     height: 0;
@@ -152,6 +159,10 @@
     max-width: 680px;
     margin-bottom: 0;
   }
+
+  .credits-page .credits-hero-inner {
+    transform: translateY(44px);
+  }
 }
 
 @media (max-width: 540px) {
@@ -162,6 +173,10 @@
   .releases-index-page .releases-archive-header {
     padding-top: 86px;
     padding-bottom: 28px;
+  }
+
+  .credits-page .credits-hero-inner {
+    transform: translateY(36px);
   }
 }
 

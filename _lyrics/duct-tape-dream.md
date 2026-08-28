@@ -1,6 +1,9 @@
 ---
 track_id: duct-tape-dream
 status: published
+writers:
+  - name: Yannick
+    url: /about/#yannick
 ---
 
 ### Verse I

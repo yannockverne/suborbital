@@ -124,10 +124,38 @@
   margin: 0 0 1.8em;
 }
 
-.lyrics-dialog-note {
-  margin-top: 48px;
+.lyrics-dialog-writers {
+  margin: 48px 0 0;
   padding-top: 18px;
   border-top: 1px solid var(--line);
+  color: #71848f;
+  font: 400 .67rem/1.6 var(--sans);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.lyrics-dialog-writers > span:first-child {
+  color: var(--orange);
+}
+
+.lyrics-dialog-writers a,
+.lyrics-dialog-writers [data-lyrics-writers-body] {
+  color: #b7c7cf;
+}
+
+.lyrics-dialog-writers a {
+  text-decoration: none;
+  border-bottom: 1px solid rgba(233,130,77,.45);
+}
+
+.lyrics-dialog-writers a:hover,
+.lyrics-dialog-writers a:focus-visible {
+  color: #fff;
+  border-color: currentColor;
+}
+
+.lyrics-dialog-note {
+  margin-top: 14px;
   color: #71848f;
   font: 400 .67rem/1.6 var(--sans);
   letter-spacing: .12em;

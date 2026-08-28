@@ -7,6 +7,13 @@
 }
 
 /* --------------------------------------------------------------------------
+   Editorial markers
+   -------------------------------------------------------------------------- */
+.eyebrow {
+  color: var(--orange);
+}
+
+/* --------------------------------------------------------------------------
    Floating primary navigation
    -------------------------------------------------------------------------- */
 .site-header {
@@ -24,9 +31,9 @@
   height: 68px;
   padding: 0 20px 0 14px;
   background: rgba(4, 10, 17, .82);
-  border: 1px solid rgba(177, 207, 225, .2);
+  border: 1px solid rgba(177,207,225,.2);
   border-radius: 14px;
-  box-shadow: 0 14px 38px rgba(0, 0, 0, .28);
+  box-shadow: 0 14px 38px rgba(0,0,0,.28);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   pointer-events: auto;
@@ -200,9 +207,9 @@
     top: 68px;
     left: 0;
     right: 0;
-    border: 1px solid rgba(177, 207, 225, .2);
+    border: 1px solid rgba(177,207,225,.2);
     border-radius: 12px;
-    background: rgba(4, 10, 17, .96);
+    background: rgba(4,10,17,.96);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
   }

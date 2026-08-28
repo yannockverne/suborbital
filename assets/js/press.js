@@ -2,48 +2,42 @@
   const lightbox = document.querySelector('[data-press-lightbox]');
   if (!lightbox) return;
 
-  const triggers = Array.from(document.querySelectorAll('[data-press-open]'));
   const image = lightbox.querySelector('[data-press-image]');
   const closeButton = lightbox.querySelector('[data-press-close]');
   const prevButton = lightbox.querySelector('[data-press-prev]');
   const nextButton = lightbox.querySelector('[data-press-next]');
   const currentLabel = lightbox.querySelector('[data-press-current]');
+  const totalLabel = lightbox.querySelector('[data-press-total]');
   const pageLabel = lightbox.querySelector('[data-press-page-label]');
+  const titleLabel = lightbox.querySelector('[data-press-lightbox-title]');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  const pages = [
-    ['01', '/assets/img/press/sor-001/kit-press-v2_01.webp'],
-    ['02–03', '/assets/img/press/sor-001/kit-press-v2_02-03.webp'],
-    ['04–05', '/assets/img/press/sor-001/kit-press-v2_04-05.webp'],
-    ['06–07', '/assets/img/press/sor-001/kit-press-v2_06-07.webp'],
-    ['08', '/assets/img/press/sor-001/kit-press-v2_08.webp']
-  ];
-
+  let pages = [];
+  let title = '';
+  let catalogue = '';
   let index = 0;
   let previousFocus = null;
   let touchStartX = null;
 
-  const resolved = src => {
-    const base = document.documentElement.dataset.baseurl || '';
-    return `${base}${src}`;
-  };
-
   const preloadAround = () => {
+    if (!pages.length) return;
     [index - 1, index + 1].forEach(i => {
       const wrapped = (i + pages.length) % pages.length;
       const preload = new Image();
-      preload.src = resolved(pages[wrapped][1]);
+      preload.src = pages[wrapped].src;
     });
   };
 
   const render = nextIndex => {
+    if (!pages.length) return;
     index = (nextIndex + pages.length) % pages.length;
-    const [label, src] = pages[index];
+    const page = pages[index];
     const update = () => {
-      image.src = resolved(src);
-      image.alt = `Across the Clouds press kit, page ${label}`;
+      image.src = page.src;
+      image.alt = `${title} press kit, page ${page.label}`;
       currentLabel.textContent = String(index + 1).padStart(2, '0');
-      pageLabel.textContent = label.includes('–') ? `Pages ${label}` : `Page ${label}`;
+      totalLabel.textContent = String(pages.length).padStart(2, '0');
+      pageLabel.textContent = page.label.includes('–') ? `Pages ${page.label}` : `Page ${page.label}`;
       if (!reduceMotion) requestAnimationFrame(() => image.classList.remove('is-changing'));
       preloadAround();
     };
@@ -55,7 +49,22 @@
     }
   };
 
-  const open = startIndex => {
+  const open = (trigger, startIndex) => {
+    const entry = trigger.closest('[data-press-entry]');
+    const pageStore = entry?.querySelector('[data-press-pages]');
+    if (!pageStore) return;
+
+    pages = Array.from(pageStore.querySelectorAll('[data-press-page]')).map(node => ({
+      label: node.dataset.label || '',
+      src: node.dataset.src || ''
+    })).filter(page => page.src);
+    if (!pages.length) return;
+
+    title = pageStore.dataset.pressTitle || 'Press kit';
+    catalogue = pageStore.dataset.pressCatalogue || '';
+    titleLabel.textContent = `${title.toUpperCase()} // ${catalogue} // PRESS KIT`;
+    lightbox.setAttribute('aria-label', `${title} press kit`);
+
     previousFocus = document.activeElement;
     lightbox.hidden = false;
     document.body.classList.add('is-press-open');
@@ -66,10 +75,13 @@
   const close = () => {
     lightbox.hidden = true;
     document.body.classList.remove('is-press-open');
+    image.removeAttribute('src');
     if (previousFocus && typeof previousFocus.focus === 'function') previousFocus.focus();
   };
 
-  triggers.forEach(trigger => trigger.addEventListener('click', () => open(Number(trigger.dataset.pressIndex || 0))));
+  document.querySelectorAll('[data-press-open]').forEach(trigger => {
+    trigger.addEventListener('click', () => open(trigger, Number(trigger.dataset.pressIndex || 0)));
+  });
   closeButton.addEventListener('click', close);
   prevButton.addEventListener('click', () => render(index - 1));
   nextButton.addEventListener('click', () => render(index + 1));

@@ -5,6 +5,7 @@ body_class: press-page
 excerpt: Press materials and media resources from the SubOrbital Records archive.
 ---
 
+{% assign press_entries = site.press | where: "published", true | sort: "sequence" %}
 <section class="press-hero">
   <div class="shell press-hero-inner reveal">
     <p class="eyebrow warm">PRESS ROOM // MEDIA ARCHIVE</p>
@@ -13,39 +14,44 @@ excerpt: Press materials and media resources from the SubOrbital Records archive
   </div>
 </section>
 
-<section class="press-index-section" aria-labelledby="press-sor-001-heading">
-  <div class="shell press-release-grid reveal" id="sor-001">
+{% for press in press_entries %}
+<section class="press-index-section" aria-labelledby="press-{{ press.release }}-heading" data-press-entry>
+  <div class="shell press-release-grid reveal" id="{{ press.release }}">
     <figure class="press-release-cover">
-      <button type="button" data-press-open data-press-index="0" aria-label="Open the Across the Clouds press kit">
-        <img src="{{ '/assets/img/press/sor-001/kit-press-v2_01.webp' | relative_url }}" alt="Across the Clouds press kit cover" loading="lazy">
+      <button type="button" data-press-open data-press-index="0" aria-label="Open the {{ press.title }} press kit">
+        <img src="{{ press.cover | relative_url }}" alt="{{ press.cover_alt | default: press.title | escape }}" loading="lazy">
       </button>
-      <figcaption>SOR-001 // PRESS KIT // 8 PAGES</figcaption>
+      <figcaption>{{ press.catalogue }} // PRESS KIT // {{ press.page_count }} PAGES</figcaption>
     </figure>
     <div class="press-release-copy">
-      <p class="eyebrow">PRESS FILE // SOR-001</p>
-      <h2 id="press-sor-001-heading">Across the Clouds</h2>
-      <p class="press-release-meta">Album // October 2955</p>
-      <p>The original press kit for <em>Across the Clouds</em>, documenting the record, the week at The People’s Radio, its contributors and the context surrounding SubOrbital Records’ first release.</p>
+      <p class="eyebrow">PRESS FILE // {{ press.catalogue }}</p>
+      <h2 id="press-{{ press.release }}-heading">{{ press.title }}</h2>
+      <p class="press-release-meta">{{ press.meta | default: press.format }}</p>
+      <p>{{ press.summary }}</p>
       <div class="press-release-actions">
         <button class="button button-primary" type="button" data-press-open data-press-index="0">Open press kit</button>
-        <a class="text-link" href="{{ '/releases/sor-001/' | relative_url }}">Open release file <span aria-hidden="true">↗</span></a>
+        <a class="text-link" href="{{ '/releases/' | append: press.release | append: '/' | relative_url }}">Open release file <span aria-hidden="true">↗</span></a>
       </div>
     </div>
   </div>
+  <div hidden data-press-pages data-press-title="{{ press.title | escape }}" data-press-catalogue="{{ press.catalogue | escape }}">
+    {% for spread in press.pages %}<span data-press-page data-label="{{ spread.label | escape }}" data-src="{{ spread.image | relative_url }}"></span>{% endfor %}
+  </div>
 </section>
+{% endfor %}
 
-<div class="press-lightbox" data-press-lightbox hidden role="dialog" aria-modal="true" aria-label="Across the Clouds press kit">
+<div class="press-lightbox" data-press-lightbox hidden role="dialog" aria-modal="true" aria-label="Press kit">
   <div class="press-lightbox-top">
-    <p class="press-lightbox-title">ACROSS THE CLOUDS // SOR-001 // PRESS KIT</p>
+    <p class="press-lightbox-title" data-press-lightbox-title>PRESS KIT</p>
     <button class="press-lightbox-close" type="button" data-press-close aria-label="Close press kit">×</button>
   </div>
   <div class="press-lightbox-stage">
     <button class="press-lightbox-nav press-lightbox-prev" type="button" data-press-prev aria-label="Previous press kit spread">‹</button>
-    <img class="press-lightbox-image" data-press-image src="{{ '/assets/img/press/sor-001/kit-press-v2_01.webp' | relative_url }}" alt="Across the Clouds press kit, page 01">
+    <img class="press-lightbox-image" data-press-image src="" alt="">
     <button class="press-lightbox-nav press-lightbox-next" type="button" data-press-next aria-label="Next press kit spread">›</button>
   </div>
   <div class="press-lightbox-footer" aria-live="polite">
-    <span><span class="press-lightbox-counter-current" data-press-current>01</span> / 05</span>
+    <span><span class="press-lightbox-counter-current" data-press-current>01</span> / <span data-press-total>00</span></span>
     <span data-press-page-label>Page 01</span>
   </div>
 </div>

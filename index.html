@@ -68,28 +68,35 @@ body_class: home
   </div>
 </section>{% endif %}
 
-{% if latest_releases_by_type.size > 1 %}<section class="home-latest-releases section" id="latest-releases" aria-labelledby="latest-releases-title" data-rail-theme="dark">
-  <div class="shell">
-    <div class="section-heading home-latest-releases-heading">
-      <div>
-        <p class="eyebrow warm">CURRENT FILES // BY FORMAT</p>
-        <h2 id="latest-releases-title">Latest Releases</h2>
+{% if latest_releases_by_type.size > 1 %}<section class="release-rotator section" id="latest-releases" aria-label="Latest releases by format" data-rail-theme="dark" data-release-rotator>
+  <div class="shell release-rotator-shell">
+    <div class="release-rotator-head">
+      <p class="eyebrow warm">Latest releases // by format</p>
+      <div class="release-rotator-tabs" role="tablist" aria-label="Choose release format">
+        {% for record in latest_releases_by_type %}<button class="release-rotator-tab" id="release-tab-{{ forloop.index }}" type="button" role="tab" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}" aria-controls="release-slide-{{ forloop.index }}" tabindex="{% if forloop.first %}0{% else %}-1{% endif %}" data-release-tab>{{ record.type }}</button>{% endfor %}
       </div>
-      <a class="text-link" href="{{ '/releases/' | relative_url }}">All releases <span aria-hidden="true">↗</span></a>
     </div>
-    <div class="home-latest-release-grid home-latest-release-grid--{{ latest_releases_by_type.size }}">
-      {% for record in latest_releases_by_type %}<article class="home-latest-release-card" aria-labelledby="latest-release-{{ forloop.index }}-title">
-        {% if record.artwork and record.cover_alt %}<a class="home-latest-release-art" href="{{ record.url | relative_url }}"><img src="{{ record.artwork | relative_url }}" alt="{{ record.cover_alt }}" loading="lazy"></a>{% endif %}
-        <div class="home-latest-release-index">
-          <p class="eyebrow warm">LATEST {{ record.type | upcase }}</p>
-          <p class="home-record-meta">{{ record.catalogue }}</p>
+
+    <div class="release-rotator-stage">
+      {% for record in latest_releases_by_type %}<article class="release-rotator-slide{% if forloop.first %} is-active{% endif %}" id="release-slide-{{ forloop.index }}" role="tabpanel" aria-labelledby="release-tab-{{ forloop.index }}" data-release-slide>
+        <div class="record-grid">
+          {% if record.artwork and record.cover_alt %}<figure class="record-art"><img src="{{ record.artwork | relative_url }}" alt="{{ record.cover_alt }}" loading="lazy"></figure>{% endif %}
+          <div class="record-copy">
+            <p class="eyebrow warm">Latest {{ record.type }} // {{ record.catalogue }}</p>
+            <h2>{{ record.title }}</h2>
+            {% if record.artist %}<p class="home-latest-release-artist"><em>{{ record.artist }}</em></p>{% endif %}
+            {% if record.home_feature.lead %}<p class="section-lead">{{ record.home_feature.lead }}</p>{% elsif record.deck or record.teaser %}<p class="section-lead">{{ record.deck | default: record.teaser }}</p>{% endif %}
+            <dl class="release-facts">
+              {% for fact in record.home_feature.facts %}{% if fact.label and fact.value %}<div><dt>{{ fact.label }}</dt><dd>{{ fact.value }}</dd></div>{% endif %}{% endfor %}
+              <div><dt>Filed</dt><dd>{% include release-display-date.html release=record %}</dd></div>
+            </dl>
+            <a class="text-link warm-link" href="{{ record.url | relative_url }}">Open the {{ record.type | downcase }} <span aria-hidden="true">↗</span></a>
+          </div>
         </div>
-        <h3 id="latest-release-{{ forloop.index }}-title"><a href="{{ record.url | relative_url }}">{{ record.title }}</a></h3>
-        {% if record.artist %}<p class="home-latest-release-artist">{{ record.artist }}</p>{% endif %}
-        <p class="home-latest-release-date">FILED // {% include release-display-date.html release=record %}</p>
-        <a class="text-link warm-link" href="{{ record.url | relative_url }}">Open the {{ record.type | downcase }} <span aria-hidden="true">↗</span></a>
       </article>{% endfor %}
     </div>
+
+    <div class="release-rotator-progress" aria-hidden="true"><span class="release-rotator-progress-bar"></span></div>
   </div>
 </section>{% endif %}
 

@@ -12,7 +12,8 @@
 .eyebrow,
 .artists-index-page .artist-range-heading,
 .credits-page .credits-process .eyebrow,
-.release-page .release-context .eyebrow {
+.release-page .release-context .eyebrow,
+.home .truth-section .eyebrow {
   color: var(--orange);
 }
 

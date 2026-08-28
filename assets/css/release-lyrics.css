@@ -119,6 +119,18 @@
   font: 400 clamp(1.05rem,1.7vw,1.28rem)/1.9 var(--serif);
 }
 
+.lyrics-dialog-body h3 {
+  margin: 0 0 14px;
+  color: var(--orange);
+  font: 500 .64rem/1.4 var(--sans);
+  letter-spacing: .17em;
+  text-transform: uppercase;
+}
+
+.lyrics-dialog-body h3:not(:first-child) {
+  margin-top: 42px;
+}
+
 .lyrics-dialog-body p {
   margin: 0 0 1.8em;
 }
@@ -184,6 +196,10 @@ body.lyrics-open {
   .lyrics-dialog-body {
     font-size: 1.05rem;
     line-height: 1.8;
+  }
+
+  .lyrics-dialog-body h3:not(:first-child) {
+    margin-top: 34px;
   }
 }
 

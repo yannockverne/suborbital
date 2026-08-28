@@ -24,7 +24,7 @@
         </span>
         {% if lyrics_entry %}
         <template id="lyrics-{{ canonical_track.track_id }}">{{ lyrics_entry.content | markdownify }}</template>
-        <template id="lyrics-writers-{{ canonical_track.track_id }}">{% if lyrics_entry.writers %}{% for writer in lyrics_entry.writers %}{% if writer.url %}<a href="{{ writer.url | relative_url }}">{{ writer.name }}</a>{% else %}<span>{{ writer.name }}</span>{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}{% endif %}</template>
+        <template id="lyrics-writers-{{ canonical_track.track_id }}">{% if lyrics_entry.writers %}{% for writer in lyrics_entry.writers %}{% if writer.url %}{% assign writer_url = writer.url %}{% if writer_url == '/about/#yannick' %}{% assign writer_url = '/credits/#yannick' %}{% endif %}<a href="{{ writer_url | relative_url }}">{{ writer.name }}</a>{% else %}<span>{{ writer.name }}</span>{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}{% endif %}</template>
         {% endif %}
       </li>
       {% endfor %}

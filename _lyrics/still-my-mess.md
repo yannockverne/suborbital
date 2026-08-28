@@ -1,6 +1,9 @@
 ---
 track_id: still-my-mess
 status: published
+writers:
+  - name: Yannick
+    url: /about/#yannick
 ---
 
 ### Verse I

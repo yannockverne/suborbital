@@ -17,6 +17,8 @@ collections:
     permalink: /releases/:name/
   upcoming:
     output: false
+  press:
+    output: false
 
 defaults:
   - scope:

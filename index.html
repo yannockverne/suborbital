@@ -73,16 +73,18 @@ body_class: home
     <div class="section-heading home-latest-releases-heading">
       <div>
         <p class="eyebrow warm">CURRENT FILES // BY FORMAT</p>
-        <h2 id="latest-releases-title">Latest Releases</h2>
+        <h2 id="latest-releases-title">LATEST RELEASES</h2>
       </div>
       <a class="text-link" href="{{ '/releases/' | relative_url }}">All releases <span aria-hidden="true">↗</span></a>
     </div>
     <div class="home-latest-release-grid home-latest-release-grid--{{ latest_releases_by_type.size }}">
-      {% for record in latest_releases_by_type %}<article class="home-latest-release-card">
-        <p class="eyebrow warm">LATEST {{ record.type | upcase }}</p>
-        <p class="home-record-meta">{{ record.catalogue }}</p>
+      {% for record in latest_releases_by_type %}<article class="home-latest-release-card" aria-labelledby="latest-release-{{ forloop.index }}-title">
         {% if record.artwork and record.cover_alt %}<a class="home-latest-release-art" href="{{ record.url | relative_url }}"><img src="{{ record.artwork | relative_url }}" alt="{{ record.cover_alt }}" loading="lazy"></a>{% endif %}
-        <h3><a href="{{ record.url | relative_url }}">{{ record.title }}</a></h3>
+        <div class="home-latest-release-index">
+          <p class="eyebrow warm">LATEST {{ record.type | upcase }}</p>
+          <p class="home-record-meta">{{ record.catalogue }}</p>
+        </div>
+        <h3 id="latest-release-{{ forloop.index }}-title"><a href="{{ record.url | relative_url }}">{{ record.title }}</a></h3>
         {% if record.artist %}<p class="home-latest-release-artist">{{ record.artist }}</p>{% endif %}
         <p class="home-latest-release-date">FILED // {% include release-display-date.html release=record %}</p>
         <a class="text-link warm-link" href="{{ record.url | relative_url }}">Open the {{ record.type | downcase }} <span aria-hidden="true">↗</span></a>

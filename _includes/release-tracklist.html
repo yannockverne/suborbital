@@ -9,14 +9,20 @@
     </div>
     <ol class="release-tracks">
       {% assign has_playable_track = false %}
+      {% assign has_lyrics_track = false %}
       {% for track in tracks %}
       {% assign canonical_track = site.tracks | where: "track_id", track.track | first %}
       {% assign track_title = canonical_track.title %}
       {% assign track_artist = canonical_track.display_credit %}
       {% assign track_url = canonical_track.audio_url %}
+      {% assign track_lyrics = canonical_track.lyrics %}
       <li class="reveal reveal-stagger{% if forloop.last %} title-track{% endif %}" data-track-row>
         <span class="track-number" aria-hidden="true">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span><span class="track-title">{{ track_title }}</span><span class="track-artist">{{ track_artist }}</span>
-        {% if track_url %}{% assign has_playable_track = true %}<button class="track-listen" type="button" data-track-url="{{ track_url }}" data-track-title="{{ track_title }}" aria-pressed="false"><span>Listen</span><i aria-hidden="true">▶</i></button>{% endif %}
+        <span class="release-track-actions">
+          {% if track_lyrics %}{% assign has_lyrics_track = true %}<button class="track-lyrics" type="button" data-lyrics-open data-lyrics-source="lyrics-{{ canonical_track.track_id }}" data-lyrics-title="{{ track_title | escape }}" data-lyrics-credit="{{ track_artist | escape }}">Lyrics</button>{% endif %}
+          {% if track_url %}{% assign has_playable_track = true %}<button class="track-listen" type="button" data-track-url="{{ track_url }}" data-track-title="{{ track_title }}" aria-pressed="false"><span>Listen</span><i aria-hidden="true">▶</i></button>{% endif %}
+        </span>
+        {% if track_lyrics %}<template id="lyrics-{{ canonical_track.track_id }}">{{ track_lyrics | markdownify }}</template>{% endif %}
       </li>
       {% endfor %}
     </ol>
@@ -29,4 +35,22 @@
     {% endif %}
   </div>
 </section>
+{% if has_lyrics_track %}
+<div class="lyrics-dialog" data-lyrics-dialog hidden role="dialog" aria-modal="true" aria-labelledby="lyrics-dialog-title">
+  <div class="lyrics-dialog-shell">
+    <button class="lyrics-dialog-close" type="button" data-lyrics-close aria-label="Close lyrics">×</button>
+    <div class="lyrics-dialog-grid">
+      <header class="lyrics-dialog-meta">
+        <p class="eyebrow">LYRICS // ARCHIVE TRANSCRIPT</p>
+        <h2 class="lyrics-dialog-title" id="lyrics-dialog-title" data-lyrics-title></h2>
+        <p class="lyrics-dialog-credit" data-lyrics-credit></p>
+      </header>
+      <div>
+        <div class="lyrics-dialog-body" data-lyrics-body></div>
+        <p class="lyrics-dialog-note">Lyrics preserved with the track file // SubOrbital Records archive</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
 {% endif %}

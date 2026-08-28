@@ -19,10 +19,13 @@
       <li class="reveal reveal-stagger{% if forloop.last %} title-track{% endif %}" data-track-row>
         <span class="track-number" aria-hidden="true">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span><span class="track-title">{{ track_title }}</span><span class="track-artist">{{ track_artist }}</span>
         <span class="release-track-actions">
-          {% if lyrics_entry %}{% assign has_lyrics_track = true %}<button class="track-lyrics" type="button" data-lyrics-open data-lyrics-source="lyrics-{{ canonical_track.track_id }}" data-lyrics-title="{{ track_title | escape }}" data-lyrics-credit="{{ track_artist | escape }}">Lyrics</button>{% endif %}
+          {% if lyrics_entry %}{% assign has_lyrics_track = true %}<button class="track-lyrics" type="button" data-lyrics-open data-lyrics-source="lyrics-{{ canonical_track.track_id }}" data-lyrics-writers-source="lyrics-writers-{{ canonical_track.track_id }}" data-lyrics-title="{{ track_title | escape }}" data-lyrics-credit="{{ track_artist | escape }}">Lyrics</button>{% endif %}
           {% if track_url %}{% assign has_playable_track = true %}<button class="track-listen" type="button" data-track-url="{{ track_url }}" data-track-title="{{ track_title }}" aria-pressed="false"><span>Listen</span><i aria-hidden="true">▶</i></button>{% endif %}
         </span>
-        {% if lyrics_entry %}<template id="lyrics-{{ canonical_track.track_id }}">{{ lyrics_entry.content | markdownify }}</template>{% endif %}
+        {% if lyrics_entry %}
+        <template id="lyrics-{{ canonical_track.track_id }}">{{ lyrics_entry.content | markdownify }}</template>
+        <template id="lyrics-writers-{{ canonical_track.track_id }}">{% if lyrics_entry.writers %}{% for writer in lyrics_entry.writers %}{% if writer.url %}<a href="{{ writer.url | relative_url }}">{{ writer.name }}</a>{% else %}<span>{{ writer.name }}</span>{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}{% endif %}</template>
+        {% endif %}
       </li>
       {% endfor %}
     </ol>
@@ -47,6 +50,7 @@
       </header>
       <div>
         <div class="lyrics-dialog-body" data-lyrics-body></div>
+        <p class="lyrics-dialog-writers" data-lyrics-writers hidden><span>LYRICS BY // </span><span data-lyrics-writers-body></span></p>
         <p class="lyrics-dialog-note">Lyrics preserved with the track file // SubOrbital Records archive</p>
       </div>
     </div>

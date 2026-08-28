@@ -6,12 +6,14 @@
   const tabs = Array.from(rotator.querySelectorAll('[data-release-tab]'));
   const progress = rotator.querySelector('.release-rotator-progress-bar');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const interval = 6500;
+  const interval = 4000;
+  const manualPause = 10000;
 
   if (slides.length < 2 || tabs.length !== slides.length) return;
 
   let activeIndex = 0;
   let timer = null;
+  let resumeTimer = null;
   let autoplay = !reduceMotion;
 
   const restartProgress = () => {
@@ -28,15 +30,23 @@
     timer = window.setTimeout(() => show((activeIndex + 1) % slides.length, false), interval);
   };
 
-  const stopAutoplay = () => {
+  const pauseAfterManualInteraction = () => {
     autoplay = false;
     window.clearTimeout(timer);
+    window.clearTimeout(resumeTimer);
     rotator.classList.remove('is-autoplaying');
+
+    if (reduceMotion) return;
+
+    resumeTimer = window.setTimeout(() => {
+      autoplay = true;
+      schedule();
+    }, manualPause);
   };
 
   const show = (nextIndex, userInitiated) => {
     if (nextIndex === activeIndex) {
-      if (userInitiated) stopAutoplay();
+      if (userInitiated) pauseAfterManualInteraction();
       return;
     }
 
@@ -60,7 +70,7 @@
 
     activeIndex = nextIndex;
 
-    if (userInitiated) stopAutoplay();
+    if (userInitiated) pauseAfterManualInteraction();
     else schedule();
   };
 
@@ -69,7 +79,6 @@
     tab.addEventListener('keydown', event => {
       if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
       event.preventDefault();
-      stopAutoplay();
 
       let nextIndex = index;
       if (event.key === 'ArrowRight') nextIndex = (index + 1) % tabs.length;

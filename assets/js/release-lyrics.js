@@ -36,12 +36,10 @@
 
     if (writers && writersBody) {
       writersBody.replaceChildren();
-      if (writersSource && writersSource.content.textContent.trim()) {
-        writersBody.replaceChildren(writersSource.content.cloneNode(true));
-        writers.hidden = false;
-      } else {
-        writers.hidden = true;
+      if (writersSource) {
+        writersBody.append(writersSource.content.cloneNode(true));
       }
+      writers.hidden = !writersBody.textContent.trim();
     }
 
     dialog.hidden = false;

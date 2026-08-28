@@ -3,6 +3,7 @@
 :root {
   --page-start-top: clamp(86px, 7vw, 112px);
   --home-hero-start-top: clamp(70px, 9vw, 135px);
+  --tpr-hero-optical-offset: 40px;
 }
 
 /* --------------------------------------------------------------------------
@@ -68,15 +69,23 @@
 
 /* --------------------------------------------------------------------------
    Master hero anchor
-   Home is the visual reference for immersive opening pages. TPR and About use
-   the exact same first-content position: same top rhythm and same left edge.
+   Home is the visual reference for immersive opening pages. About follows it
+   exactly; TPR keeps the same grid but sits slightly lower for optical balance.
    -------------------------------------------------------------------------- */
 .home .hero-inner,
-.tpr-page .tpr-hero-inner,
-.credits-page .credits-hero-inner {
+.credits-page .credits-hero-inner,
+.tpr-page .tpr-hero-inner {
   width: min(100% - 56px, 1320px);
   margin-inline: auto;
+}
+
+.home .hero-inner,
+.credits-page .credits-hero-inner {
   padding-top: var(--home-hero-start-top);
+}
+
+.tpr-page .tpr-hero-inner {
+  padding-top: calc(var(--home-hero-start-top) + var(--tpr-hero-optical-offset));
 }
 
 /* --------------------------------------------------------------------------
@@ -145,6 +154,7 @@
   :root {
     --page-start-top: 82px;
     --home-hero-start-top: 70px;
+    --tpr-hero-optical-offset: 28px;
   }
 
   .site-header {
@@ -196,6 +206,7 @@
   :root {
     --page-start-top: 74px;
     --home-hero-start-top: 70px;
+    --tpr-hero-optical-offset: 20px;
   }
 
   .site-header .nav {

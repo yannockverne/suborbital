@@ -1,0 +1,194 @@
+.release-track-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.track-lyrics {
+  appearance: none;
+  border: 0;
+  border-bottom: 1px solid rgba(233,130,77,.5);
+  padding: 4px 0;
+  background: transparent;
+  color: var(--orange);
+  font: 500 .62rem/1.2 var(--sans);
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.track-lyrics:hover,
+.track-lyrics:focus-visible {
+  color: #fff;
+  border-color: currentColor;
+}
+
+.lyrics-dialog[hidden] {
+  display: none;
+}
+
+.lyrics-dialog {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: rgba(2,6,10,.92);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.lyrics-dialog::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(233,130,77,.12), transparent 34%),
+    linear-gradient(90deg, rgba(169,215,242,.035) 1px, transparent 1px);
+  background-size: auto, 120px 100%;
+}
+
+.lyrics-dialog-shell {
+  position: relative;
+  width: min(calc(100% - 56px), 1180px);
+  min-height: 100svh;
+  margin-inline: auto;
+  padding: clamp(80px, 9vw, 130px) 0 90px;
+}
+
+.lyrics-dialog-close {
+  position: fixed;
+  top: 28px;
+  right: 32px;
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(177,207,225,.25);
+  border-radius: 50%;
+  background: rgba(4,10,17,.72);
+  color: #fff;
+  font-size: 1.55rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.lyrics-dialog-close:hover,
+.lyrics-dialog-close:focus-visible {
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+.lyrics-dialog-grid {
+  display: grid;
+  grid-template-columns: minmax(240px,.6fr) minmax(360px,1fr);
+  gap: clamp(55px,9vw,135px);
+  align-items: start;
+}
+
+.lyrics-dialog-meta {
+  position: sticky;
+  top: 90px;
+}
+
+.lyrics-dialog .eyebrow {
+  margin-bottom: 20px;
+}
+
+.lyrics-dialog-title {
+  margin: 0;
+  font: 400 clamp(3rem,6vw,6rem)/.92 var(--serif);
+  letter-spacing: -.035em;
+  text-wrap: balance;
+}
+
+.lyrics-dialog-credit {
+  margin: 24px 0 0;
+  color: #9fb2bd;
+  font-size: .78rem;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.lyrics-dialog-body {
+  max-width: 660px;
+  color: #e4ebee;
+  font: 400 clamp(1.05rem,1.7vw,1.28rem)/1.9 var(--serif);
+}
+
+.lyrics-dialog-body p {
+  margin: 0 0 1.8em;
+}
+
+.lyrics-dialog-note {
+  margin-top: 48px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  color: #71848f;
+  font: 400 .67rem/1.6 var(--sans);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+body.lyrics-open {
+  overflow: hidden;
+}
+
+@media (max-width: 850px) {
+  .release-track-actions {
+    gap: 8px;
+  }
+
+  .lyrics-dialog-shell {
+    width: min(calc(100% - 36px), 1180px);
+    padding-top: 88px;
+  }
+
+  .lyrics-dialog-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .lyrics-dialog-meta {
+    position: static;
+  }
+}
+
+@media (max-width: 540px) {
+  .release-track-actions {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .track-lyrics {
+    font-size: .58rem;
+  }
+
+  .lyrics-dialog-shell {
+    width: calc(100% - 28px);
+    padding: 82px 0 60px;
+  }
+
+  .lyrics-dialog-close {
+    top: 18px;
+    right: 16px;
+  }
+
+  .lyrics-dialog-title {
+    font-size: clamp(2.8rem,15vw,4.4rem);
+  }
+
+  .lyrics-dialog-body {
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lyrics-dialog {
+    scroll-behavior: auto;
+  }
+}

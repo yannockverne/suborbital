@@ -1,6 +1,9 @@
 ---
 track_id: across-the-clouds-live-session
 status: published
+writers:
+  - name: Yannick
+    url: /about/#yannick
 ---
 
 ### Verse I

@@ -46,10 +46,8 @@
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background:
-    radial-gradient(circle at 18% 18%, rgba(233,130,77,.12), transparent 34%),
-    linear-gradient(90deg, rgba(169,215,242,.035) 1px, transparent 1px);
-  background-size: auto, 120px 100%;
+  background: linear-gradient(90deg, rgba(169,215,242,.035) 1px, transparent 1px);
+  background-size: 120px 100%;
 }
 
 .lyrics-dialog-shell {

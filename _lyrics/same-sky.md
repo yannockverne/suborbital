@@ -49,8 +49,3 @@ We haul stars under the same sky,
 Every drift, every lullaby.  
 Names may fade but we still try,  
 Different ships, same sky.
-
-### Outro
-
-“MISC control, Starlancer MAX inbound...  
-Yeah, cargo intact — mostly.”

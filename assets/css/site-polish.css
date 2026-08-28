@@ -4,7 +4,7 @@
    Floating primary navigation
    -------------------------------------------------------------------------- */
 .site-header {
-  height: 82px;
+  height: 0;
   background: transparent;
   border-bottom: 0;
   position: sticky;
@@ -55,11 +55,17 @@
   right: 0;
 }
 
+/* The header no longer reserves its own strip: page imagery/content starts at
+   the top of the viewport and the navigation floats above it. */
+.home .home-hero {
+  min-height: 100svh;
+}
+
 /* --------------------------------------------------------------------------
    Releases catalogue: denser editorial header
    -------------------------------------------------------------------------- */
 .releases-index-page .releases-archive-header {
-  padding-top: clamp(58px, 7vw, 92px);
+  padding-top: clamp(110px, 10vw, 150px);
   padding-bottom: clamp(32px, 4vw, 52px);
 }
 
@@ -95,7 +101,7 @@
 
 @media (max-width: 850px) {
   .site-header {
-    height: 72px;
+    height: 0;
     top: 8px;
   }
 
@@ -122,6 +128,10 @@
     -webkit-backdrop-filter: blur(14px);
   }
 
+  .releases-index-page .releases-archive-header {
+    padding-top: 96px;
+  }
+
   .releases-index-page .releases-archive-intro {
     grid-template-columns: 1fr;
     gap: 24px;
@@ -139,7 +149,7 @@
   }
 
   .releases-index-page .releases-archive-header {
-    padding-top: 48px;
+    padding-top: 86px;
     padding-bottom: 28px;
   }
 }

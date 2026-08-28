@@ -99,6 +99,17 @@
   margin-top: 0;
 }
 
+/* --------------------------------------------------------------------------
+   Sessions index: preserve the complete cinematic frame
+   -------------------------------------------------------------------------- */
+.sessions-index-page .session-image {
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 3440 / 1440;
+  background-size: cover;
+  background-position: center;
+}
+
 @media (max-width: 850px) {
   .site-header {
     height: 0;

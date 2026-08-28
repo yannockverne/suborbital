@@ -2,6 +2,7 @@
 
 :root {
   --page-start-top: clamp(86px, 7vw, 112px);
+  --home-hero-start-top: clamp(70px, 9vw, 135px);
 }
 
 /* --------------------------------------------------------------------------
@@ -66,9 +67,21 @@
 }
 
 /* --------------------------------------------------------------------------
+   Master hero anchor
+   Home is the visual reference for immersive opening pages. TPR and About use
+   the exact same first-content position: same top rhythm and same left edge.
+   -------------------------------------------------------------------------- */
+.home .hero-inner,
+.tpr-page .tpr-hero-inner,
+.credits-page .credits-hero-inner {
+  width: min(100% - 56px, 1320px);
+  margin-inline: auto;
+  padding-top: var(--home-hero-start-top);
+}
+
+/* --------------------------------------------------------------------------
    Shared inner-page opening line
-   Press is the visual reference. Every principal inner page begins its first
-   content block on the same vertical rhythm beneath the floating navigation.
+   Press is the visual reference for catalogue/editorial inner pages.
    -------------------------------------------------------------------------- */
 .releases-index-page .releases-archive-header,
 .artists-index-page .artists-index-intro,
@@ -76,9 +89,7 @@
   padding-top: var(--page-start-top);
 }
 
-.artist-page .artist-v2-hero-copy,
-.tpr-page .tpr-hero-inner,
-.credits-page .credits-hero-inner {
+.artist-page .artist-v2-hero-copy {
   padding-top: var(--page-start-top);
 }
 
@@ -133,6 +144,7 @@
 @media (max-width: 850px) {
   :root {
     --page-start-top: 82px;
+    --home-hero-start-top: 70px;
   }
 
   .site-header {
@@ -163,6 +175,12 @@
     -webkit-backdrop-filter: blur(14px);
   }
 
+  .home .hero-inner,
+  .tpr-page .tpr-hero-inner,
+  .credits-page .credits-hero-inner {
+    width: min(100% - 36px, 1320px);
+  }
+
   .releases-index-page .releases-archive-intro {
     grid-template-columns: 1fr;
     gap: 24px;
@@ -177,10 +195,17 @@
 @media (max-width: 540px) {
   :root {
     --page-start-top: 74px;
+    --home-hero-start-top: 70px;
   }
 
   .site-header .nav {
     width: calc(100% - 16px);
+  }
+
+  .home .hero-inner,
+  .tpr-page .tpr-hero-inner,
+  .credits-page .credits-hero-inner {
+    width: calc(100% - 28px);
   }
 
   .releases-index-page .releases-archive-header {

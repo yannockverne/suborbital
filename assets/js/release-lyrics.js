@@ -6,6 +6,8 @@
   const title = dialog.querySelector('[data-lyrics-title]');
   const credit = dialog.querySelector('[data-lyrics-credit]');
   const body = dialog.querySelector('[data-lyrics-body]');
+  const writers = dialog.querySelector('[data-lyrics-writers]');
+  const writersBody = dialog.querySelector('[data-lyrics-writers-body]');
   const triggers = [...document.querySelectorAll('[data-lyrics-open]')];
   let lastTrigger = null;
 
@@ -13,6 +15,8 @@
     dialog.hidden = true;
     document.body.classList.remove('lyrics-open');
     body.replaceChildren();
+    writersBody?.replaceChildren();
+    if (writers) writers.hidden = true;
     lastTrigger?.focus();
     lastTrigger = null;
   };
@@ -22,10 +26,24 @@
     const source = sourceId && document.getElementById(sourceId);
     if (!source) return;
 
+    const writersSourceId = trigger.dataset.lyricsWritersSource;
+    const writersSource = writersSourceId && document.getElementById(writersSourceId);
+
     lastTrigger = trigger;
     title.textContent = trigger.dataset.lyricsTitle || 'Lyrics';
     credit.textContent = trigger.dataset.lyricsCredit || '';
     body.replaceChildren(source.content.cloneNode(true));
+
+    if (writers && writersBody) {
+      writersBody.replaceChildren();
+      if (writersSource && writersSource.content.textContent.trim()) {
+        writersBody.replaceChildren(writersSource.content.cloneNode(true));
+        writers.hidden = false;
+      } else {
+        writers.hidden = true;
+      }
+    }
+
     dialog.hidden = false;
     document.body.classList.add('lyrics-open');
     dialog.scrollTop = 0;

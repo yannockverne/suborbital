@@ -1,4 +1,8 @@
-/* Site-wide finishing pass: floating primary nav + tighter releases catalogue header. */
+/* Site-wide finishing pass: floating primary nav + consistent inner-page starts. */
+
+:root {
+  --page-start-top: clamp(86px, 7vw, 112px);
+}
 
 /* --------------------------------------------------------------------------
    Floating primary navigation
@@ -62,10 +66,26 @@
 }
 
 /* --------------------------------------------------------------------------
+   Shared inner-page opening line
+   Press is the visual reference. Every principal inner page begins its first
+   content block on the same vertical rhythm beneath the floating navigation.
+   -------------------------------------------------------------------------- */
+.releases-index-page .releases-archive-header,
+.artists-index-page .artists-index-intro,
+.release-page .release-hero {
+  padding-top: var(--page-start-top);
+}
+
+.artist-page .artist-v2-hero-copy,
+.tpr-page .tpr-hero-inner,
+.credits-page .credits-hero-inner {
+  padding-top: var(--page-start-top);
+}
+
+/* --------------------------------------------------------------------------
    Releases catalogue: denser editorial header
    -------------------------------------------------------------------------- */
 .releases-index-page .releases-archive-header {
-  padding-top: clamp(110px, 10vw, 150px);
   padding-bottom: clamp(32px, 4vw, 52px);
 }
 
@@ -110,15 +130,11 @@
   background-position: center;
 }
 
-/* --------------------------------------------------------------------------
-   Credits: keep opening copy clear of the floating navigation
-   -------------------------------------------------------------------------- */
-.credits-page .credits-hero-inner {
-  transform: none;
-  padding-top: clamp(128px, 11vw, 170px);
-}
-
 @media (max-width: 850px) {
+  :root {
+    --page-start-top: 82px;
+  }
+
   .site-header {
     height: 0;
     top: 8px;
@@ -147,10 +163,6 @@
     -webkit-backdrop-filter: blur(14px);
   }
 
-  .releases-index-page .releases-archive-header {
-    padding-top: 96px;
-  }
-
   .releases-index-page .releases-archive-intro {
     grid-template-columns: 1fr;
     gap: 24px;
@@ -160,24 +172,19 @@
     max-width: 680px;
     margin-bottom: 0;
   }
-
-  .credits-page .credits-hero-inner {
-    padding-top: 112px;
-  }
 }
 
 @media (max-width: 540px) {
+  :root {
+    --page-start-top: 74px;
+  }
+
   .site-header .nav {
     width: calc(100% - 16px);
   }
 
   .releases-index-page .releases-archive-header {
-    padding-top: 86px;
     padding-bottom: 28px;
-  }
-
-  .credits-page .credits-hero-inner {
-    padding-top: 96px;
   }
 }
 

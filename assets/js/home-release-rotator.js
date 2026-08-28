@@ -82,16 +82,6 @@
     });
   });
 
-  rotator.addEventListener('pointerenter', () => {
-    if (!autoplay) return;
-    window.clearTimeout(timer);
-    rotator.classList.remove('is-autoplaying');
-  });
-
-  rotator.addEventListener('pointerleave', () => {
-    if (autoplay) schedule();
-  });
-
   rotator.addEventListener('focusin', () => {
     if (!autoplay) return;
     window.clearTimeout(timer);

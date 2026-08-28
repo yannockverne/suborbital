@@ -1,6 +1,9 @@
 ---
 track_id: burning-thrust
 status: published
+writers:
+  - name: Yannick
+    url: /about/#yannick
 ---
 
 ### Verse I

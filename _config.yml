@@ -12,6 +12,8 @@ collections:
     permalink: /artists/:name/
   tracks:
     output: false
+  lyrics:
+    output: false
   releases:
     output: true
     permalink: /releases/:name/

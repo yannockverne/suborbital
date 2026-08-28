@@ -1,6 +1,9 @@
 ---
 track_id: the-line-below-nok-varen-remix
 status: published
+writers:
+  - name: Yannick
+    url: /about/#yannick
 ---
 
 ### Verse I

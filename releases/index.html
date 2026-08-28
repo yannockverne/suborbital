@@ -5,14 +5,16 @@ body_class: releases-index-page
 excerpt: The permanent release catalogue of SubOrbital Records.
 ---
 {% assign published_releases = site.releases | where: "status", "published" | where: "published", true %}
-{% assign release_types = "Single|EP|Album" | split: "|" %}
-{% assign release_tab_ids = "singles|eps|albums" | split: "|" %}
-{% assign release_tab_labels = "Singles|EPs|Albums" | split: "|" %}
+{% assign release_types = "Album|EP|Single" | split: "|" %}
+{% assign release_tab_ids = "albums|eps|singles" | split: "|" %}
+{% assign release_tab_labels = "Albums|EPs|Singles" | split: "|" %}
 <section class="releases-archive" aria-labelledby="releases-title">
   <header class="releases-archive-header">
-    <div class="release-shell">
-      <p class="eyebrow warm">SUBORBITAL RECORDS // CATALOGUE</p>
-      <h1 id="releases-title">Releases</h1>
+    <div class="release-shell releases-archive-intro">
+      <div class="releases-archive-title-group">
+        <p class="eyebrow warm">SUBORBITAL RECORDS // CATALOGUE</p>
+        <h1 id="releases-title">Releases</h1>
+      </div>
       <p class="releases-archive-deck">Records, transmissions and collaborations preserved in catalogue order.</p>
     </div>
   </header>

@@ -1,0 +1,28 @@
+/* Homepage latest-release rotator */
+.release-rotator{background:#130d0a;overflow:hidden}
+.release-rotator::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 25% 55%,rgba(201,90,38,.15),transparent 45%);pointer-events:none}
+.release-rotator-shell{position:relative}
+.release-rotator-head{display:flex;align-items:flex-end;justify-content:space-between;gap:36px;margin-bottom:clamp(38px,5vw,68px)}
+.release-rotator-heading{margin:0}
+.release-rotator-tabs{display:flex;flex-wrap:wrap;gap:8px 24px;margin:0;padding:0;border:0}
+.release-rotator-tab{appearance:none;border:0;border-bottom:1px solid transparent;padding:4px 0 7px;background:transparent;color:#9babb7;font:500 .68rem/1.4 var(--sans);letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:color .2s ease,border-color .2s ease}
+.release-rotator-tab:hover,.release-rotator-tab:focus-visible{color:#edf4f7}
+.release-rotator-tab[aria-selected="true"]{color:#e7a17c;border-bottom-color:#e9824d}
+.release-rotator-stage{position:relative}
+.release-rotator-slide{display:none}
+.release-rotator-slide.is-active{display:block}
+.release-rotator-slide.is-entering{animation:releaseRotatorIn .5s cubic-bezier(.22,.7,.2,1) both}
+.release-rotator-slide.is-leaving{display:block;position:absolute;inset:0;animation:releaseRotatorOut .34s ease both;pointer-events:none}
+.release-rotator-slide .record-grid{position:relative}
+.release-rotator-slide .record-art{will-change:transform,opacity}
+.release-rotator-slide .record-copy{min-width:0}
+.release-rotator-slide .release-facts:empty{display:none}
+.release-rotator-progress{height:1px;margin-top:clamp(42px,5vw,70px);background:rgba(232,164,126,.18);overflow:hidden}
+.release-rotator-progress-bar{display:block;width:0;height:100%;background:#e9824d}
+.release-rotator.is-autoplaying .release-rotator-progress-bar{animation:releaseRotatorProgress 6.5s linear forwards}
+@keyframes releaseRotatorIn{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:translateX(0)}}
+@keyframes releaseRotatorOut{from{opacity:1;transform:translateX(0)}to{opacity:0;transform:translateX(-28px)}}
+@keyframes releaseRotatorProgress{from{width:0}to{width:100%}}
+@media(max-width:850px){.release-rotator-head{align-items:flex-start;flex-direction:column}.release-rotator-tabs{gap:8px 20px}.release-rotator-slide.is-leaving{position:relative}.release-rotator-slide.is-leaving+.release-rotator-slide{margin-top:0}}
+@media(max-width:540px){.release-rotator-head{margin-bottom:36px}.release-rotator-tabs{width:100%;justify-content:space-between;gap:8px 12px}.release-rotator-tab{font-size:.64rem}.release-rotator-progress{margin-top:42px}}
+@media(prefers-reduced-motion:reduce){.release-rotator-tab{transition:none}.release-rotator-slide.is-entering,.release-rotator-slide.is-leaving{animation:none}.release-rotator-progress{display:none}}

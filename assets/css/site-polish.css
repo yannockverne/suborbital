@@ -1,0 +1,188 @@
+/* Site-wide finishing pass: floating primary nav + tighter releases catalogue header. */
+
+/* --------------------------------------------------------------------------
+   Floating primary navigation
+   -------------------------------------------------------------------------- */
+.site-header {
+  height: 0;
+  background: transparent;
+  border-bottom: 0;
+  position: sticky;
+  top: 12px;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.site-header .nav {
+  width: min(calc(100% - 40px), 1180px);
+  height: 68px;
+  padding: 0 20px 0 14px;
+  background: rgba(4, 10, 17, .82);
+  border: 1px solid rgba(177, 207, 225, .2);
+  border-radius: 14px;
+  box-shadow: 0 14px 38px rgba(0, 0, 0, .28);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  pointer-events: auto;
+}
+
+.site-header .brand {
+  padding: 4px 8px;
+}
+
+.site-header .brand-logo {
+  width: 92px;
+  height: 52px;
+}
+
+.site-header .nav-links a {
+  position: relative;
+}
+
+.site-header .nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -8px;
+  height: 1px;
+  background: var(--orange);
+  transition: right .2s ease;
+}
+
+.site-header .nav-links a:hover::after,
+.site-header .nav-links a:focus-visible::after {
+  right: 0;
+}
+
+/* The header no longer reserves its own strip: page imagery/content starts at
+   the top of the viewport and the navigation floats above it. */
+.home .home-hero {
+  min-height: 100svh;
+}
+
+/* --------------------------------------------------------------------------
+   Releases catalogue: denser editorial header
+   -------------------------------------------------------------------------- */
+.releases-index-page .releases-archive-header {
+  padding-top: clamp(110px, 10vw, 150px);
+  padding-bottom: clamp(32px, 4vw, 52px);
+}
+
+.releases-index-page .releases-archive-intro {
+  display: grid;
+  grid-template-columns: minmax(260px, .8fr) minmax(340px, 1fr);
+  gap: clamp(42px, 8vw, 110px);
+  align-items: end;
+}
+
+.releases-index-page .releases-archive-title-group .eyebrow {
+  margin-bottom: 18px;
+}
+
+.releases-index-page .releases-archive-header h1 {
+  margin: 0;
+}
+
+.releases-index-page .releases-archive-deck {
+  max-width: 620px;
+  margin: 0 0 8px;
+  font-size: clamp(1.18rem, 2vw, 1.72rem);
+  line-height: 1.4;
+}
+
+.releases-index-page .releases-catalogue {
+  padding-top: 0;
+}
+
+.releases-index-page .release-format-tabs {
+  margin-top: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Sessions index: preserve the complete cinematic frame
+   -------------------------------------------------------------------------- */
+.sessions-index-page .session-image {
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 3440 / 1440;
+  background-size: cover;
+  background-position: center;
+}
+
+/* --------------------------------------------------------------------------
+   Credits: keep opening copy clear of the floating navigation
+   -------------------------------------------------------------------------- */
+.credits-page .credits-hero-inner {
+  transform: none;
+  padding-top: clamp(128px, 11vw, 170px);
+}
+
+@media (max-width: 850px) {
+  .site-header {
+    height: 0;
+    top: 8px;
+  }
+
+  .site-header .nav {
+    width: min(calc(100% - 24px), 1180px);
+    height: 60px;
+    padding: 0 12px;
+    border-radius: 12px;
+  }
+
+  .site-header .brand-logo {
+    width: 82px;
+    height: 46px;
+  }
+
+  .site-header .nav-links {
+    top: 68px;
+    left: 0;
+    right: 0;
+    border: 1px solid rgba(177, 207, 225, .2);
+    border-radius: 12px;
+    background: rgba(4, 10, 17, .96);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  .releases-index-page .releases-archive-header {
+    padding-top: 96px;
+  }
+
+  .releases-index-page .releases-archive-intro {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .releases-index-page .releases-archive-deck {
+    max-width: 680px;
+    margin-bottom: 0;
+  }
+
+  .credits-page .credits-hero-inner {
+    padding-top: 112px;
+  }
+}
+
+@media (max-width: 540px) {
+  .site-header .nav {
+    width: calc(100% - 16px);
+  }
+
+  .releases-index-page .releases-archive-header {
+    padding-top: 86px;
+    padding-bottom: 28px;
+  }
+
+  .credits-page .credits-hero-inner {
+    padding-top: 96px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header .nav-links a::after {
+    transition: none;
+  }
+}

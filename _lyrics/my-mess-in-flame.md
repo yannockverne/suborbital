@@ -1,6 +1,9 @@
 ---
 track_id: my-mess-in-flame
 status: published
+writers:
+  - name: Yannick
+    url: /about/#yannick
 ---
 
 ### Verse I

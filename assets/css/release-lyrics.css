@@ -36,18 +36,9 @@
   grid-template-columns: minmax(0, 1fr);
   overflow-y: auto;
   overscroll-behavior: contain;
-  background: rgba(2,6,10,.92);
+  background: rgba(2,6,10,.96);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-}
-
-.lyrics-dialog::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(90deg, rgba(169,215,242,.035) 1px, transparent 1px);
-  background-size: 120px 100%;
 }
 
 .lyrics-dialog-shell {
@@ -89,7 +80,7 @@
 
 .lyrics-dialog-meta {
   position: sticky;
-  top: 90px;
+  top: clamp(80px, 9vw, 130px);
 }
 
 .lyrics-dialog .eyebrow {

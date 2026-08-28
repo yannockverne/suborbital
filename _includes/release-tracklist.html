@@ -12,17 +12,17 @@
       {% assign has_lyrics_track = false %}
       {% for track in tracks %}
       {% assign canonical_track = site.tracks | where: "track_id", track.track | first %}
+      {% assign lyrics_entry = site.lyrics | where: "track_id", canonical_track.track_id | where: "status", "published" | first %}
       {% assign track_title = canonical_track.title %}
       {% assign track_artist = canonical_track.display_credit %}
       {% assign track_url = canonical_track.audio_url %}
-      {% assign track_lyrics = canonical_track.lyrics %}
       <li class="reveal reveal-stagger{% if forloop.last %} title-track{% endif %}" data-track-row>
         <span class="track-number" aria-hidden="true">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span><span class="track-title">{{ track_title }}</span><span class="track-artist">{{ track_artist }}</span>
         <span class="release-track-actions">
-          {% if track_lyrics %}{% assign has_lyrics_track = true %}<button class="track-lyrics" type="button" data-lyrics-open data-lyrics-source="lyrics-{{ canonical_track.track_id }}" data-lyrics-title="{{ track_title | escape }}" data-lyrics-credit="{{ track_artist | escape }}">Lyrics</button>{% endif %}
+          {% if lyrics_entry %}{% assign has_lyrics_track = true %}<button class="track-lyrics" type="button" data-lyrics-open data-lyrics-source="lyrics-{{ canonical_track.track_id }}" data-lyrics-title="{{ track_title | escape }}" data-lyrics-credit="{{ track_artist | escape }}">Lyrics</button>{% endif %}
           {% if track_url %}{% assign has_playable_track = true %}<button class="track-listen" type="button" data-track-url="{{ track_url }}" data-track-title="{{ track_title }}" aria-pressed="false"><span>Listen</span><i aria-hidden="true">▶</i></button>{% endif %}
         </span>
-        {% if track_lyrics %}<template id="lyrics-{{ canonical_track.track_id }}">{{ track_lyrics | markdownify }}</template>{% endif %}
+        {% if lyrics_entry %}<template id="lyrics-{{ canonical_track.track_id }}">{{ lyrics_entry.content | markdownify }}</template>{% endif %}
       </li>
       {% endfor %}
     </ol>

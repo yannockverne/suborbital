@@ -22,14 +22,14 @@ featured_track:
   meta: Still Here, Still Free // Track 02
   note: A conversation between the man Brick became and the boy he once was.
 public_facts:
-  - label: Age
-    value: 26
-  - label: Origin
-    value: Levski, Nyx
-  - label: Signature Track
-    value: Transmission
-  - label: Themes
-    value: Memory, dignity, autonomy, transmission
+- label: Age
+  value: '26'
+- label: Origin
+  value: Levski, Nyx
+- label: Signature Track
+  value: Transmission
+- label: Themes
+  value: Memory, dignity, autonomy, transmission
 excerpt: Brick writes about what people carry, what they build, and what they leave behind.
 ---
 

@@ -5,8 +5,8 @@ status: draft
 published: false
 display_credit: Nok Varen & Madi Roa
 contributors:
-- artist: nok-varen
+- artist: sublight-shift
   role: primary
 - artist: madi-roa
-  role: featured
+  role: primary
 ---

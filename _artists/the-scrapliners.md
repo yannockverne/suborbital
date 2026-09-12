@@ -4,7 +4,7 @@ body_class: artist-page
 title: The Scrapliners
 name: The Scrapliners
 sort_name: Scrapliners, The
-microcopy: "If it flies, they'll fix it. If it's fixed, they'll sing about it."
+microcopy: If it's broken, they'll fix it. If it's fixed, they'll sing about it.
 origin: Lorville, Hurston
 genre: Indie Rock / Space Folk / Salvage Blues
 hero: /assets/img/v2/artists/scrapliners-hero.webp

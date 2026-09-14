@@ -281,3 +281,107 @@
     transition: none;
   }
 }
+
+/* --------------------------------------------------------------------------
+   Shared content rail and editorial rhythm
+   The section canvas remains full bleed; only its inner content is constrained.
+   -------------------------------------------------------------------------- */
+:root {
+  --content-width: 1180px;
+  --content-gutter: 56px;
+  --section-space: clamp(78px, 7.5vw, 112px);
+  --section-space-compact: clamp(64px, 6.5vw, 96px);
+}
+
+body.artists-index-page .main,
+body.sessions-index-page .main,
+body.releases-index-page .main,
+body.artist-page .main,
+body.release-page .main,
+body.session-v2-page .main,
+body.press-page .main,
+body.credits-page .main,
+body.tpr-page .main {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.shell,
+.home .hero-inner,
+.tpr-page .tpr-hero-inner,
+.credits-page .credits-hero-inner,
+.release-shell,
+.artist-v2-shell,
+.session-v2-shell,
+.session-v2-after .session-v2-shell {
+  width: min(calc(100% - var(--content-gutter)), var(--content-width));
+  margin-inline: auto;
+}
+
+.home .section,
+.release-page .release-section,
+.artist-page .artist-v2-section,
+.credits-page .credits-section,
+.tpr-page .tpr-editorial {
+  padding-top: var(--section-space);
+  padding-bottom: var(--section-space);
+}
+
+.artist-page .artist-v2-portrait-section {
+  min-height: clamp(560px, 82svh, 760px);
+  padding-bottom: var(--section-space);
+}
+
+.artist-page .artist-v2-intro {
+  min-height: clamp(440px, 56svh, 620px);
+}
+
+.artist-page .artist-v2-story {
+  min-height: clamp(560px, 72svh, 780px);
+}
+
+.artist-page .artist-v2-feature {
+  min-height: clamp(400px, 50svh, 560px);
+}
+
+.artist-page .artist-v2-appearances {
+  min-height: clamp(480px, 64svh, 700px);
+}
+
+.artist-page .artist-v2-facts {
+  padding-bottom: var(--section-space-compact);
+}
+
+.releases-index-page .releases-catalogue {
+  padding-bottom: var(--section-space);
+}
+
+.press-page .press-index-section {
+  padding-top: var(--section-space-compact);
+  padding-bottom: var(--section-space);
+}
+
+@media (max-width: 850px) {
+  :root {
+    --content-gutter: 36px;
+    --section-space: clamp(72px, 10vw, 92px);
+  }
+
+  .artist-page .artist-v2-intro,
+  .artist-page .artist-v2-portrait-section,
+  .artist-page .artist-v2-story,
+  .artist-page .artist-v2-feature,
+  .artist-page .artist-v2-appearances {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 540px) {
+  :root {
+    --content-gutter: 28px;
+    --section-space: 76px;
+    --section-space-compact: 64px;
+  }
+}

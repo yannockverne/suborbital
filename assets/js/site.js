@@ -47,6 +47,7 @@ if (releaseTabs) {
   const tabs = [...releaseTabs.querySelectorAll('[data-release-tab]')];
   const panels = [...releaseTabs.querySelectorAll('[data-release-panel]')];
   const validHashes = new Set(tabs.map((tab) => tab.dataset.releaseTab));
+  const defaultTabId = tabs[0]?.dataset.releaseTab;
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let activeId;
   let transitionTimer;
@@ -127,11 +128,11 @@ if (releaseTabs) {
 
   window.addEventListener('hashchange', () => {
     const hashId = decodeURIComponent(window.location.hash.slice(1));
-    activateTab(validHashes.has(hashId) ? hashId : 'singles');
+    if (defaultTabId) activateTab(validHashes.has(hashId) ? hashId : defaultTabId);
   });
 
   const initialHash = decodeURIComponent(window.location.hash.slice(1));
-  finishTransition(validHashes.has(initialHash) ? initialHash : 'singles', false, false);
+  if (defaultTabId) finishTransition(validHashes.has(initialHash) ? initialHash : defaultTabId, false, false);
 }
 
 const trackButtons = document.querySelectorAll('[data-track-url]');

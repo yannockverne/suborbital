@@ -1,9 +1,8 @@
 /* Site-wide finishing pass: floating primary nav + consistent inner-page starts. */
 
 :root {
-  --page-start-top: clamp(86px, 7vw, 112px);
   --home-hero-start-top: clamp(70px, 9vw, 135px);
-  --tpr-hero-optical-offset: 40px;
+  --page-start-top: var(--home-hero-start-top);
 }
 
 /* --------------------------------------------------------------------------
@@ -80,8 +79,7 @@
 
 /* --------------------------------------------------------------------------
    Master hero anchor
-   Home is the visual reference for immersive opening pages. About follows it
-   exactly; TPR keeps the same grid but sits slightly lower for optical balance.
+   Home is the visual reference for immersive opening pages.
    -------------------------------------------------------------------------- */
 .home .hero-inner,
 .credits-page .credits-hero-inner,
@@ -96,7 +94,7 @@
 }
 
 .tpr-page .tpr-hero-inner {
-  padding-top: calc(var(--home-hero-start-top) + var(--tpr-hero-optical-offset));
+  padding-top: var(--home-hero-start-top);
 }
 
 /* --------------------------------------------------------------------------
@@ -185,9 +183,8 @@
 
 @media (max-width: 850px) {
   :root {
-    --page-start-top: 82px;
     --home-hero-start-top: 70px;
-    --tpr-hero-optical-offset: 28px;
+    --page-start-top: var(--home-hero-start-top);
   }
 
   .site-header {
@@ -241,9 +238,8 @@
 
 @media (max-width: 540px) {
   :root {
-    --page-start-top: 74px;
     --home-hero-start-top: 70px;
-    --tpr-hero-optical-offset: 20px;
+    --page-start-top: var(--home-hero-start-top);
   }
 
   .site-header .nav {
@@ -383,5 +379,83 @@ body.tpr-page .main {
     --content-gutter: 28px;
     --section-space: 76px;
     --section-space-compact: 64px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Consistent opening anchor
+   Landing-page copy begins on the same vertical line as the homepage hero.
+   -------------------------------------------------------------------------- */
+.tpr-page .tpr-hero {
+  align-items: flex-start;
+}
+
+.tpr-page .tpr-hero-inner {
+  transform: none;
+}
+
+/* Sessions keeps its image full bleed and overlays the copy on a local shade. */
+.sessions-index-page .session-section {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-start;
+  overflow: hidden;
+  padding: 0;
+}
+
+.sessions-index-page .session-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(3,8,13,.9) 0%, rgba(3,8,13,.68) 38%, rgba(3,8,13,.18) 72%, transparent 88%),
+    linear-gradient(180deg, rgba(3,8,13,.55) 0%, transparent 58%),
+    linear-gradient(0deg, #080b0e 0%, rgba(8,11,14,.42) 24%, transparent 48%);
+}
+
+.sessions-index-page .session-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  aspect-ratio: auto;
+  background-position: center;
+  background-size: cover;
+}
+
+.sessions-index-page .session-copy {
+  position: relative;
+  z-index: 1;
+  margin-top: 0;
+  padding-top: var(--home-hero-start-top);
+  padding-bottom: var(--section-space);
+}
+
+/* Centre the rail in the free space between the content edge and viewport. */
+.section-rail {
+  right: auto;
+  left: calc(75vw + 295px);
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 1500px) {
+  .section-rail {
+    display: none;
+  }
+}
+
+@media (max-width: 850px) {
+  .sessions-index-page .session-section {
+    min-height: max(720px, 100svh);
+  }
+
+  .sessions-index-page .session-section::after {
+    background:
+      linear-gradient(90deg, rgba(3,8,13,.9) 0%, rgba(3,8,13,.62) 68%, rgba(3,8,13,.2) 100%),
+      linear-gradient(0deg, #080b0e 0%, rgba(8,11,14,.5) 32%, transparent 62%);
   }
 }
